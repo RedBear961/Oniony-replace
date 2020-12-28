@@ -24,12 +24,28 @@ import UIKit
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    private let configurator: SwinjectConfigurating
+    private let coordinator: AppCoordinating
+    
+    override init() {
+        self.configurator = SwinjectConfigurator.shared
+        self.coordinator = configurator.resolver.resolve(AppCoordinating.self)!
+        
+        super.init()
+    }
+    
+    // MARK: - UIApplicationDelegate
 
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
+        let window = UIWindow()
+        coordinator.start(with: window)
+        self.window = window
         return true
     }
 }

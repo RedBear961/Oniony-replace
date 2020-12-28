@@ -9,6 +9,7 @@ target 'Oniony' do
   # Automation
   pod 'SwiftGen', '6.4.0'
   pod 'SwiftLint', '0.39.2'
+  pod 'Swinject', '2.7.1'
 end
 
 # Setup podfile to automatically set the deployment target.
