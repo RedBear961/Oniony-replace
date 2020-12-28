@@ -1,0 +1,17 @@
+strings:
+    inputs: Oniony/en.lproj/Localizable.strings
+    outputs:
+        templateName: structured-swift5
+        output: Oniony/Generated/Strings.swift
+
+xcassets:
+    inputs: Oniony/Assets.xcassets
+    outputs:
+        templateName: swift5
+        output: Oniony/Generated/Assets.swift
+
+ib:
+  inputs: Oniony/
+  outputs:
+    - templateName: scenes-swift5
+      output: Oniony/Generated/Scenes.swift

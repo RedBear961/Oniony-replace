@@ -10,6 +10,11 @@
 		05A12F832599D48B00367767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12F822599D48B00367767 /* AppDelegate.swift */; };
 		05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8B2599D48D00367767 /* Assets.xcassets */; };
 		05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8D2599D48D00367767 /* LaunchScreen.storyboard */; };
+		05A12FB12599F0EB00367767 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05A12FB32599F0EB00367767 /* Localizable.strings */; };
+		05A12FBA2599F1ED00367767 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FB72599F1ED00367767 /* Assets.swift */; };
+		05A12FBB2599F1ED00367767 /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FB82599F1ED00367767 /* Scenes.swift */; };
+		05A12FBC2599F1ED00367767 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FB92599F1ED00367767 /* Strings.swift */; };
+		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +23,13 @@
 		05A12F8B2599D48D00367767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05A12F8E2599D48D00367767 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05A12F902599D48D00367767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05A12FB22599F0EB00367767 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		05A12FB72599F1ED00367767 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		05A12FB82599F1ED00367767 /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
+		05A12FB92599F1ED00367767 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
+		A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oniony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.debug.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +48,8 @@
 			isa = PBXGroup;
 			children = (
 				05A12F812599D48B00367767 /* Oniony */,
+				76E8BD4FE4AE483C9A0F9E54 /* Frameworks */,
+				3B67BD12DD644508ED2912F0 /* Pods */,
 				05A12F802599D48B00367767 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,11 +66,40 @@
 			isa = PBXGroup;
 			children = (
 				05A12F822599D48B00367767 /* AppDelegate.swift */,
+				05A12FAC2599F07F00367767 /* Generated */,
 				05A12F8B2599D48D00367767 /* Assets.xcassets */,
+				05A12FB32599F0EB00367767 /* Localizable.strings */,
 				05A12F8D2599D48D00367767 /* LaunchScreen.storyboard */,
 				05A12F902599D48D00367767 /* Info.plist */,
 			);
 			path = Oniony;
+			sourceTree = "<group>";
+		};
+		05A12FAC2599F07F00367767 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				05A12FB72599F1ED00367767 /* Assets.swift */,
+				05A12FB82599F1ED00367767 /* Scenes.swift */,
+				05A12FB92599F1ED00367767 /* Strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		3B67BD12DD644508ED2912F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */,
+				1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76E8BD4FE4AE483C9A0F9E54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05A12F932599D48D00367767 /* Build configuration list for PBXNativeTarget "Oniony" */;
 			buildPhases = (
+				2B98201F359B312FFBE76261 /* [CP] Check Pods Manifest.lock */,
 				05A12F7B2599D48B00367767 /* Sources */,
 				05A12F7C2599D48B00367767 /* Frameworks */,
 				05A12F7D2599D48B00367767 /* Resources */,
+				05A12FA72599F01900367767 /* SwiftLint */,
+				05A12FB52599F1A800367767 /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -116,18 +163,83 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */,
+				05A12FB12599F0EB00367767 /* Localizable.strings in Resources */,
 				05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05A12FA72599F01900367767 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Запускает линтер.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		05A12FB52599F1A800367767 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Запускает кодогенерацию.\n$PODS_ROOT/SwiftGen/bin/swiftgen config run\n";
+		};
+		2B98201F359B312FFBE76261 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Oniony-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05A12F7B2599D48B00367767 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A12FBA2599F1ED00367767 /* Assets.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
+				05A12FBC2599F1ED00367767 /* Strings.swift in Sources */,
+				05A12FBB2599F1ED00367767 /* Scenes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +252,14 @@
 				05A12F8E2599D48D00367767 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		05A12FB32599F0EB00367767 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A12FB22599F0EB00367767 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -263,6 +383,7 @@
 		};
 		05A12F942599D48D00367767 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -282,6 +403,7 @@
 		};
 		05A12F952599D48D00367767 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

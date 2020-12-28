@@ -1,0 +1,52 @@
+disabled_rules: # Rule identifiers to exclude from running.
+  - trailing_whitespace
+  - empty_count
+
+opt_in_rules: # Some rules are only opt-in.
+  - missing_docs
+  - unused_import
+
+excluded:  # Paths to ignore during linting.
+  - Pods/
+  - Quiz/Generated/
+
+# Rules that have both warning and error levels, can set just the warning level
+# implicitly.
+line_length:
+  warning: 150
+  error: 200
+
+function_body_length:
+  warning: 100
+  error: 200
+  
+# They can set both implicitly with an array.
+type_body_length:
+  - 300
+  - 400
+  
+# Or they can set both explicitly.
+file_length:
+  warning: 500
+  error: 1200
+  
+# Naming rules can set warnings/errors for min length and max length.
+# Additionally they can set excluded names.
+type_name:
+  min_length: 2
+  max_length:
+    warning: 40
+    error: 50
+
+identifier_name:
+  allowed_symbols: "_"
+  min_length:
+    warning: 1
+    error: 1 # Only error,
+  max_length:
+    warning: 90
+  excluded:
+    - id
+    - i
+    - x
+    - y
