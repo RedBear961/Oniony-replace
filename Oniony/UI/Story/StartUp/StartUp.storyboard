@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Tc-br-wEX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Tc-br-wEX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Account Info View Controller-->
+        <!--Start Up View Controller-->
         <scene sceneID="QQV-d3-jyW">
             <objects>
-                <viewController storyboardIdentifier="StartUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Tc-br-wEX" customClass="StartUpViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Tc-br-wEX" customClass="StartUpViewController" customModule="Oniony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYu-GF-gka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qav-jK-Au4" customClass="GradientView" customModule="Oniony" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkC-ie-136">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-YX-IqY">
+                                        <rect key="frame" x="0.0" y="0.0" width="828" height="818"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-CC-E6L" customClass="StartUpView" customModule="Oniony" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K19-4S-xK5" customClass="StartUpLogView" customModule="Oniony" customModuleProvider="target">
+                                                <rect key="frame" x="414" y="0.0" width="414" height="818"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dqQ-YX-IqY" firstAttribute="top" secondItem="KkC-ie-136" secondAttribute="top" id="0zg-iY-ZRw"/>
+                                    <constraint firstAttribute="bottom" secondItem="dqQ-YX-IqY" secondAttribute="bottom" id="IjZ-3Y-7pc"/>
+                                    <constraint firstAttribute="trailing" secondItem="dqQ-YX-IqY" secondAttribute="trailing" id="Qz8-aW-68A"/>
+                                    <constraint firstItem="dqQ-YX-IqY" firstAttribute="height" secondItem="KkC-ie-136" secondAttribute="height" id="WmX-br-s7u"/>
+                                    <constraint firstItem="dqQ-YX-IqY" firstAttribute="leading" secondItem="KkC-ie-136" secondAttribute="leading" id="aQF-vY-IEy"/>
+                                    <constraint firstItem="jmf-CC-E6L" firstAttribute="width" secondItem="KkC-ie-136" secondAttribute="width" id="gXU-kX-XOn"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="7Tc-br-wEX" id="THb-0B-dVl"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xrI-BF-agH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qav-jK-Au4" secondAttribute="trailing" id="0n6-up-SLo"/>
+                            <constraint firstItem="Qav-jK-Au4" firstAttribute="leading" secondItem="oYu-GF-gka" secondAttribute="leading" id="3kK-it-0Um"/>
+                            <constraint firstItem="xrI-BF-agH" firstAttribute="bottom" secondItem="KkC-ie-136" secondAttribute="bottom" id="Dah-6F-dZ8"/>
+                            <constraint firstItem="Qav-jK-Au4" firstAttribute="top" secondItem="oYu-GF-gka" secondAttribute="top" id="Etj-dM-CsT"/>
+                            <constraint firstItem="KkC-ie-136" firstAttribute="top" secondItem="xrI-BF-agH" secondAttribute="top" id="OsR-7G-vvo"/>
+                            <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="KkC-ie-136" secondAttribute="trailing" id="gtt-qu-bbp"/>
+                            <constraint firstItem="KkC-ie-136" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="kgd-t2-ZaU"/>
+                            <constraint firstAttribute="bottom" secondItem="Qav-jK-Au4" secondAttribute="bottom" id="tad-3b-kha"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="KkC-ie-136" id="iEe-vh-NXv"/>
+                        <outlet property="startUpLogView" destination="K19-4S-xK5" id="Yor-eZ-4Qb"/>
+                        <outlet property="startUpView" destination="jmf-CC-E6L" id="F6n-30-nnA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mty-NX-cjK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -5,11 +5,13 @@ target 'Oniony' do
   # Use dynamic frameworks.
   use_frameworks!
 
-  # Pods for Oniony
   # Automation
   pod 'SwiftGen', '6.4.0'
   pod 'SwiftLint', '0.39.2'
   pod 'Swinject', '2.7.1'
+  
+  # UI
+  pod 'PureLayout', '3.1.6'
 end
 
 # Setup podfile to automatically set the deployment target.
