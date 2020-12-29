@@ -21,6 +21,7 @@
  */
 
 // Tor Loading
+"torLoading.log" = "-----Инициализация журнала Tor-----";
 "torLoading.tag.con" = "Connecting to a relay";
 "torLoading.tag.conn_done" = "Connected to a relay";
 "torLoading.tag.handshake" = "Handshaking with a relay";

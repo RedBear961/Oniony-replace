@@ -22,5 +22,20 @@
 
 import UIKit
 
-/// Отображение журанала отладки тор-сети.
-final class StartUpLogView: ViewContainer {}
+/// Модель данных ячейки лога тор-сети.
+struct TorLoadingLogViewCellObject {
+    
+    /// Запись в журнале.
+    let title: String
+}
+
+/// Ячейка лога запуска тор-сети.
+final class TorLoadingLogView: UITableViewCell {
+    
+    @IBOutlet private var title: UILabel!
+    
+    /// Обновляет ячейку, используя модель данных.
+    func update(with cellObject: TorLoadingLogViewCellObject) {
+        title.text = cellObject.title
+    }
+}

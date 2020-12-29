@@ -29,13 +29,18 @@ protocol StartUpViewInput: AnyObject {
     
     /// Обновить статус запуска тор-сети.
     func update(with status: TorLoadingStatus)
+    
+    /// Обновить журнал отладки тор-сети.
+    func update(with cellObjects: [TorLoadingLogViewCellObject])
 }
 
 final class StartUpViewController: UIViewController, StartUpViewInput {
     
     @IBOutlet private var startUpView: StartUpView!
-    @IBOutlet private var startUpLogView: StartUpLogView!
+    @IBOutlet private var tableView: UITableView!
     @IBOutlet private var scrollView: UIScrollView!
+    
+    private var cellObjects: [TorLoadingLogViewCellObject] = []
     
     var viewOutput: StartUpViewOutput!
     
@@ -49,6 +54,13 @@ final class StartUpViewController: UIViewController, StartUpViewInput {
             onSettings: viewOutput.settingDidTouch,
             onConnect: viewOutput.connectDidTouch
         )
+        
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        tableView.register(cell: TorLoadingLogView.self)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+        
+        viewOutput.moduleDidLoad()
     }
     
     // MARK: - StartUpViewInput
@@ -61,5 +73,31 @@ final class StartUpViewController: UIViewController, StartUpViewInput {
     // Обновить статус запуска тор-сети.
     func update(with status: TorLoadingStatus) {
         startUpView.update(with: status)
+    }
+    
+    func update(with cellObjects: [TorLoadingLogViewCellObject]) {
+        self.cellObjects = cellObjects
+        tableView.reloadData()
+    }
+}
+
+extension StartUpViewController: UITableViewDataSource {
+    
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return cellObjects.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueCell(for: indexPath) as TorLoadingLogView
+        let cellObject = cellObjects[indexPath.row]
+        cell.update(with: cellObject)
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        return cell
     }
 }

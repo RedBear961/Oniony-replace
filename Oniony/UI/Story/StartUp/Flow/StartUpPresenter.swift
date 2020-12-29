@@ -24,6 +24,9 @@ import Foundation
 
 protocol StartUpViewOutput {
     
+    /// Модуль был загружен.
+    func moduleDidLoad()
+    
     /// Нажата кнопка настроек запуска тор-сети.
     func settingDidTouch()
     
@@ -37,7 +40,7 @@ final class StartUpPresenter: StartUpViewOutput {
     private let coordinator: StartUpCoordinating
     private let torDirector: TorNetworkDirecting
     
-    private var statuses: [TorLoadingStatus] = []
+    private var cellObjects: [TorLoadingLogViewCellObject] = []
     
     init(
         viewInput: StartUpViewInput,
@@ -51,6 +54,12 @@ final class StartUpPresenter: StartUpViewOutput {
     }
     
     // MARK: - StartUpViewOutput
+    
+    // Модуль был загружен.
+    func moduleDidLoad() {
+        cellObjects.append(TorLoadingLogViewCellObject(title: L10n.TorLoading.log))
+        viewInput?.update(with: cellObjects)
+    }
     
     // Нажата кнопка настроек запуска тор-сети.
     func settingDidTouch() {
@@ -69,8 +78,11 @@ extension StartUpPresenter: TorNetworkDirectorDelegate {
         _ director: TorNetworkDirecting,
         didUpdate status: TorLoadingStatus
     ) {
+        let cellObject = TorLoadingLogViewCellObject(title: status.log)
+        cellObjects.append(cellObject)
         DispatchQueue.main.async {
             self.viewInput?.update(with: status)
+            self.viewInput?.update(with: self.cellObjects)
         }
     }
     

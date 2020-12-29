@@ -30,9 +30,24 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K19-4S-xK5" customClass="StartUpLogView" customModule="Oniony" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K19-4S-xK5">
                                                 <rect key="frame" x="414" y="0.0" width="414" height="818"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AVC-CI-8xo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="7Tc-br-wEX" id="ZqU-Hf-yH5"/>
+                                                        </connections>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="AVC-CI-8xo" secondAttribute="trailing" id="Iyq-SC-M1a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AVC-CI-8xo" secondAttribute="bottom" id="KEd-Ru-7IV"/>
+                                                    <constraint firstItem="AVC-CI-8xo" firstAttribute="leading" secondItem="K19-4S-xK5" secondAttribute="leading" id="dKr-Ju-Rl8"/>
+                                                    <constraint firstItem="AVC-CI-8xo" firstAttribute="top" secondItem="K19-4S-xK5" secondAttribute="top" id="uCu-hK-KId"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,8 +82,8 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="KkC-ie-136" id="iEe-vh-NXv"/>
-                        <outlet property="startUpLogView" destination="K19-4S-xK5" id="Yor-eZ-4Qb"/>
                         <outlet property="startUpView" destination="jmf-CC-E6L" id="F6n-30-nnA"/>
+                        <outlet property="tableView" destination="AVC-CI-8xo" id="63Z-VN-s6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mty-NX-cjK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

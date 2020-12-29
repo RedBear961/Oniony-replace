@@ -12,6 +12,8 @@ import Foundation
 internal enum L10n {
 
   internal enum TorLoading {
+    /// -----Инициализация журнала Tor-----
+    internal static let log = L10n.tr("Localizable", "torLoading.log")
     internal enum Tag {
       /// Connecting to a relay to build circuits
       internal static let apConn = L10n.tr("Localizable", "torLoading.tag.ap_conn")
