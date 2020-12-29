@@ -11,6 +11,13 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum Network {
+    /// Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.
+    internal static let header = L10n.tr("Localizable", "network.header")
+    /// Сеть Tor
+    internal static let title = L10n.tr("Localizable", "network.title")
+  }
+
   internal enum TorLoading {
     /// -----Инициализация журнала Tor-----
     internal static let log = L10n.tr("Localizable", "torLoading.log")

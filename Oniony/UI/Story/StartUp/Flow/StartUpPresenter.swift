@@ -63,6 +63,7 @@ final class StartUpPresenter: StartUpViewOutput {
     
     // Нажата кнопка настроек запуска тор-сети.
     func settingDidTouch() {
+        coordinator.openNetwork()
     }
     
     // Нажата кнопка соединиться с тор-сетью.

@@ -22,34 +22,29 @@
 
 import UIKit
 
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
+/// Можедель данных стандартизированной ячейки.
+struct OnionyTableViewCellObject: CellObject {
     
-    /// Открыть модуль настройки сети.
-    func openNetwork()
+    /// Иконка ячейки.
+    let image: UIImage
+    
+    /// Заголовок ячейки.
+    let title: String
+    
+    /// Подзаголовок ячейки.
+    let subtitle: String?
 }
 
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
+/// Стандартизированная ячейка таблицы.
+final class OnionyTableViewCell: UITableViewCell {
     
-    // MARK: - Override
+    @IBOutlet private var icon: UIImageView!
+    @IBOutlet private var title: UILabel!
+    @IBOutlet private var subtitle: UILabel!
     
-    override var isNavigationBarHidden: Bool {
-        return true
-    }
-    
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
-    }
-    
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    func update(with cellObject: OnionyTableViewCellObject) {
+        self.icon.image = cellObject.image
+        self.title.text = cellObject.title
+        self.subtitle.text = cellObject.subtitle
     }
 }

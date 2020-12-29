@@ -22,34 +22,13 @@
 
 import UIKit
 
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
-    
-    /// Открыть модуль настройки сети.
-    func openNetwork()
-}
+protocol NetworkCoordinating: NavigationCoordinating {}
 
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
+final class NetworkCoordinator: NavigationCoordinator<NetworkViewController>, NetworkCoordinating {
     
     // MARK: - Override
     
-    override var isNavigationBarHidden: Bool {
-        return true
-    }
-    
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
-    }
-    
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    override func instantiateViewController() -> NetworkViewController {
+        return resolver.resolve(NetworkViewController.self, argument: self as NetworkCoordinating)!
     }
 }

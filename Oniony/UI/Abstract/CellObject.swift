@@ -20,36 +20,5 @@
  * THE SOFTWARE.
  */
 
-import UIKit
-
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
-    
-    /// Открыть модуль настройки сети.
-    func openNetwork()
-}
-
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
-    
-    // MARK: - Override
-    
-    override var isNavigationBarHidden: Bool {
-        return true
-    }
-    
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
-    }
-    
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
-    }
-}
+/// Протокол модели ячейки.
+protocol CellObject {}

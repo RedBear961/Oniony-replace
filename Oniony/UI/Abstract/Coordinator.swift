@@ -44,7 +44,7 @@ protocol NavigationCoordinating: class {
 }
 
 /// Абстрактный класс роутера навигации.
-class NavigationCoordinator<T: UIViewController>: Coordinator, NavigationCoordinating {
+class NavigationCoordinator<T: ViewController>: Coordinator, NavigationCoordinating {
     
     /// Контроллер, на котором происходит презентация.
     let presentationVC: UINavigationController
@@ -53,7 +53,7 @@ class NavigationCoordinator<T: UIViewController>: Coordinator, NavigationCoordin
     private(set) var presentingVC: T!
     
     /// Дочерний роутер.
-    private(set) var child: NavigationCoordinating?
+    private(set) weak var child: NavigationCoordinating?
     
     /// Конструктор класса, с использованием резольвера и презентующего контроллера.
     init(_ resolver: Resolver, presentationVC: UINavigationController) {
@@ -61,6 +61,8 @@ class NavigationCoordinator<T: UIViewController>: Coordinator, NavigationCoordin
         super.init(resolver)
     }
     
+    /// Показывать ли бар навигации.
+    /// По-умолчанию, показывать.
     var isNavigationBarHidden: Bool {
         return false
     }
@@ -73,15 +75,33 @@ class NavigationCoordinator<T: UIViewController>: Coordinator, NavigationCoordin
         preconditionFailure("Необходимо переопределить эту функции в наследнике!")
     }
     
+    /// Показать дочерний координатор.
+    func openChild(_ child: NavigationCoordinating) {
+        child.start()
+        self.child = child
+    }
+    
     // MARK: - NavigationCoordinating
     
     func start() {
         presentingVC = self.instantiateViewController()
+        presentingVC.lifeCycleDelegate = self
         presentationVC.pushViewController(presentingVC, animated: true)
-        presentationVC.isNavigationBarHidden = isNavigationBarHidden
+        presentationVC.setNavigationBarHidden(isNavigationBarHidden, animated: true)
     }
 
     func close() {
         presentationVC.popViewController(animated: true)
+    }
+}
+
+extension NavigationCoordinator: ViewLifeCycleDelegate {
+    
+    func viewWillAppear() {
+        presentationVC.setNavigationBarHidden(isNavigationBarHidden, animated: true)
+    }
+    
+    func viewWillDisappear() {
+        // Do nothing...
     }
 }

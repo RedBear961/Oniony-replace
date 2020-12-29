@@ -17,6 +17,13 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
   }
+  internal enum Network: StoryboardType {
+    internal static let storyboardName = "Network"
+
+    internal static let initialScene = InitialSceneType<Oniony.NetworkViewController>(storyboard: Network.self)
+
+    internal static let networkViewController = SceneType<Oniony.NetworkViewController>(storyboard: Network.self, identifier: "NetworkViewController")
+  }
   internal enum StartUp: StoryboardType {
     internal static let storyboardName = "StartUp"
 

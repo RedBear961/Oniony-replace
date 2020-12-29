@@ -34,7 +34,7 @@ protocol AppCoordinating {
 final class AppCoordinator: Coordinator, AppCoordinating {
     
     private let rootNavigationVC: UINavigationController
-    private var child: NavigationCoordinating?
+    private weak var child: NavigationCoordinating?
     
     init(resolver: Resolver, navigationVC: UINavigationController) {
         self.rootNavigationVC = navigationVC
@@ -50,5 +50,12 @@ final class AppCoordinator: Coordinator, AppCoordinating {
         self.child = child
         window.rootViewController = rootNavigationVC
         window.makeKeyAndVisible()
+        
+        let appearance = UINavigationBar.appearance()
+        appearance.barTintColor = Asset.background.color
+        appearance.tintColor = .white
+        appearance.isTranslucent = false
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.barStyle = .black
     }
 }

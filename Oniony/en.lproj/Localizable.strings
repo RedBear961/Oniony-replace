@@ -39,3 +39,7 @@
 "torLoading.tag.ap_handshake_done" = "Handshake finished with a relay to build circuits";
 "torLoading.tag.circuit_create" = "Establishing a Tor circuit";
 "torLoading.tag.done" = "Done";
+
+// NetworkViewController
+"network.title" = "Сеть Tor";
+"network.header" = "Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.";

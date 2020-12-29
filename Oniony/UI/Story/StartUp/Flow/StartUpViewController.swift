@@ -34,7 +34,7 @@ protocol StartUpViewInput: AnyObject {
     func update(with cellObjects: [TorLoadingLogViewCellObject])
 }
 
-final class StartUpViewController: UIViewController, StartUpViewInput {
+final class StartUpViewController: ViewController, StartUpViewInput {
     
     @IBOutlet private var startUpView: StartUpView!
     @IBOutlet private var tableView: UITableView!

@@ -22,34 +22,35 @@
 
 import UIKit
 
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
+/// Делегат жизненного цикла отображения.
+protocol ViewLifeCycleDelegate: AnyObject {
     
-    /// Открыть модуль настройки сети.
-    func openNetwork()
+    /// Отображение будет отрисовано.
+    func viewWillAppear()
+    
+    /// Отображение будет скрыто.
+    func viewWillDisappear()
 }
 
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
+/// Базовый контроллер в проекте,
+class ViewController: UIViewController {
+    
+    /// Делегат жизненного цикла отображения.
+    weak var lifeCycleDelegate: ViewLifeCycleDelegate?
     
     // MARK: - Override
     
-    override var isNavigationBarHidden: Bool {
-        return true
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lifeCycleDelegate?.viewWillAppear()
     }
     
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        lifeCycleDelegate?.viewWillDisappear()
     }
 }

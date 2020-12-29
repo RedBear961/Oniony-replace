@@ -22,34 +22,19 @@
 
 import UIKit
 
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
+struct KeyValueCellObject: CellObject {
     
-    /// Открыть модуль настройки сети.
-    func openNetwork()
+    let key: String
+    let value: String
 }
 
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
+final class KeyValueCell: UITableViewCell {
     
-    // MARK: - Override
+    @IBOutlet private var key: UILabel!
+    @IBOutlet private var value: UILabel!
     
-    override var isNavigationBarHidden: Bool {
-        return true
-    }
-    
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
-    }
-    
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    func update(with cellObject: KeyValueCellObject) {
+        key.text = cellObject.key
+        value.text = cellObject.value
     }
 }
