@@ -12,6 +12,9 @@ target 'Oniony' do
   
   # UI
   pod 'PureLayout', '3.1.6'
+  
+  # Network
+  pod 'Tor', podspec: 'https://raw.githubusercontent.com/iCepa/Tor.framework/master/Tor.podspec'
 end
 
 # Setup podfile to automatically set the deployment target.

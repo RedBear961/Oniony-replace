@@ -40,8 +40,12 @@ final class StartUpAssembly: AutoAssembly {
     dynamic func startUpPresenter() {
         container.register(
             StartUpViewOutput.self
-        ) { (_, viewInput: StartUpViewInput, coordinator: StartUpCoordinating) -> StartUpPresenter in
-            return StartUpPresenter(viewInput: viewInput, coordinator: coordinator)
+        ) { (resolver, viewInput: StartUpViewInput, coordinator: StartUpCoordinating) -> StartUpPresenter in
+            return StartUpPresenter(
+                viewInput: viewInput,
+                coordinator: coordinator,
+                torDirector: resolver.resolve(TorNetworkDirecting.self)!
+            )
         }
     }
     

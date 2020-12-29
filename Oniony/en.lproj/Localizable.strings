@@ -19,3 +19,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+// Tor Loading
+"torLoading.tag.con" = "Connecting to a relay";
+"torLoading.tag.conn_done" = "Connected to a relay";
+"torLoading.tag.handshake" = "Handshaking with a relay";
+"torLoading.tag.onehop_create" = "Establishing an encrypted directory connection";
+"torLoading.tag.requesting_status" = "Asking for network status consensus";
+"torLoading.tag.loading_status" = "Loading networkstatus consensus";
+"torLoading.tag.loading_keys" = "Loading authority key certs";
+"torLoading.tag.requesting_descriptors" = "Asking for relay descriptors";
+"torLoading.tag.loading_descriptors" = "Loading relay descriptors";
+"torLoading.tag.enough_dirinfo" = "Loaded enough directory info to build circuits";
+"torLoading.tag.ap_conn" = "Connecting to a relay to build circuits";
+"torLoading.tag.ap_conn_done" = "Connected to a relay to build circuits";
+"torLoading.tag.handshake_done" = "Handshake with a relay done";
+"torLoading.tag.ap_handshake" = "Handshake finished with a relay to build circuits";
+"torLoading.tag.ap_handshake_done" = "Handshake finished with a relay to build circuits";
+"torLoading.tag.circuit_create" = "Establishing a Tor circuit";
+"torLoading.tag.done" = "Done";

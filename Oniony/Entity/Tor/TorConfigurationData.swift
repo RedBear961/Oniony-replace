@@ -20,28 +20,18 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import Darwin
 
-final class OnionyButton: UIButton {
+/// Общие значения настройки тор-сети.
+struct TorConfigurationData {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        guard let title = titleLabel else { fatalError() }
-        title.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        
-        backgroundColor = Asset.mainButton.color
-        
-        layer.cornerRadius = frame.height / 2
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        layer.shadowRadius = 2
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 1
+    /// Стандартный порт прокси-сервера.
+    var socksPort: in_port_t {
+        return 39050
     }
     
-    override var intrinsicContentSize: CGSize {
-        var size = super.intrinsicContentSize
-        size.width += 32
-        return size
+    /// Стандартный порт контроля.
+    var controlPort: in_port_t {
+        return 39060
     }
 }

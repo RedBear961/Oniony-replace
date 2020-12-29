@@ -22,18 +22,61 @@
 
 import Foundation
 
-protocol StartUpViewOutput {}
+protocol StartUpViewOutput {
+    
+    /// Нажата кнопка настроек запуска тор-сети.
+    func settingDidTouch()
+    
+    /// Нажата кнопка соединиться с тор-сетью.
+    func connectDidTouch()
+}
 
 final class StartUpPresenter: StartUpViewOutput {
     
     private weak var viewInput: StartUpViewInput?
     private let coordinator: StartUpCoordinating
+    private let torDirector: TorNetworkDirecting
+    
+    private var statuses: [TorLoadingStatus] = []
     
     init(
         viewInput: StartUpViewInput,
-        coordinator: StartUpCoordinating
+        coordinator: StartUpCoordinating,
+        torDirector: TorNetworkDirecting
     ) {
         self.viewInput = viewInput
         self.coordinator = coordinator
+        self.torDirector = torDirector
+        self.torDirector.delegate = self
+    }
+    
+    // MARK: - StartUpViewOutput
+    
+    // Нажата кнопка настроек запуска тор-сети.
+    func settingDidTouch() {
+    }
+    
+    // Нажата кнопка соединиться с тор-сетью.
+    func connectDidTouch() {
+        viewInput?.showProgress()
+        torDirector.startTor()
+    }
+}
+
+extension StartUpPresenter: TorNetworkDirectorDelegate {
+    
+    func torDirector(
+        _ director: TorNetworkDirecting,
+        didUpdate status: TorLoadingStatus
+    ) {
+        DispatchQueue.main.async {
+            self.viewInput?.update(with: status)
+        }
+    }
+    
+    func torDirectorDidLoad(_ director: TorNetworkDirecting) {
+    }
+    
+    func torDirector(_ director: TorNetworkDirecting, didFinishWith error: Error) {
     }
 }

@@ -43,6 +43,7 @@ final class AppCoordinator: Coordinator, AppCoordinating {
     
     // MARK: - AppCoordinating
     
+    // Запускает навигацию.
     func start(with window: UIWindow) {
         let child = resolver.resolve(StartUpCoordinating.self, argument: rootNavigationVC)!
         child.start()

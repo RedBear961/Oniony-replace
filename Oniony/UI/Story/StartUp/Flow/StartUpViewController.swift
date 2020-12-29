@@ -22,7 +22,14 @@
 
 import UIKit
 
-protocol StartUpViewInput: AnyObject {}
+protocol StartUpViewInput: AnyObject {
+    
+    /// Показать прогресс запуска тор-сети.
+    func showProgress()
+    
+    /// Обновить статус запуска тор-сети.
+    func update(with status: TorLoadingStatus)
+}
 
 final class StartUpViewController: UIViewController, StartUpViewInput {
     
@@ -37,5 +44,22 @@ final class StartUpViewController: UIViewController, StartUpViewInput {
         
         scrollView.isPagingEnabled = true
         scrollView.contentSize = view.frame.size
+        
+        startUpView.bind(
+            onSettings: viewOutput.settingDidTouch,
+            onConnect: viewOutput.connectDidTouch
+        )
+    }
+    
+    // MARK: - StartUpViewInput
+    
+    // Показать прогресс запуска тор-сети.
+    func showProgress() {
+        startUpView.showProgress()
+    }
+    
+    // Обновить статус запуска тор-сети.
+    func update(with status: TorLoadingStatus) {
+        startUpView.update(with: status)
     }
 }

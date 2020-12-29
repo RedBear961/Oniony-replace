@@ -6,7 +6,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartUpView" customModule="Oniony" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartUpView" customModule="Oniony" customModuleProvider="target">
+            <connections>
+                <outlet property="connectButton" destination="zBu-5V-yaN" id="yC5-0L-J3O"/>
+                <outlet property="progressTitle" destination="MJI-Nr-Z8U" id="OWM-a1-7eY"/>
+                <outlet property="summaryTitle" destination="3li-kj-QPZ" id="z8p-wh-IoN"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="KGk-i7-Jjw">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -26,6 +32,9 @@
                             <state key="normal" title="ПОДКЛЮЧИТЬСЯ">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="connectDidTouch:" destination="-1" eventType="touchUpInside" id="Pc8-04-lzy"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,6 +51,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4T-Os-0zC">
                     <rect key="frame" x="366" y="8" width="24" height="24"/>
                     <state key="normal" image="button_settings"/>
+                    <connections>
+                        <action selector="settingDidTouch:" destination="-1" eventType="touchUpInside" id="fii-jR-AuR"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проведите влево, чтобы увидеть журнал Tor" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5p-ff-8I1">
                     <rect key="frame" x="40" y="821" width="334" height="41"/>
@@ -49,16 +61,46 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVy-GQ-SSo">
+                    <rect key="frame" x="0.0" y="596.5" width="414" height="224.5"/>
+                    <subviews>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded enough directory info to build circuits" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3li-kj-QPZ">
+                            <rect key="frame" x="24" y="102" width="366" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.72156862745098038" green="0.70196078431372544" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJI-Nr-Z8U">
+                            <rect key="frame" x="24" y="59.5" width="366" height="26.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <color key="textColor" red="0.72156862745098038" green="0.70196078431372544" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3li-kj-QPZ" firstAttribute="leading" secondItem="xVy-GQ-SSo" secondAttribute="leading" constant="24" id="GoS-ho-1W8"/>
+                        <constraint firstItem="3li-kj-QPZ" firstAttribute="top" secondItem="MJI-Nr-Z8U" secondAttribute="bottom" constant="16" id="Yey-QZ-qf1"/>
+                        <constraint firstAttribute="trailing" secondItem="3li-kj-QPZ" secondAttribute="trailing" constant="24" id="hB1-nz-Pu4"/>
+                        <constraint firstItem="MJI-Nr-Z8U" firstAttribute="leading" secondItem="xVy-GQ-SSo" secondAttribute="leading" constant="24" id="wrI-if-qbY"/>
+                        <constraint firstAttribute="trailing" secondItem="MJI-Nr-Z8U" secondAttribute="trailing" constant="24" id="xTM-PC-3ZC"/>
+                        <constraint firstItem="3li-kj-QPZ" firstAttribute="centerY" secondItem="xVy-GQ-SSo" secondAttribute="centerY" id="yDg-Dv-ySh"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="xVy-GQ-SSo" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="8uw-nH-jup"/>
                 <constraint firstItem="xiu-Zf-9xi" firstAttribute="centerX" secondItem="KGk-i7-Jjw" secondAttribute="centerX" id="F1x-ut-CER"/>
                 <constraint firstItem="L5p-ff-8I1" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="40" id="Fkb-Rq-dCO"/>
+                <constraint firstItem="xVy-GQ-SSo" firstAttribute="top" secondItem="xiu-Zf-9xi" secondAttribute="bottom" id="RJh-QR-uTi"/>
                 <constraint firstAttribute="trailing" secondItem="D4T-Os-0zC" secondAttribute="trailing" constant="24" id="cWU-KV-r2e"/>
                 <constraint firstItem="D4T-Os-0zC" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="8" id="fVZ-hn-o3C"/>
+                <constraint firstAttribute="trailing" secondItem="xVy-GQ-SSo" secondAttribute="trailing" id="j6B-cR-AuK"/>
                 <constraint firstAttribute="bottom" secondItem="L5p-ff-8I1" secondAttribute="bottom" constant="34" id="quv-TE-N7a"/>
                 <constraint firstAttribute="trailing" secondItem="L5p-ff-8I1" secondAttribute="trailing" constant="40" id="rhA-Vb-0t2"/>
                 <constraint firstItem="xiu-Zf-9xi" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="sGn-s0-Elt"/>
+                <constraint firstItem="L5p-ff-8I1" firstAttribute="top" secondItem="xVy-GQ-SSo" secondAttribute="bottom" id="wc5-fX-2jg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-465" y="-9"/>

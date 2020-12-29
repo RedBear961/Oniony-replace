@@ -1,12 +1,137 @@
-//
-//  TorNetworkDirector.swift
-//  Oniony
-//
-//  Created by Георгий Черемных on 28.12.2020.
-//
+/*
+ * Copyright (c) 2020 WebView, Lab
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
-import Foundation
+import Tor
 
-protocol TorNetworkDirecting {}
+/// Протокол директора тор-сети.
+protocol TorNetworkDirecting: AnyObject {
+    
+    /// Делегат директора тор-сети.
+    var delegate: TorNetworkDirectorDelegate? { get set }
+    
+    /// Статус подключения к тор-сети.
+    var isConnect: Bool { get }
+    
+    /// Запускает тор-сеть.
+    /// - Warning: Этот метод может быть вызван лишь единожды.
+    func startTor()
+}
 
-final class TorNetworkDirector: TorNetworkDirecting {}
+/// Делегат директора тор-сети.
+protocol TorNetworkDirectorDelegate: AnyObject {
+    
+    /// Был обновлен статус подключения тор-сети.
+    func torDirector(_ director: TorNetworkDirecting, didUpdate status: TorLoadingStatus)
+    
+    /// Тор-сеть была запущена.
+    func torDirectorDidLoad(_ director: TorNetworkDirecting)
+    
+    /// Во время запуска тор-сети произрошла ошибка и дальнейшее подключение невозможно.
+    func torDirector(_ director: TorNetworkDirecting, didFinishWith error: Error)
+}
+
+/// Директор тор-сети. Этот класс является синглтоном.
+final class TorNetworkDirector: TorNetworkDirecting {
+    
+    private let configurationBuilder: TorConfiguratorBuilding
+    private let configurationData: TorConfigurationData
+    private let torController: TorController
+    private var torThread: TorThread
+    private var torConfiguration: TorConfiguration
+    
+    init(
+        configurationBuilder: TorConfiguratorBuilding,
+        configurationData data: TorConfigurationData
+    ) {
+        self.torConfiguration = configurationBuilder.configuration(for: data)
+        self.configurationBuilder = configurationBuilder
+        self.torController = TorController(socketHost: "127.0.0.1", port: data.controlPort)
+        self.torThread = TorThread(configuration: torConfiguration)
+        self.configurationData = data
+    }
+    
+    // MARK: - TorNetworkDirecting
+    
+    // Делегат.
+    weak var delegate: TorNetworkDirectorDelegate?
+    
+    // Статус подключения.
+    var isConnect: Bool = false
+    
+    // Запускает тор-сеть.
+    func startTor() {
+        isConnect = false
+        torThread.start()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            do { try self.authenticate() } catch {
+                self.delegate?.torDirector(self, didFinishWith: error)
+            }
+        }
+    }
+    
+    // MARK: - Private
+    
+    // Аутентифицирует клиента в сети.
+    private func authenticate() throws {
+        try self.torController.connect()
+        
+        guard let dataDirectory = self.torConfiguration.dataDirectory else {
+            preconditionFailure("Не удалось получить URL директории с данными!")
+        }
+        
+        let cookieURL = dataDirectory.appendingPathComponent("control_auth_cookie")
+        let cookie = try Data(contentsOf: cookieURL)
+        
+        self.torController.authenticate(with: cookie, completion: { (success, _) in
+            guard success else { return }
+            
+            // Наблюдатель построения цепочки узлов.
+            var circuitObserver: Any?
+            circuitObserver = self.torController.addObserver { (established) in
+                if established {
+                    self.torController.removeObserver(circuitObserver)
+                }
+            }
+            
+            // Наблюдатель статуса загрузки тор-сети.
+            var statusObserver: Any?
+            statusObserver = self.torController.addObserver { (type, _, action, arguments) -> Bool in
+                guard type == "STATUS_CLIENT",
+                      action == "BOOTSTRAP",
+                      let arguments = arguments,
+                      let status = TorLoadingStatus(arguments) else {
+                    return false
+                }
+                
+                self.delegate?.torDirector(self, didUpdate: status)
+
+                if status.progress >= 100 {
+                    self.torController.removeObserver(statusObserver)
+                    self.delegate?.torDirectorDidLoad(self)
+                }
+                
+                return true
+            }
+        })
+    }
+}

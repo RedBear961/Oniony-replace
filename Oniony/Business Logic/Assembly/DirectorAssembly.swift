@@ -20,28 +20,18 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import Swinject
 
-final class OnionyButton: UIButton {
+/// Сборщик директоров в приложении.
+final class DirectorAssembly: AutoAssembly {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        guard let title = titleLabel else { fatalError() }
-        title.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        
-        backgroundColor = Asset.mainButton.color
-        
-        layer.cornerRadius = frame.height / 2
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        layer.shadowRadius = 2
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 1
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        var size = super.intrinsicContentSize
-        size.width += 32
-        return size
+    /// Директор тор-сети.
+    dynamic func torNetworkDirector() {
+        container.register(TorNetworkDirecting.self) { (resolver) -> TorNetworkDirector in
+            return TorNetworkDirector(
+                configurationBuilder: resolver.resolve(TorConfiguratorBuilding.self)!,
+                configurationData: TorConfigurationData()
+            )
+        }.inObjectScope(.container)
     }
 }

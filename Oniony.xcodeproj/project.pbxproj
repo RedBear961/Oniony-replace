@@ -26,7 +26,6 @@
 		05A12FE6259A0DFE00367767 /* StartUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FE1259A0DFE00367767 /* StartUpAssembly.swift */; };
 		05A12FED259A13E500367767 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FEC259A13E500367767 /* AppAssembly.swift */; };
 		05A12FF5259A163B00367767 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FF4259A163B00367767 /* GradientView.swift */; };
-		05A12FFA259A16C900367767 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FF9259A16C900367767 /* ColorProvider.swift */; };
 		05A12FFD259A205500367767 /* ViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12FFC259A205400367767 /* ViewContainer.swift */; };
 		05A13009259A20AB00367767 /* StartUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13007259A20AB00367767 /* StartUpView.swift */; };
 		05A1300A259A20AC00367767 /* StartUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A13008259A20AB00367767 /* StartUpView.xib */; };
@@ -34,6 +33,12 @@
 		05A13018259A266600367767 /* StartUpLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13016259A266600367767 /* StartUpLogView.swift */; };
 		05A13019259A266600367767 /* StartUpLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A13017259A266600367767 /* StartUpLogView.xib */; };
 		05A1301F259A2C5A00367767 /* TorNetworkDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */; };
+		05A1302F259AFE8000367767 /* BuilderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1302E259AFE8000367767 /* BuilderAssembly.swift */; };
+		05A13033259AFEE100367767 /* DirectorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13032259AFEE100367767 /* DirectorAssembly.swift */; };
+		05A13036259AFF4900367767 /* TorConfigurationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13035259AFF4900367767 /* TorConfigurationBuilder.swift */; };
+		05A1303C259B023100367767 /* TorConfigurationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1303B259B023100367767 /* TorConfigurationData.swift */; };
+		05A13040259B8DEA00367767 /* TorLoadingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1303F259B8DEA00367767 /* TorLoadingStatus.swift */; };
+		05A1304F259B91FE00367767 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1304E259B91FE00367767 /* Block.swift */; };
 		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +64,6 @@
 		05A12FE1259A0DFE00367767 /* StartUpAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpAssembly.swift; sourceTree = "<group>"; };
 		05A12FEC259A13E500367767 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		05A12FF4259A163B00367767 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		05A12FF9259A16C900367767 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
 		05A12FFC259A205400367767 /* ViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewContainer.swift; sourceTree = "<group>"; };
 		05A13007259A20AB00367767 /* StartUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpView.swift; sourceTree = "<group>"; };
 		05A13008259A20AB00367767 /* StartUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartUpView.xib; sourceTree = "<group>"; };
@@ -67,6 +71,12 @@
 		05A13016259A266600367767 /* StartUpLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpLogView.swift; sourceTree = "<group>"; };
 		05A13017259A266600367767 /* StartUpLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartUpLogView.xib; sourceTree = "<group>"; };
 		05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorNetworkDirector.swift; sourceTree = "<group>"; };
+		05A1302E259AFE8000367767 /* BuilderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderAssembly.swift; sourceTree = "<group>"; };
+		05A13032259AFEE100367767 /* DirectorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorAssembly.swift; sourceTree = "<group>"; };
+		05A13035259AFF4900367767 /* TorConfigurationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorConfigurationBuilder.swift; sourceTree = "<group>"; };
+		05A1303B259B023100367767 /* TorConfigurationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorConfigurationData.swift; sourceTree = "<group>"; };
+		05A1303F259B8DEA00367767 /* TorLoadingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorLoadingStatus.swift; sourceTree = "<group>"; };
+		05A1304E259B91FE00367767 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
 		A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oniony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.debug.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,8 +118,8 @@
 				05A12F822599D48B00367767 /* AppDelegate.swift */,
 				05A12FD1259A086100367767 /* AppCoordinator.swift */,
 				05A12FC3259A06C400367767 /* Business Logic */,
+				05A13038259AFF6500367767 /* Entity */,
 				05A12FD4259A093600367767 /* UI */,
-				05A12FF8259A16BA00367767 /* Helper */,
 				05A12FCC259A072500367767 /* Utility */,
 				05A12FAC2599F07F00367767 /* Generated */,
 				05A12F8B2599D48D00367767 /* Assets.xcassets */,
@@ -134,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				05A12FC5259A06CE00367767 /* Assembly */,
+				05A1302D259AFE6600367767 /* Builder */,
 				05A1301D259A2C4900367767 /* Director */,
 			);
 			path = "Business Logic";
@@ -144,6 +155,8 @@
 			children = (
 				05A12FC6259A06E200367767 /* Swinject */,
 				05A12FEC259A13E500367767 /* AppAssembly.swift */,
+				05A1302E259AFE8000367767 /* BuilderAssembly.swift */,
+				05A13032259AFEE100367767 /* DirectorAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -168,6 +181,7 @@
 		05A12FCD259A073100367767 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				05A1304E259B91FE00367767 /* Block.swift */,
 				05A12FCE259A074400367767 /* String+cString.swift */,
 			);
 			path = Swift;
@@ -238,14 +252,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		05A12FF8259A16BA00367767 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				05A12FF9259A16C900367767 /* ColorProvider.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		05A13005259A209300367767 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +285,31 @@
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
 			);
 			path = Director;
+			sourceTree = "<group>";
+		};
+		05A1302D259AFE6600367767 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				05A13035259AFF4900367767 /* TorConfigurationBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		05A13038259AFF6500367767 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				05A1303A259B01FC00367767 /* Tor */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		05A1303A259B01FC00367767 /* Tor */ = {
+			isa = PBXGroup;
+			children = (
+				05A1303B259B023100367767 /* TorConfigurationData.swift */,
+				05A1303F259B8DEA00367767 /* TorLoadingStatus.swift */,
+			);
+			path = Tor;
 			sourceTree = "<group>";
 		};
 		3B67BD12DD644508ED2912F0 /* Pods */ = {
@@ -457,17 +488,22 @@
 				05A12FE3259A0DFE00367767 /* StartUpCoordinator.swift in Sources */,
 				05A1301F259A2C5A00367767 /* TorNetworkDirector.swift in Sources */,
 				05A12FBA2599F1ED00367767 /* Assets.swift in Sources */,
+				05A1303C259B023100367767 /* TorConfigurationData.swift in Sources */,
+				05A13036259AFF4900367767 /* TorConfigurationBuilder.swift in Sources */,
+				05A13040259B8DEA00367767 /* TorLoadingStatus.swift in Sources */,
 				05A12FF5259A163B00367767 /* GradientView.swift in Sources */,
 				05A12FCA259A072200367767 /* SwinjectConfigurator.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
 				05A12FE5259A0DFE00367767 /* StartUpViewController.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
 				05A12FBC2599F1ED00367767 /* Strings.swift in Sources */,
-				05A12FFA259A16C900367767 /* ColorProvider.swift in Sources */,
 				05A12FD2259A086100367767 /* AppCoordinator.swift in Sources */,
 				05A12FE4259A0DFE00367767 /* StartUpPresenter.swift in Sources */,
+				05A1304F259B91FE00367767 /* Block.swift in Sources */,
 				05A12FE6259A0DFE00367767 /* StartUpAssembly.swift in Sources */,
 				05A12FFD259A205500367767 /* ViewContainer.swift in Sources */,
+				05A13033259AFEE100367767 /* DirectorAssembly.swift in Sources */,
+				05A1302F259AFE8000367767 /* BuilderAssembly.swift in Sources */,
 				05A12FBB2599F1ED00367767 /* Scenes.swift in Sources */,
 				05A13018259A266600367767 /* StartUpLogView.swift in Sources */,
 				05A12FCF259A074400367767 /* String+cString.swift in Sources */,
