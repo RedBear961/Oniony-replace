@@ -40,10 +40,11 @@ final class NetworkAssembly: AutoAssembly {
     dynamic func networkPresenter() {
         container.register(
             NetworkViewOutput.self
-        ) { (_, viewInput: NetworkViewInput, coordinator: NetworkCoordinating) -> NetworkPresenter in
+        ) { (resolver, viewInput: NetworkViewInput, coordinator: NetworkCoordinating) -> NetworkPresenter in
             return NetworkPresenter(
                 viewInput: viewInput,
-                coordinator: coordinator
+                coordinator: coordinator,
+                factory: resolver.resolve(NetworkCellFactory.self)!
             )
         }
     }
@@ -53,6 +54,16 @@ final class NetworkAssembly: AutoAssembly {
             NetworkCoordinating.self
         ) { (resolver, navigationVC: UINavigationController) -> NetworkCoordinator in
             return NetworkCoordinator(resolver, presentationVC: navigationVC)
+        }
+    }
+    
+    dynamic func networkCellFactory() {
+        container.register(
+            NetworkCellFactory.self
+        ) { (resolver) -> NetworkCellFactoryImpl in
+            return NetworkCellFactoryImpl(
+                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+            )
         }
     }
 }

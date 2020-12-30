@@ -16,6 +16,8 @@
 		0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */; };
 		0571FDC9259BAEEB00CA0C4F /* OnionyRightDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */; };
 		0571FDCE259BB06900CA0C4F /* CellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDCD259BB06900CA0C4F /* CellObject.swift */; };
+		05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */; };
+		05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F5259C8B2100D827DF /* BridgeDirector.swift */; };
 		05A12F832599D48B00367767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12F822599D48B00367767 /* AppDelegate.swift */; };
 		05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8B2599D48D00367767 /* Assets.xcassets */; };
 		05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8D2599D48D00367767 /* LaunchScreen.storyboard */; };
@@ -69,6 +71,8 @@
 		0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyRightDetailCell.swift; sourceTree = "<group>"; };
 		0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyRightDetailCell.xib; sourceTree = "<group>"; };
 		0571FDCD259BB06900CA0C4F /* CellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellObject.swift; sourceTree = "<group>"; };
+		05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCellFactory.swift; sourceTree = "<group>"; };
+		05A072F5259C8B2100D827DF /* BridgeDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeDirector.swift; sourceTree = "<group>"; };
 		05A12F7F2599D48B00367767 /* Oniony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oniony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A12F822599D48B00367767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A12F8B2599D48D00367767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				0571FDBD259BAE9100CA0C4F /* View */,
 				0564E528259B9E23002980A2 /* Flow */,
 				0564E521259B9D6E002980A2 /* NetworkAssembly.swift */,
+				05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */,
 				0564E51D259B9D6E002980A2 /* Network.storyboard */,
 			);
 			path = Network;
@@ -360,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
+				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
 			);
 			path = Director;
 			sourceTree = "<group>";
@@ -617,6 +623,7 @@
 				05A12FF5259A163B00367767 /* GradientView.swift in Sources */,
 				05A12FCA259A072200367767 /* SwinjectConfigurator.swift in Sources */,
 				05A8B829259BB4C6009A3392 /* OnionySubtitleCell.swift in Sources */,
+				05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
 				0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */,
 				05A12FE5259A0DFE00367767 /* StartUpViewController.swift in Sources */,
@@ -640,6 +647,7 @@
 				05A12FBB2599F1ED00367767 /* Scenes.swift in Sources */,
 				05A12FCF259A074400367767 /* String+cString.swift in Sources */,
 				05A12FC9259A072200367767 /* AutoAssembly.swift in Sources */,
+				05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */,
 				05A13009259A20AB00367767 /* StartUpView.swift in Sources */,
 				05A12FD9259A095700367767 /* Coordinator.swift in Sources */,
 			);

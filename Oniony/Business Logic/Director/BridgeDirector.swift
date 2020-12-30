@@ -22,39 +22,17 @@
 
 import Foundation
 
-protocol NetworkViewOutput {
+/// Протокола директора мостов тор-сети.
+protocol BridgeDirecting {
     
-    /// Модуль будет отрисован.
-    func moduleWillAppear()
-    
-    /// Выбрана ячейка с моделью данных.
-    func didSelect(_ cellObject: CellObject)
+    /// Включены ли мосты.
+    var isEnabled: Bool { get }
 }
 
-final class NetworkPresenter: NetworkViewOutput {
+/// Директор мостов тор-сети.
+final class BridgeDirector: BridgeDirecting {
     
-    private weak var viewInput: NetworkViewInput?
-    private let coordinator: NetworkCoordinating
-    private let factory: NetworkCellFactory
+    // MARK: - BridgeDirecting
     
-    init(
-        viewInput: NetworkViewInput,
-        coordinator: NetworkCoordinating,
-        factory: NetworkCellFactory
-    ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.factory = factory
-    }
-    
-    // MARK: - NetworkViewOutput
-    
-    func moduleWillAppear() {
-        let sectionObjects = factory.sectionObjects()
-        viewInput?.update(with: sectionObjects)
-    }
-    
-    func didSelect(_ cellObject: CellObject) {
-        coordinator.openBridge()
-    }
+    var isEnabled: Bool = false
 }

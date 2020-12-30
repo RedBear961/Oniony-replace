@@ -12,29 +12,27 @@ import Foundation
 internal enum L10n {
 
   internal enum Network {
+    /// Конфигурация моста
+    internal static let bridgeConfiguration = L10n.tr("Localizable", "network.bridgeConfiguration")
+    /// Используйте мост для подключения к Tor
+    internal static let bridgeDescription = L10n.tr("Localizable", "network.bridgeDescription")
+    /// Готовность Tor
+    internal static let bridgeStatus = L10n.tr("Localizable", "network.bridgeStatus")
+    /// Отключен
+    internal static let disconnected = L10n.tr("Localizable", "network.disconnected")
     /// Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.
     internal static let header = L10n.tr("Localizable", "network.header")
+    /// Готовность Tor
+    internal static let netowrkStatus = L10n.tr("Localizable", "network.netowrkStatus")
+    /// Нет
+    internal static let no = L10n.tr("Localizable", "network.no")
     /// Сеть Tor
     internal static let title = L10n.tr("Localizable", "network.title")
+    /// Состояние
+    internal static let torStatus = L10n.tr("Localizable", "network.torStatus")
+    /// Да
+    internal static let yes = L10n.tr("Localizable", "network.yes")
     internal enum Tableview {
-      internal enum Cell {
-        /// Конфигурация моста
-        internal static let bridgeConfiguration = L10n.tr("Localizable", "network.tableview.cell.bridgeConfiguration")
-        /// Используйте мост для подключения к Tor
-        internal static let bridgeDescription = L10n.tr("Localizable", "network.tableview.cell.bridgeDescription")
-        /// Готовность Tor
-        internal static let bridgeStatus = L10n.tr("Localizable", "network.tableview.cell.bridgeStatus")
-        /// Нет
-        internal static let bridgeStatusDisconnect = L10n.tr("Localizable", "network.tableview.cell.bridgeStatusDisconnect")
-        /// Готовность Tor
-        internal static let netowrkStatus = L10n.tr("Localizable", "network.tableview.cell.netowrkStatus")
-        /// Нет
-        internal static let networkStatusDisconnect = L10n.tr("Localizable", "network.tableview.cell.networkStatusDisconnect")
-        /// Состояние
-        internal static let torStatus = L10n.tr("Localizable", "network.tableview.cell.torStatus")
-        /// Отключен
-        internal static let torStatusDisconnect = L10n.tr("Localizable", "network.tableview.cell.torStatusDisconnect")
-      }
       internal enum Footer {
         /// Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.
         internal static let oniony = L10n.tr("Localizable", "network.tableview.footer.oniony")
