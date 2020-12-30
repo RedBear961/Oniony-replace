@@ -39,7 +39,7 @@ internal enum L10n {
     internal static let bridgeConfiguration = L10n.tr("Localizable", "network.bridgeConfiguration")
     /// Используйте мост для подключения к Tor
     internal static let bridgeDescription = L10n.tr("Localizable", "network.bridgeDescription")
-    /// Готовность Tor
+    /// Мосты включены
     internal static let bridgeStatus = L10n.tr("Localizable", "network.bridgeStatus")
     /// Отключен
     internal static let disconnected = L10n.tr("Localizable", "network.disconnected")

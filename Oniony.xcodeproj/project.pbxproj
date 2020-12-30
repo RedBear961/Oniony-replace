@@ -23,6 +23,13 @@
 		05A07302259C9A5400D827DF /* OnionyCheckmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07300259C9A5400D827DF /* OnionyCheckmarkCell.swift */; };
 		05A07303259C9A5400D827DF /* OnionyCheckmarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A07301259C9A5400D827DF /* OnionyCheckmarkCell.xib */; };
 		05A07307259C9CCF00D827DF /* BridgeCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07306259C9CCF00D827DF /* BridgeCellFactory.swift */; };
+		05A07310259CB58400D827DF /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0730F259CB58400D827DF /* Bridge.swift */; };
+		05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07313259CC7D700D827DF /* UIView+Shadow.swift */; };
+		05A07319259CC82400D827DF /* OverlayPopupShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07318259CC82400D827DF /* OverlayPopupShadowView.swift */; };
+		05A0731C259CC84E00D827DF /* UIView+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0731B259CC84D00D827DF /* UIView+Round.swift */; };
+		05A07320259CC89900D827DF /* BridgeInputPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A0731E259CC89900D827DF /* BridgeInputPopupView.swift */; };
+		05A07321259CC89900D827DF /* BridgeInputPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A0731F259CC89900D827DF /* BridgeInputPopupView.xib */; };
+		05A07336259CDC2A00D827DF /* EKAttributes+Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07335259CDC2A00D827DF /* EKAttributes+Standard.swift */; };
 		05A12F832599D48B00367767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12F822599D48B00367767 /* AppDelegate.swift */; };
 		05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8B2599D48D00367767 /* Assets.xcassets */; };
 		05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8D2599D48D00367767 /* LaunchScreen.storyboard */; };
@@ -83,6 +90,14 @@
 		05A07300259C9A5400D827DF /* OnionyCheckmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyCheckmarkCell.swift; sourceTree = "<group>"; };
 		05A07301259C9A5400D827DF /* OnionyCheckmarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyCheckmarkCell.xib; sourceTree = "<group>"; };
 		05A07306259C9CCF00D827DF /* BridgeCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeCellFactory.swift; sourceTree = "<group>"; };
+		05A0730A259CAF7D00D827DF /* OnionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnionManager.swift; sourceTree = "<group>"; };
+		05A0730F259CB58400D827DF /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		05A07313259CC7D700D827DF /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		05A07318259CC82400D827DF /* OverlayPopupShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPopupShadowView.swift; sourceTree = "<group>"; };
+		05A0731B259CC84D00D827DF /* UIView+Round.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Round.swift"; sourceTree = "<group>"; };
+		05A0731E259CC89900D827DF /* BridgeInputPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeInputPopupView.swift; sourceTree = "<group>"; };
+		05A0731F259CC89900D827DF /* BridgeInputPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BridgeInputPopupView.xib; sourceTree = "<group>"; };
+		05A07335259CDC2A00D827DF /* EKAttributes+Standard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKAttributes+Standard.swift"; sourceTree = "<group>"; };
 		05A12F7F2599D48B00367767 /* Oniony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oniony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A12F822599D48B00367767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A12F8B2599D48D00367767 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +230,52 @@
 			path = OnionyCheckmarkCell;
 			sourceTree = "<group>";
 		};
+		05A07312259CC7C100D827DF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				05A07313259CC7D700D827DF /* UIView+Shadow.swift */,
+				05A0731B259CC84D00D827DF /* UIView+Round.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		05A07316259CC80A00D827DF /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				05A07318259CC82400D827DF /* OverlayPopupShadowView.swift */,
+				05A07338259CF5FA00D827DF /* BridgeInputPopupView */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		05A07317259CC81000D827DF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				05A8B826259BB4C6009A3392 /* OnionySubtitleCell */,
+				0571FDC5259BAED800CA0C4F /* OnionyRightDetailCell */,
+				05A072F8259C90FC00D827DF /* OnionySwitchCell */,
+				05A072FE259C9A1200D827DF /* OnionyCheckmarkCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		05A07334259CDC1400D827DF /* SwiftEntryKit */ = {
+			isa = PBXGroup;
+			children = (
+				05A07335259CDC2A00D827DF /* EKAttributes+Standard.swift */,
+			);
+			path = SwiftEntryKit;
+			sourceTree = "<group>";
+		};
+		05A07338259CF5FA00D827DF /* BridgeInputPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				05A0731E259CC89900D827DF /* BridgeInputPopupView.swift */,
+				05A0731F259CC89900D827DF /* BridgeInputPopupView.xib */,
+			);
+			path = BridgeInputPopupView;
+			sourceTree = "<group>";
+		};
 		05A12F762599D48B00367767 = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				05A12FCD259A073100367767 /* Swift */,
+				05A07334259CDC1400D827DF /* SwiftEntryKit */,
+				05A07312259CC7C100D827DF /* UIKit */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -372,10 +435,8 @@
 		05A12FF3259A161B00367767 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				05A8B826259BB4C6009A3392 /* OnionySubtitleCell */,
-				0571FDC5259BAED800CA0C4F /* OnionyRightDetailCell */,
-				05A072F8259C90FC00D827DF /* OnionySwitchCell */,
-				05A072FE259C9A1200D827DF /* OnionyCheckmarkCell */,
+				05A07317259CC81000D827DF /* Cell */,
+				05A07316259CC80A00D827DF /* Popup */,
 				05A12FF4259A163B00367767 /* GradientView.swift */,
 				05A1300C259A215500367767 /* OnionyButton.swift */,
 			);
@@ -395,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
+				05A0730A259CAF7D00D827DF /* OnionManager.swift */,
 				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
 			);
 			path = Director;
@@ -421,6 +483,7 @@
 			children = (
 				05A1303B259B023100367767 /* TorConfigurationData.swift */,
 				05A1303F259B8DEA00367767 /* TorLoadingStatus.swift */,
+				05A0730F259CB58400D827DF /* Bridge.swift */,
 			);
 			path = Tor;
 			sourceTree = "<group>";
@@ -543,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */,
+				05A07321259CC89900D827DF /* BridgeInputPopupView.xib in Resources */,
 				05A07303259C9A5400D827DF /* OnionyCheckmarkCell.xib in Resources */,
 				05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */,
 				05A12FE2259A0DFE00367767 /* StartUp.storyboard in Resources */,
@@ -647,9 +711,13 @@
 				05A1301F259A2C5A00367767 /* TorNetworkDirector.swift in Sources */,
 				05A12FBA2599F1ED00367767 /* Assets.swift in Sources */,
 				0564E526259B9D6E002980A2 /* NetworkAssembly.swift in Sources */,
+				05A07336259CDC2A00D827DF /* EKAttributes+Standard.swift in Sources */,
+				05A07320259CC89900D827DF /* BridgeInputPopupView.swift in Sources */,
+				05A07310259CB58400D827DF /* Bridge.swift in Sources */,
 				05A13058259B97A400367767 /* TorLoadingLogView.swift in Sources */,
 				0564E523259B9D6E002980A2 /* NetworkCoordinator.swift in Sources */,
 				05A1303C259B023100367767 /* TorConfigurationData.swift in Sources */,
+				05A0731C259CC84E00D827DF /* UIView+Round.swift in Sources */,
 				05A13036259AFF4900367767 /* TorConfigurationBuilder.swift in Sources */,
 				05A13040259B8DEA00367767 /* TorLoadingStatus.swift in Sources */,
 				05A8B833259C6C9C009A3392 /* BridgePresenter.swift in Sources */,
@@ -663,6 +731,7 @@
 				0571FDBA259BA5DA00CA0C4F /* ViewController.swift in Sources */,
 				0564E525259B9D6E002980A2 /* NetworkViewController.swift in Sources */,
 				05A1305C259B985C00367767 /* Reusable.swift in Sources */,
+				05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */,
 				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
 				05A07307259C9CCF00D827DF /* BridgeCellFactory.swift in Sources */,
@@ -682,6 +751,7 @@
 				05A1302F259AFE8000367767 /* BuilderAssembly.swift in Sources */,
 				05A12FBB2599F1ED00367767 /* Scenes.swift in Sources */,
 				05A12FCF259A074400367767 /* String+cString.swift in Sources */,
+				05A07319259CC82400D827DF /* OverlayPopupShadowView.swift in Sources */,
 				05A12FC9259A072200367767 /* AutoAssembly.swift in Sources */,
 				05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */,
 				05A13009259A20AB00367767 /* StartUpView.swift in Sources */,

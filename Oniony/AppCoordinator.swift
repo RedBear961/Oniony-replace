@@ -57,5 +57,7 @@ final class AppCoordinator: Coordinator, AppCoordinating {
         appearance.isTranslucent = false
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.barStyle = .black
+        
+        UITextField.appearance().tintColor = Asset.headerText.color
     }
 }

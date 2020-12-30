@@ -21,6 +21,7 @@
  */
 
 import UIKit
+import SwiftEntryKit
 
 /// Модель даных секции модуля настоойки мостов.
 struct BridgeSectionObject {
@@ -32,6 +33,18 @@ struct BridgeSectionObject {
     let cellObjects: [CellObject]
 }
 
+struct BridgeCheckmarkCellObject: CheckmarkCellObject {
+    
+    /// Заголовок.
+    let title: String
+    
+    /// Помечена ли ячейка галочкой.
+    let isSelected: Bool
+    
+    /// Тип моста.
+    let type: Bridge
+}
+
 protocol BridgeViewInput: AnyObject {
     
     /// Обновить отображение с помощью модели данных.
@@ -39,6 +52,9 @@ protocol BridgeViewInput: AnyObject {
     
     /// Перезагрузить отображение, анимировав разницу.
     func reload(with sectionObjects: [BridgeSectionObject])
+    
+    /// Открыть окно ввода пользовательского ключа.
+    func showCustomBridgeInput()
 }
 
 final class BridgeViewController: ViewController, BridgeViewInput {
@@ -73,6 +89,25 @@ final class BridgeViewController: ViewController, BridgeViewInput {
         self.sectionObjects = sectionObjects
         tableView.reloadSections(IndexSet(integersIn: 0...sectionObjects.count - 1), with: .automatic)
     }
+    
+    func showCustomBridgeInput() {
+        let popup = BridgeInputPopupView()
+        popup.update(
+            onCancel: {
+                SwiftEntryKit.dismiss()
+            },
+            onDone: { data in
+                defer { SwiftEntryKit.dismiss() }
+                guard let data = data, data.count > 0 else { return }
+                self.viewOutput.customBridgeDidSelect([data])
+            }
+        )
+        
+        SwiftEntryKit.display(
+            entry: popup,
+            using: EKAttributes.standard
+        )
+    }
 }
 
 extension BridgeViewController: UITableViewDataSource {
@@ -102,7 +137,7 @@ extension BridgeViewController: UITableViewDataSource {
                 self.viewOutput.enableBridge(isOn)
             }
             return cell
-        case let cellObject as OnionyCheckmarkCellObject:
+        case let cellObject as BridgeCheckmarkCellObject:
             let cell = tableView.dequeueCell(for: indexPath) as OnionyCheckmarkCell
             cell.update(with: cellObject)
             return cell
@@ -144,5 +179,7 @@ extension BridgeViewController: UITableViewDelegate {
         didSelectRowAt indexPath: IndexPath
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cellObject = sectionObjects[indexPath.section].cellObjects[indexPath.row]
+        viewOutput.didSelect(cellObject: cellObject)
     }
 }

@@ -47,7 +47,7 @@
 "network.tableview.footer.oniony" = "Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.";
 "network.netowrkStatus" = "Готовность Tor";
 "network.torStatus" = "Состояние";
-"network.bridgeStatus" = "Готовность Tor";
+"network.bridgeStatus" = "Мосты включены";
 "network.no" = "Нет";
 "network.yes" = "Да";
 "network.disconnected" = "Отключен";

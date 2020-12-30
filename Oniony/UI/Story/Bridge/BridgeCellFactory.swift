@@ -52,15 +52,22 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
             )
         ]
         
-        if isEnabledBridge {
+        if let bridge = bridgeDirector.selectedBridge {
             selectionCellObjects += [
-                OnionyCheckmarkCellObject(
-                    title: "obfs4",
-                    isSelected: true
+                BridgeCheckmarkCellObject(
+                    title: Bridge.obfs4.name,
+                    isSelected: bridge == .obfs4,
+                    type: .obfs4
                 ),
-                OnionyCheckmarkCellObject(
-                    title: "meek-azure",
-                    isSelected: false
+                BridgeCheckmarkCellObject(
+                    title: Bridge.meekAmazon.name,
+                    isSelected: bridge == .meekAmazon,
+                    type: .meekAmazon
+                ),
+                BridgeCheckmarkCellObject(
+                    title: Bridge.meekAzure.name,
+                    isSelected: bridge == .meekAzure,
+                    type: .meekAzure
                 ),
                 OnionySubtitleCellObject(
                     image: nil,
@@ -76,12 +83,13 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
         )
         sectionObjects.append(selectionSection)
         
+        let bridgeDetail = bridgeDirector.selectedBridge?.name ?? L10n.Bridge.notConfigured
         let statusSection = BridgeSectionObject(
             footer: nil,
             cellObjects: [
                 OnionyRightDetailCellObject(
                     title: L10n.Bridge.currentBridge,
-                    detail: L10n.Bridge.notConfigured,
+                    detail: bridgeDetail,
                     isEnabled: isEnabledBridge
                 )
         ])

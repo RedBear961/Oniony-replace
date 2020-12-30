@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BridgeInputPopupView" customModule="Oniony" customModuleProvider="target">
+            <connections>
+                <outlet property="textField" destination="gT2-FY-bcz" id="4nw-p2-9qp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5Nb-wj-DjC">
+            <rect key="frame" x="0.0" y="0.0" width="305" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GiT-7m-RPB" customClass="OverlayPopupShadowView" customModule="SwitipsUS" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="305" height="180"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Указать мост" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Z9-WP-s9z">
+                            <rect key="frame" x="97.5" y="16" width="110" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20.5" id="bF5-3Y-iOs"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Укажите данные моста из доверенного источника" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp9-Hp-iUv">
+                            <rect key="frame" x="18" y="52.5" width="269" height="28"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
+                            <color key="textColor" name="SecondaryText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gT2-FY-bcz">
+                            <rect key="frame" x="24" y="104.5" width="257" height="30.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30.5" id="30l-pv-cY6"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35O-Qj-u2n">
+                            <rect key="frame" x="197" y="147" width="72" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="Добавить">
+                                <color key="titleColor" name="HeaderText"/>
+                            </state>
+                            <connections>
+                                <action selector="doneDidTouch:" destination="-1" eventType="touchUpInside" id="U8N-me-VtU"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AO9-hP-lpX">
+                            <rect key="frame" x="125" y="147" width="56" height="17"/>
+                            <state key="normal" title="Отмена">
+                                <color key="titleColor" name="HeaderText"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelDidTouch:" destination="-1" eventType="touchUpInside" id="VMi-Rs-TVw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="Background"/>
+                    <constraints>
+                        <constraint firstItem="gT2-FY-bcz" firstAttribute="leading" secondItem="GiT-7m-RPB" secondAttribute="leading" constant="24" id="4Ri-ko-NrZ"/>
+                        <constraint firstAttribute="bottom" secondItem="35O-Qj-u2n" secondAttribute="bottom" constant="16" id="4g8-nf-o6n"/>
+                        <constraint firstItem="35O-Qj-u2n" firstAttribute="leading" secondItem="AO9-hP-lpX" secondAttribute="trailing" constant="16" id="9Ci-UG-eyc"/>
+                        <constraint firstItem="5Z9-WP-s9z" firstAttribute="centerX" secondItem="GiT-7m-RPB" secondAttribute="centerX" id="FDa-cL-Iki"/>
+                        <constraint firstItem="gT2-FY-bcz" firstAttribute="top" secondItem="Sp9-Hp-iUv" secondAttribute="bottom" constant="24" id="G8q-Kb-Di1"/>
+                        <constraint firstItem="5Z9-WP-s9z" firstAttribute="top" secondItem="GiT-7m-RPB" secondAttribute="top" constant="16" id="LJr-ZV-swU"/>
+                        <constraint firstAttribute="trailing" secondItem="gT2-FY-bcz" secondAttribute="trailing" constant="24" id="Pbg-69-lZV"/>
+                        <constraint firstAttribute="bottom" secondItem="AO9-hP-lpX" secondAttribute="bottom" constant="16" id="TeN-yW-3jJ"/>
+                        <constraint firstItem="gT2-FY-bcz" firstAttribute="trailing" secondItem="35O-Qj-u2n" secondAttribute="trailing" constant="12" id="URL-7u-qJP"/>
+                        <constraint firstItem="35O-Qj-u2n" firstAttribute="centerY" secondItem="AO9-hP-lpX" secondAttribute="centerY" id="WNc-Ib-mhf"/>
+                        <constraint firstItem="Sp9-Hp-iUv" firstAttribute="centerX" secondItem="GiT-7m-RPB" secondAttribute="centerX" id="ZjN-fp-BpF"/>
+                        <constraint firstItem="Sp9-Hp-iUv" firstAttribute="top" secondItem="5Z9-WP-s9z" secondAttribute="bottom" constant="16" id="oEH-g0-0Xb"/>
+                        <constraint firstItem="Sp9-Hp-iUv" firstAttribute="leading" secondItem="GiT-7m-RPB" secondAttribute="leading" constant="18" id="pxL-8A-upB"/>
+                        <constraint firstAttribute="trailing" secondItem="Sp9-Hp-iUv" secondAttribute="trailing" constant="18" id="vJl-44-7Jx"/>
+                        <constraint firstItem="AO9-hP-lpX" firstAttribute="top" secondItem="gT2-FY-bcz" secondAttribute="bottom" constant="12" id="wgU-Mn-QDi"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="5sG-Wn-4D8"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GiT-7m-RPB" firstAttribute="leading" secondItem="5Nb-wj-DjC" secondAttribute="leading" id="3FO-oR-k6S"/>
+                <constraint firstAttribute="trailing" secondItem="GiT-7m-RPB" secondAttribute="trailing" id="3KY-wY-XNb"/>
+                <constraint firstAttribute="bottom" secondItem="GiT-7m-RPB" secondAttribute="bottom" id="5bO-z3-D3U"/>
+                <constraint firstItem="GiT-7m-RPB" firstAttribute="top" secondItem="5Nb-wj-DjC" secondAttribute="top" id="oV6-8m-6ky"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-100.72463768115942" y="30.803571428571427"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.15686274509803921" green="0.10980392156862745" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HeaderText">
+            <color red="0.70196078431372544" green="0.40000000000000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryText">
+            <color red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

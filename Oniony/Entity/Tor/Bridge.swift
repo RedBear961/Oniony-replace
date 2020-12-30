@@ -20,33 +20,64 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+/// Псевдоним данных о мосте.
+typealias BridgeData = [String]
 
-/// Протокола директора мостов тор-сети.
-protocol BridgeDirecting: AnyObject {
+/// Мост тор-сети.
+enum Bridge: Equatable {
     
-    /// Включены ли мосты.
-    var isEnabled: Bool { get set }
+    /// Протокол обфускации `obfs4`.
+    case obfs4
     
-    /// Текущий выбранный мост.
-    var selectedBridge: Bridge? { get set }
+    /// Протокол, использующий сервисы Amazon, для видимости белого трафика.
+    case meekAmazon
+    
+    /// Протокол, использующий сервисы Azure, для видимости белого трафика.
+    case meekAzure
+    
+    /// Пользовательский мост.
+    case custom(BridgeData)
 }
 
-/// Директор мостов тор-сети.
-final class BridgeDirector: BridgeDirecting {
+extension Bridge {
     
-    // MARK: - BridgeDirecting
-    
-    var isEnabled: Bool {
-        set { selectedBridge = newValue ? .obfs4 : nil }
-        get { return selectedBridge != nil }
+    /// Имя моста.
+    var name: String {
+        switch self {
+        case .obfs4:
+            return "obfs4"
+        case .meekAmazon:
+            return "meek-amazone"
+        case .meekAzure:
+            return "meek-azure"
+        case .custom(_):
+            return "Пользовательский"
+        }
     }
     
-    var selectedBridge: Bridge?
+    /// Данные о мосте для указанного типа.
+    /// - Parameter isIPv6: Использует ли клиент IP версии 6.
+    func data(isIPv6: Bool) -> BridgeData {
+        switch self {
+        case .obfs4:
+            return isIPv6 ? BridgeDataProvider.obfs4 : BridgeDataProvider.obfs4IPv6
+        case .meekAmazon:
+            return BridgeDataProvider.meekAmazon
+        case .meekAzure:
+            return BridgeDataProvider.meekAzure
+        case .custom(let data):
+            return data
+        }
+    }
+}
+
+/// Провайдер данных о мостах.
+struct BridgeDataProvider {
     
     // swiftlint:disable line_length
     
-    private static let obfs4Bridges = [
+    /// Мосты `obfs4`.
+    static let obfs4 = [
         "obfs4 154.35.22.10:15937 8FB9F4319E89E5C6223052AA525A192AFBC85D55 cert=GGGS1TX4R81m3r0HBl79wKy1OtPPNR2CZUIrHjkRg65Vc2VR8fOyo64f9kmT1UAFG7j0HQ iat-mode=0",
         "obfs4 192.99.11.54:443 7B126FAB960E5AC6A629C729434FF84FB5074EC2 cert=VW5f8+IBUWpPFxF+rsiVy2wXkyTQG7vEd+rHeN2jV5LIDNu8wMNEOqZXPwHdwMVEBdqXEw iat-mode=0",
         "obfs4 109.105.109.165:10527 8DFCD8FB3285E855F5A55EDDA35696C743ABFC4E cert=Bvg/itxeL4TWKLP6N1MaQzSOC6tcRIBv6q57DYAZc3b2AzuM+/TfB7mqTFEfXILCjEwzVA iat-mode=1",
@@ -74,11 +105,18 @@ final class BridgeDirector: BridgeDirecting {
         "obfs4 85.31.186.26:443 91A6354697E6B02A386312F68D82CF86824D3606 cert=PBwr+S8JTVZo6MPdHnkTwXJPILWADLqfMGoVvhZClMq/Urndyd42BwX9YFJHZnBB3H0XCw iat-mode=0"
     ]
     
-    private static let obfs4BridgesIPv6 = [
+    /// Мосты `obfs4` для клиентов, использующих IP версии 6.
+    static let obfs4IPv6 = [
         "obfs4 [2001:470:b381:bfff:216:3eff:fe23:d6c3]:443 CDF2E852BF539B82BD10E27E9115A31734E378C2 cert=qUVQ0srL1JI/vO6V6m/24anYXiJD3QP2HgzUKQtQ7GRqqUvs7P+tG43RtAqdhLOALP7DJQ iat-mode=1"
     ]
     
-    public static let meekAzureBridges = [
+    /// Мосты `Amazon`.
+    static let meekAmazon = [
+        "meek_lite 0.0.2.0:2 B9E7141C594AF25699E0079C1F0146F409495296 url=https://d2cly7j4zqgua7.cloudfront.net/ front=a0.awsstatic.com"
+    ]
+    
+    /// Мосты `Azure`.
+    static let meekAzure = [
         "meek_lite 0.0.2.0:3 97700DFE9F483596DDA6264C4D7DF7641E1E39CE url=https://meek.azureedge.net/ front=ajax.aspnetcdn.com"
     ]
     

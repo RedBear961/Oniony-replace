@@ -29,6 +29,12 @@ protocol BridgeViewOutput {
     
     /// Активность мостов был изменена.
     func enableBridge(_ isEnabled: Bool)
+    
+    /// Выбрана ячейка с моделью.
+    func didSelect(cellObject: CellObject)
+    
+    /// Выбран пользовательский мост.
+    func customBridgeDidSelect(_ data: BridgeData)
 }
 
 final class BridgePresenter: BridgeViewOutput {
@@ -61,5 +67,24 @@ final class BridgePresenter: BridgeViewOutput {
         bridgeDirector.isEnabled = isEnabled
         let sectionObjects = factory.sectionObjects()
         viewInput?.reload(with: sectionObjects)
+    }
+    
+    func didSelect(cellObject: CellObject) {
+        switch cellObject {
+        case let cellObject as BridgeCheckmarkCellObject:
+            bridgeDirector.selectedBridge = cellObject.type
+            let sectionObjects = factory.sectionObjects()
+            viewInput?.update(with: sectionObjects)
+        case is OnionySubtitleCellObject:
+            viewInput?.showCustomBridgeInput()
+        default:
+            break
+        }
+    }
+    
+    func customBridgeDidSelect(_ data: BridgeData) {
+        bridgeDirector.selectedBridge = .custom(data)
+        let sectionObjects = factory.sectionObjects()
+        viewInput?.update(with: sectionObjects)
     }
 }

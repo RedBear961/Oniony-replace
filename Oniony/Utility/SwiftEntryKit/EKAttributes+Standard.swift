@@ -20,26 +20,38 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import SwiftEntryKit
 
-/// Модель ячейки с галочкой.
-struct OnionyCheckmarkCellObject: CellObject {
+extension EKAttributes {
     
-    /// Заголовок.
-    let title: String
-    
-    /// Помечена ли ячейка галочкой.
-    let isSelected: Bool
-}
-
-/// Ячейка с галочкой.
-final class OnionyCheckmarkCell: UITableViewCell {
-    
-    @IBOutlet var title: UILabel!
-    
-    /// Обновляет ячейку, используя модель данных.
-    func update(with cellObject: OnionyCheckmarkCellObject) {
-        self.title.text = cellObject.title
-        self.accessoryType = cellObject.isSelected ? .checkmark : .none
+    static var standard: EKAttributes {
+        var attributes = EKAttributes()
+        attributes.position = .center
+        attributes.displayDuration = .infinity
+        attributes.entryInteraction = .forward
+        attributes.exitAnimation = .none
+        attributes.scroll = .enabled(
+            swipeable: false,
+            pullbackAnimation: .jolt
+        )
+        attributes.screenBackground = .color(
+            color: EKColor.black.with(alpha: 0.7)
+        )
+        
+        let width = PositionConstraints.Edge.ratio(value: 0.9)
+        let height = PositionConstraints.Edge.intrinsic
+        attributes.positionConstraints.size = .init(
+            width: width, height: height
+        )
+        
+        let value = EKAttributes.Shadow.Value(
+            color: EKColor.black.with(alpha: 0.25),
+            opacity: 1,
+            radius: 8,
+            offset: .zero
+        )
+        attributes.shadow = .active(with: value)
+        
+        return attributes
     }
 }
