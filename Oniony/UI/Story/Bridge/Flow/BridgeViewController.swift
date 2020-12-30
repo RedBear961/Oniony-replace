@@ -22,29 +22,17 @@
 
 import UIKit
 
-/// Можедель данных стандартизированной ячейки.
-struct OnionyTableViewCellObject: CellObject {
-    
-    /// Иконка ячейки.
-    let image: UIImage
-    
-    /// Заголовок ячейки.
-    let title: String
-    
-    /// Подзаголовок ячейки.
-    let subtitle: String?
-}
+protocol BridgeViewInput: AnyObject {}
 
-/// Стандартизированная ячейка таблицы.
-final class OnionyTableViewCell: UITableViewCell {
+final class BridgeViewController: ViewController, BridgeViewInput {
     
-    @IBOutlet private var icon: UIImageView!
-    @IBOutlet private var title: UILabel!
-    @IBOutlet private var subtitle: UILabel!
+    @IBOutlet private var tableView: UITableView!
     
-    func update(with cellObject: OnionyTableViewCellObject) {
-        self.icon.image = cellObject.image
-        self.title.text = cellObject.title
-        self.subtitle.text = cellObject.subtitle
+    var viewOutput: BridgeViewOutput!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "Конфигурация моста"
     }
 }

@@ -24,7 +24,11 @@ import Foundation
 
 protocol NetworkViewOutput {
     
-    func moduleDidLoad()
+    /// Модуль будет отрисован.
+    func moduleWillAppear()
+    
+    /// Выбрана ячейка с моделью данных.
+    func didSelect(_ cellObject: CellObject)
 }
 
 final class NetworkPresenter: NetworkViewOutput {
@@ -42,18 +46,22 @@ final class NetworkPresenter: NetworkViewOutput {
     
     // MARK: - NetworkViewOutput
     
-    func moduleDidLoad() {
+    func moduleWillAppear() {
         var sectionObjects = [NetworkSectionObject]()
         sectionObjects.append(NetworkSectionObject(header: "Текущий статус", footer: "Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.", cellObjects: [ // swiftlint:disable:this all
-            KeyValueCellObject(key: "Готовность Tor", value: "Нет"),
-            KeyValueCellObject(key: "Состояние", value: "Отключен"),
-            KeyValueCellObject(key: "Мосты включены", value: "Нет")
+            OnionyRightDetailCellObject(title: "Готовность Tor", detail: "Нет"),
+            OnionyRightDetailCellObject(title: "Состояние", detail: "Отключен"),
+            OnionyRightDetailCellObject(title: "Мосты включены", detail: "Нет")
         ]))
         
         sectionObjects.append(NetworkSectionObject(header: nil, footer: nil, cellObjects: [
-            OnionyTableViewCellObject(image: Asset.iconWrench.image, title: "Конфигурация моста", subtitle: "Используйте мост для подключения к Tor")
+            OnionySubtitleCellObject(image: Asset.iconWrench.image, title: "Конфигурация моста", subtitle: "Используйте мост для подключения к Tor")
         ]))
         
         viewInput?.update(with: sectionObjects)
+    }
+    
+    func didSelect(_ cellObject: CellObject) {
+        coordinator.openBridge()
     }
 }

@@ -22,29 +22,25 @@
 
 import UIKit
 
-/// Протокол координатора модуля настройки сети.
-protocol NetworkCoordinating: NavigationCoordinating {
+/// Модель ячейки с детялями справа.
+struct OnionyRightDetailCellObject: CellObject {
     
-    /// Открыть модуль настройки мостов.
-    func openBridge()
+    /// Заголовок.
+    let title: String
+    
+    /// Детали.
+    let detail: String
 }
 
-/// Координатор модуля настройки сети.
-final class NetworkCoordinator: NavigationCoordinator<NetworkViewController>, NetworkCoordinating {
+/// Стандартизированная ячейка с деталями справа.
+final class OnionyRightDetailCell: UITableViewCell {
     
-    // MARK: - Override
+    @IBOutlet private var title: UILabel!
+    @IBOutlet private var detail: UILabel!
     
-    override func instantiateViewController() -> NetworkViewController {
-        return resolver.resolve(NetworkViewController.self, argument: self as NetworkCoordinating)!
-    }
-    
-    // MARK: - NetworkCoordinating
-    
-    func openBridge() {
-        let child = resolver.resolve(
-            BridgeCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    /// Обновить ячейку с помощью модели.
+    func update(with cellObject: OnionyRightDetailCellObject) {
+        title.text = cellObject.title
+        detail.text = cellObject.detail
     }
 }

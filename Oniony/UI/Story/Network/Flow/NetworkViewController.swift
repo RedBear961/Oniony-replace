@@ -22,15 +22,22 @@
 
 import UIKit
 
+/// Модель даных секции модуля настоойки сети.
 struct NetworkSectionObject {
     
+    /// Заголовок секции.
     let header: String?
+    
+    /// Нижний колонтитул секции.
     let footer: String?
+    
+    /// Модели ячеек.
     let cellObjects: [CellObject]
 }
 
 protocol NetworkViewInput: AnyObject {
     
+    /// Обновляет отображение, используя модели данных секциий.
     func update(with sectionObjects: [NetworkSectionObject])
 }
 
@@ -47,11 +54,16 @@ final class NetworkViewController: ViewController, NetworkViewInput {
         
         navigationItem.title = L10n.Network.title
         
-        tableView.register(cell: KeyValueCell.self)
-        tableView.register(cell: OnionyTableViewCell.self)
-        
-        viewOutput.moduleDidLoad()
+        tableView.register(cell: OnionyRightDetailCell.self)
+        tableView.register(cell: OnionySubtitleCell.self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewOutput.moduleWillAppear()
+    }
+    
+    // MARK: - NetworkViewInput
     
     func update(with sectionObjects: [NetworkSectionObject]) {
         self.sectionObjects = sectionObjects
@@ -65,20 +77,26 @@ extension NetworkViewController: UITableViewDataSource {
         return sectionObjects.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return sectionObjects[section].cellObjects.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let section = sectionObjects[indexPath.section]
         let cellObject = section.cellObjects[indexPath.row]
         
-        if let cellObject = cellObject as? KeyValueCellObject {
-            let cell = tableView.dequeueCell(for: indexPath) as KeyValueCell
+        if let cellObject = cellObject as? OnionyRightDetailCellObject {
+            let cell = tableView.dequeueCell(for: indexPath) as OnionyRightDetailCell
             cell.update(with: cellObject)
             return cell
-        } else if let cellObject = cellObject as? OnionyTableViewCellObject {
-            let cell = tableView.dequeueCell(for: indexPath) as OnionyTableViewCell
+        } else if let cellObject = cellObject as? OnionySubtitleCellObject {
+            let cell = tableView.dequeueCell(for: indexPath) as OnionySubtitleCell
             cell.update(with: cellObject)
             return cell
         }
@@ -86,25 +104,50 @@ extension NetworkViewController: UITableViewDataSource {
         preconditionFailure("Неизвестный тип модели данных: \(cellObject.self).")
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(
+        _ tableView: UITableView,
+        titleForHeaderInSection section: Int
+    ) -> String? {
         return sectionObjects[section].header
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(
+        _ tableView: UITableView,
+        titleForFooterInSection section: Int
+    ) -> String? {
         return sectionObjects[section].footer
     }
 }
 
 extension NetworkViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        header.textLabel?.textColor = Asset.headerText.color
+    func tableView(
+        _ tableView: UITableView,
+        willDisplayHeaderView view: UIView,
+        forSection section: Int
+    ) {
+        guard let header = view as? UITableViewHeaderFooterView,
+              let label = header.textLabel else { return }
+        
+        label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        label.textColor = Asset.headerText.color
     }
     
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = UIColor.white.withAlphaComponent(0.8)
+    func tableView(
+        _ tableView: UITableView,
+        willDisplayFooterView view: UIView,
+        forSection section: Int
+    ) {
+        guard let header = view as? UITableViewHeaderFooterView,
+              let label = header.textLabel else { return }
+        label.textColor = UIColor.white.withAlphaComponent(0.8)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let cellObject = sectionObjects[indexPath.section].cellObjects[indexPath.row]
+        viewOutput.didSelect(cellObject)
     }
 }

@@ -22,19 +22,13 @@
 
 import UIKit
 
-struct KeyValueCellObject: CellObject {
-    
-    let key: String
-    let value: String
-}
+protocol BridgeCoordinating: NavigationCoordinating {}
 
-final class KeyValueCell: UITableViewCell {
+final class BridgeCoordinator: NavigationCoordinator<BridgeViewController>, BridgeCoordinating {
     
-    @IBOutlet private var key: UILabel!
-    @IBOutlet private var value: UILabel!
+    // MARK: - Override
     
-    func update(with cellObject: KeyValueCellObject) {
-        key.text = cellObject.key
-        value.text = cellObject.value
+    override func instantiateViewController() -> BridgeViewController {
+        return resolver.resolve(BridgeViewController.self, argument: self as BridgeCoordinating)!
     }
 }

@@ -20,31 +20,20 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import Foundation
 
-/// Протокол координатора модуля настройки сети.
-protocol NetworkCoordinating: NavigationCoordinating {
-    
-    /// Открыть модуль настройки мостов.
-    func openBridge()
-}
+protocol BridgeViewOutput {}
 
-/// Координатор модуля настройки сети.
-final class NetworkCoordinator: NavigationCoordinator<NetworkViewController>, NetworkCoordinating {
+final class BridgePresenter: BridgeViewOutput {
     
-    // MARK: - Override
+    private weak var viewInput: BridgeViewInput?
+    private let coordinator: BridgeCoordinating
     
-    override func instantiateViewController() -> NetworkViewController {
-        return resolver.resolve(NetworkViewController.self, argument: self as NetworkCoordinating)!
-    }
-    
-    // MARK: - NetworkCoordinating
-    
-    func openBridge() {
-        let child = resolver.resolve(
-            BridgeCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    init(
+        viewInput: BridgeViewInput,
+        coordinator: BridgeCoordinating
+    ) {
+        self.viewInput = viewInput
+        self.coordinator = coordinator
     }
 }

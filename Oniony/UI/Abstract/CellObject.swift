@@ -20,5 +20,7 @@
  * THE SOFTWARE.
  */
 
+import Foundation
+
 /// Протокол модели ячейки.
 protocol CellObject {}

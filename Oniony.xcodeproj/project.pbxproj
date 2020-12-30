@@ -13,8 +13,8 @@
 		0564E525259B9D6E002980A2 /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E520259B9D6E002980A2 /* NetworkViewController.swift */; };
 		0564E526259B9D6E002980A2 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E521259B9D6E002980A2 /* NetworkAssembly.swift */; };
 		0571FDBA259BA5DA00CA0C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDB9259BA5DA00CA0C4F /* ViewController.swift */; };
-		0571FDC8259BAEEB00CA0C4F /* KeyValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDC6259BAEEB00CA0C4F /* KeyValueCell.swift */; };
-		0571FDC9259BAEEB00CA0C4F /* KeyValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0571FDC7259BAEEB00CA0C4F /* KeyValueCell.xib */; };
+		0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */; };
+		0571FDC9259BAEEB00CA0C4F /* OnionyRightDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */; };
 		0571FDCE259BB06900CA0C4F /* CellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDCD259BB06900CA0C4F /* CellObject.swift */; };
 		05A12F832599D48B00367767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A12F822599D48B00367767 /* AppDelegate.swift */; };
 		05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05A12F8B2599D48D00367767 /* Assets.xcassets */; };
@@ -49,8 +49,13 @@
 		05A13058259B97A400367767 /* TorLoadingLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A13056259B97A400367767 /* TorLoadingLogView.swift */; };
 		05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A13057259B97A400367767 /* TorLoadingLogView.xib */; };
 		05A1305C259B985C00367767 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1305B259B985C00367767 /* Reusable.swift */; };
-		05A8B829259BB4C6009A3392 /* OnionyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B827259BB4C6009A3392 /* OnionyTableViewCell.swift */; };
-		05A8B82A259BB4C6009A3392 /* OnionyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A8B828259BB4C6009A3392 /* OnionyTableViewCell.xib */; };
+		05A8B829259BB4C6009A3392 /* OnionySubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B827259BB4C6009A3392 /* OnionySubtitleCell.swift */; };
+		05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A8B828259BB4C6009A3392 /* OnionySubtitleCell.xib */; };
+		05A8B831259C6C9C009A3392 /* Bridge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A8B82C259C6C9C009A3392 /* Bridge.storyboard */; };
+		05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B82D259C6C9C009A3392 /* BridgeCoordinator.swift */; };
+		05A8B833259C6C9C009A3392 /* BridgePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B82E259C6C9C009A3392 /* BridgePresenter.swift */; };
+		05A8B834259C6C9C009A3392 /* BridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */; };
+		05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B830259C6C9C009A3392 /* BridgeAssembly.swift */; };
 		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +66,8 @@
 		0564E520259B9D6E002980A2 /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		0564E521259B9D6E002980A2 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
 		0571FDB9259BA5DA00CA0C4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0571FDC6259BAEEB00CA0C4F /* KeyValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueCell.swift; sourceTree = "<group>"; };
-		0571FDC7259BAEEB00CA0C4F /* KeyValueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyValueCell.xib; sourceTree = "<group>"; };
+		0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyRightDetailCell.swift; sourceTree = "<group>"; };
+		0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyRightDetailCell.xib; sourceTree = "<group>"; };
 		0571FDCD259BB06900CA0C4F /* CellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellObject.swift; sourceTree = "<group>"; };
 		05A12F7F2599D48B00367767 /* Oniony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oniony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A12F822599D48B00367767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,8 +104,13 @@
 		05A13056259B97A400367767 /* TorLoadingLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorLoadingLogView.swift; sourceTree = "<group>"; };
 		05A13057259B97A400367767 /* TorLoadingLogView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TorLoadingLogView.xib; sourceTree = "<group>"; };
 		05A1305B259B985C00367767 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		05A8B827259BB4C6009A3392 /* OnionyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnionyTableViewCell.swift; sourceTree = "<group>"; };
-		05A8B828259BB4C6009A3392 /* OnionyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnionyTableViewCell.xib; sourceTree = "<group>"; };
+		05A8B827259BB4C6009A3392 /* OnionySubtitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnionySubtitleCell.swift; sourceTree = "<group>"; };
+		05A8B828259BB4C6009A3392 /* OnionySubtitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnionySubtitleCell.xib; sourceTree = "<group>"; };
+		05A8B82C259C6C9C009A3392 /* Bridge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bridge.storyboard; sourceTree = "<group>"; };
+		05A8B82D259C6C9C009A3392 /* BridgeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeCoordinator.swift; sourceTree = "<group>"; };
+		05A8B82E259C6C9C009A3392 /* BridgePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgePresenter.swift; sourceTree = "<group>"; };
+		05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeViewController.swift; sourceTree = "<group>"; };
+		05A8B830259C6C9C009A3392 /* BridgeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeAssembly.swift; sourceTree = "<group>"; };
 		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
 		A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oniony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.debug.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,13 +173,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0571FDC5259BAED800CA0C4F /* KeyValueCell */ = {
+		0571FDC5259BAED800CA0C4F /* OnionyRightDetailCell */ = {
 			isa = PBXGroup;
 			children = (
-				0571FDC6259BAEEB00CA0C4F /* KeyValueCell.swift */,
-				0571FDC7259BAEEB00CA0C4F /* KeyValueCell.xib */,
+				0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */,
+				0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */,
 			);
-			path = KeyValueCell;
+			path = OnionyRightDetailCell;
 			sourceTree = "<group>";
 		};
 		05A12F762599D48B00367767 = {
@@ -300,6 +310,7 @@
 			children = (
 				05A12FDC259A0DF000367767 /* StartUp */,
 				0564E51B259B9CFE002980A2 /* Network */,
+				05A8B837259C6CA1009A3392 /* Bridge */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -328,8 +339,8 @@
 		05A12FF3259A161B00367767 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				05A8B826259BB4C6009A3392 /* OnionyTableViewCell */,
-				0571FDC5259BAED800CA0C4F /* KeyValueCell */,
+				05A8B826259BB4C6009A3392 /* OnionySubtitleCell */,
+				0571FDC5259BAED800CA0C4F /* OnionyRightDetailCell */,
 				05A12FF4259A163B00367767 /* GradientView.swift */,
 				05A1300C259A215500367767 /* OnionyButton.swift */,
 			);
@@ -387,13 +398,33 @@
 			path = StartUpView;
 			sourceTree = "<group>";
 		};
-		05A8B826259BB4C6009A3392 /* OnionyTableViewCell */ = {
+		05A8B826259BB4C6009A3392 /* OnionySubtitleCell */ = {
 			isa = PBXGroup;
 			children = (
-				05A8B827259BB4C6009A3392 /* OnionyTableViewCell.swift */,
-				05A8B828259BB4C6009A3392 /* OnionyTableViewCell.xib */,
+				05A8B827259BB4C6009A3392 /* OnionySubtitleCell.swift */,
+				05A8B828259BB4C6009A3392 /* OnionySubtitleCell.xib */,
 			);
-			path = OnionyTableViewCell;
+			path = OnionySubtitleCell;
+			sourceTree = "<group>";
+		};
+		05A8B837259C6CA1009A3392 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				05A8B839259C6CA7009A3392 /* Flow */,
+				05A8B830259C6C9C009A3392 /* BridgeAssembly.swift */,
+				05A8B82C259C6C9C009A3392 /* Bridge.storyboard */,
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		05A8B839259C6CA7009A3392 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				05A8B82D259C6C9C009A3392 /* BridgeCoordinator.swift */,
+				05A8B82E259C6C9C009A3392 /* BridgePresenter.swift */,
+				05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		3B67BD12DD644508ED2912F0 /* Pods */ = {
@@ -475,14 +506,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */,
-				05A8B82A259BB4C6009A3392 /* OnionyTableViewCell.xib in Resources */,
+				05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */,
 				05A12FE2259A0DFE00367767 /* StartUp.storyboard in Resources */,
 				0564E522259B9D6E002980A2 /* Network.storyboard in Resources */,
 				05A1300A259A20AC00367767 /* StartUpView.xib in Resources */,
+				05A8B831259C6C9C009A3392 /* Bridge.storyboard in Resources */,
 				05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */,
 				05A12FB12599F0EB00367767 /* Localizable.strings in Resources */,
 				05A12F8C2599D48D00367767 /* Assets.xcassets in Resources */,
-				0571FDC9259BAEEB00CA0C4F /* KeyValueCell.xib in Resources */,
+				0571FDC9259BAEEB00CA0C4F /* OnionyRightDetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,19 +613,23 @@
 				05A1303C259B023100367767 /* TorConfigurationData.swift in Sources */,
 				05A13036259AFF4900367767 /* TorConfigurationBuilder.swift in Sources */,
 				05A13040259B8DEA00367767 /* TorLoadingStatus.swift in Sources */,
+				05A8B833259C6C9C009A3392 /* BridgePresenter.swift in Sources */,
 				05A12FF5259A163B00367767 /* GradientView.swift in Sources */,
 				05A12FCA259A072200367767 /* SwinjectConfigurator.swift in Sources */,
-				05A8B829259BB4C6009A3392 /* OnionyTableViewCell.swift in Sources */,
+				05A8B829259BB4C6009A3392 /* OnionySubtitleCell.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
-				0571FDC8259BAEEB00CA0C4F /* KeyValueCell.swift in Sources */,
+				0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */,
 				05A12FE5259A0DFE00367767 /* StartUpViewController.swift in Sources */,
 				0571FDBA259BA5DA00CA0C4F /* ViewController.swift in Sources */,
 				0564E525259B9D6E002980A2 /* NetworkViewController.swift in Sources */,
 				05A1305C259B985C00367767 /* Reusable.swift in Sources */,
+				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
+				05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */,
 				05A12FBC2599F1ED00367767 /* Strings.swift in Sources */,
 				05A12FD2259A086100367767 /* AppCoordinator.swift in Sources */,
 				05A12FE4259A0DFE00367767 /* StartUpPresenter.swift in Sources */,
+				05A8B834259C6C9C009A3392 /* BridgeViewController.swift in Sources */,
 				0571FDCE259BB06900CA0C4F /* CellObject.swift in Sources */,
 				05A1304F259B91FE00367767 /* Block.swift in Sources */,
 				05A12FE6259A0DFE00367767 /* StartUpAssembly.swift in Sources */,

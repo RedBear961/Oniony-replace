@@ -43,3 +43,13 @@
 // NetworkViewController
 "network.title" = "Сеть Tor";
 "network.header" = "Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.";
+"network.tableview.header.currentStatus" = "Текущий статус";
+"network.tableview.footer.oniony" = "Oniony перенаправляет ваш трафик через сеть Tor. Ее поддерживают тысячи добровольцев по всему миру.";
+"network.tableview.cell.netowrkStatus" = "Готовность Tor";
+"network.tableview.cell.networkStatusDisconnect" = "Нет";
+"network.tableview.cell.torStatus" = "Состояние";
+"network.tableview.cell.torStatusDisconnect" = "Отключен";
+"network.tableview.cell.bridgeStatus" = "Готовность Tor";
+"network.tableview.cell.bridgeStatusDisconnect" = "Нет";
+"network.tableview.cell.bridgeConfiguration" = "Конфигурация моста";
+"network.tableview.cell.bridgeDescription" = "Используйте мост для подключения к Tor";

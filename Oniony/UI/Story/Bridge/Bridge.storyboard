@@ -5,38 +5,34 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Network View Controller-->
+        <!--Bridge View Controller-->
         <scene sceneID="QQV-d3-jyW">
             <objects>
-                <viewController storyboardIdentifier="NetworkViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Tc-br-wEX" customClass="NetworkViewController" customModule="Oniony" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BridgeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Tc-br-wEX" customClass="BridgeViewController" customModule="Oniony" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oYu-GF-gka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Yam-TW-zdP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vbv-GX-fA3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" red="0.25882352941176467" green="0.2196078431372549" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="7Tc-br-wEX" id="VNL-qN-VJ0"/>
-                                    <outlet property="delegate" destination="7Tc-br-wEX" id="wK6-iX-fcS"/>
-                                </connections>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xrI-BF-agH"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="Yam-TW-zdP" secondAttribute="trailing" id="1it-U5-f0r"/>
-                            <constraint firstItem="Yam-TW-zdP" firstAttribute="top" secondItem="xrI-BF-agH" secondAttribute="top" id="80L-VM-rJU"/>
-                            <constraint firstItem="Yam-TW-zdP" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="eDB-qa-hGE"/>
-                            <constraint firstItem="xrI-BF-agH" firstAttribute="bottom" secondItem="Yam-TW-zdP" secondAttribute="bottom" id="gmf-YQ-pAI"/>
+                            <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="Vbv-GX-fA3" secondAttribute="trailing" id="AtN-A7-3pX"/>
+                            <constraint firstItem="xrI-BF-agH" firstAttribute="bottom" secondItem="Vbv-GX-fA3" secondAttribute="bottom" id="HD1-ZF-bKj"/>
+                            <constraint firstItem="Vbv-GX-fA3" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="kH6-Pt-59I"/>
+                            <constraint firstItem="Vbv-GX-fA3" firstAttribute="top" secondItem="xrI-BF-agH" secondAttribute="top" id="sYw-a8-g9m"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Yam-TW-zdP" id="Qq4-9L-OMe"/>
+                        <outlet property="tableView" destination="Vbv-GX-fA3" id="eVv-FH-F1O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mty-NX-cjK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -44,10 +40,12 @@
             <point key="canvasLocation" x="199" y="159"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <namedColor name="Background">
             <color red="0.15686274509803921" green="0.10980392156862745" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
