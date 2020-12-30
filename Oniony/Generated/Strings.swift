@@ -11,6 +11,29 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum Bridge {
+    /// Настройте мост для подключения к Tor
+    internal static let configureBridge = L10n.tr("Localizable", "bridge.configureBridge")
+    /// Текущий настроенный мост
+    internal static let currentBridge = L10n.tr("Localizable", "bridge.currentBridge")
+    /// Не настроен
+    internal static let notConfigured = L10n.tr("Localizable", "bridge.notConfigured")
+    /// Использовать мост
+    internal static let specifyBridge = L10n.tr("Localizable", "bridge.specifyBridge")
+    /// Укажите данные моста из доверенного источника
+    internal static let specifyBridgeData = L10n.tr("Localizable", "bridge.specifyBridgeData")
+    /// Конфигурация моста
+    internal static let title = L10n.tr("Localizable", "bridge.title")
+    /// Использовать мост
+    internal static let useBridge = L10n.tr("Localizable", "bridge.useBridge")
+    internal enum TableView {
+      internal enum Header {
+        /// Мосты - не включенные в списки узлы, затрудняющие блокировку соединений с сетью Tor. Из-за того, что ряд стран пытается заблокировать Tor, некоторые мосты будут работать в одних странах, но могут не работать в других.
+        internal static let aboutBridges = L10n.tr("Localizable", "bridge.tableView.header.aboutBridges")
+      }
+    }
+  }
+
   internal enum Network {
     /// Конфигурация моста
     internal static let bridgeConfiguration = L10n.tr("Localizable", "network.bridgeConfiguration")

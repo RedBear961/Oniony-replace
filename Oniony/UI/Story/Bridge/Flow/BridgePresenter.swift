@@ -22,18 +22,44 @@
 
 import Foundation
 
-protocol BridgeViewOutput {}
+protocol BridgeViewOutput {
+    
+    /// Модуль был загружен.
+    func moduleDidLoad()
+    
+    /// Активность мостов был изменена.
+    func enableBridge(_ isEnabled: Bool)
+}
 
 final class BridgePresenter: BridgeViewOutput {
     
     private weak var viewInput: BridgeViewInput?
     private let coordinator: BridgeCoordinating
+    private let factory: BridgeCellFactory
+    private let bridgeDirector: BridgeDirecting
     
     init(
         viewInput: BridgeViewInput,
-        coordinator: BridgeCoordinating
+        coordinator: BridgeCoordinating,
+        factory: BridgeCellFactory,
+        bridgeDirector: BridgeDirecting
     ) {
         self.viewInput = viewInput
         self.coordinator = coordinator
+        self.factory = factory
+        self.bridgeDirector = bridgeDirector
+    }
+    
+    // MARK: - BridgeViewOutput
+    
+    func moduleDidLoad() {
+        let sectionObjects = factory.sectionObjects()
+        viewInput?.update(with: sectionObjects)
+    }
+    
+    func enableBridge(_ isEnabled: Bool) {
+        bridgeDirector.isEnabled = isEnabled
+        let sectionObjects = factory.sectionObjects()
+        viewInput?.reload(with: sectionObjects)
     }
 }

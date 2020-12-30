@@ -23,10 +23,10 @@
 import Foundation
 
 /// Протокола директора мостов тор-сети.
-protocol BridgeDirecting {
+protocol BridgeDirecting: AnyObject {
     
     /// Включены ли мосты.
-    var isEnabled: Bool { get }
+    var isEnabled: Bool { get set }
 }
 
 /// Директор мостов тор-сети.

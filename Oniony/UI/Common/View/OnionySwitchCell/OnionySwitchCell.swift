@@ -22,29 +22,43 @@
 
 import UIKit
 
-/// Можедель данных стандартизированной ячейки.
-struct OnionySubtitleCellObject: CellObject {
+/// Модель данных ячейки с переключаталем.
+struct OnionySwitchCellObject: CellObject {
     
-    /// Иконка ячейки.
-    let image: UIImage?
-    
-    /// Заголовок ячейки.
+    /// Заголовок.
     let title: String
     
-    /// Подзаголовок ячейки.
+    /// Подзаголовок.
     let subtitle: String
+    
+    /// Состояние переключателя.
+    let isOn: Bool
 }
 
-/// Стандартизированная ячейка таблицы.
-final class OnionySubtitleCell: UITableViewCell {
+/// Ячейка таблицы, содержащая переключатель.
+final class OnionySwitchCell: UITableViewCell {
     
-    @IBOutlet private var icon: UIImageView!
+    /// Блок обратного вызова.
+    typealias ActionBlock = (OnionySwitchCell, _ isOn: Bool) -> Void
+    
     @IBOutlet private var title: UILabel!
     @IBOutlet private var subtitle: UILabel!
+    @IBOutlet private var switchButton: UISwitch!
     
-    func update(with cellObject: OnionySubtitleCellObject) {
-        self.icon.image = cellObject.image
+    private var onSwitch: ActionBlock?
+    
+    /// Обновновляет ячейку с помощью модели данных и обратного вызова.
+    func update(
+        with cellObject: OnionySwitchCellObject,
+        onSwitch: @escaping ActionBlock
+    ) {
         self.title.text = cellObject.title
         self.subtitle.text = cellObject.subtitle
+        self.switchButton.isOn = cellObject.isOn
+        self.onSwitch = onSwitch
+    }
+    
+    @IBAction func switchDidTouch(_ sender: UISwitch) {
+        onSwitch?(self, sender.isOn)
     }
 }

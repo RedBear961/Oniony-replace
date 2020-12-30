@@ -25,7 +25,7 @@ import Foundation
 /// Протокол фабрики ячеек модуля настройки сети.
 protocol NetworkCellFactory {
     
-    /// Срздает модели секций таблицы.
+    /// Создает модели секций таблицы.
     func sectionObjects() -> [NetworkSectionObject]
 }
 

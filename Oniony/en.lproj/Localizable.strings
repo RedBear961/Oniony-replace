@@ -53,3 +53,13 @@
 "network.disconnected" = "Отключен";
 "network.bridgeConfiguration" = "Конфигурация моста";
 "network.bridgeDescription" = "Используйте мост для подключения к Tor";
+
+// BridgeViewController
+"bridge.title" = "Конфигурация моста";
+"bridge.tableView.header.aboutBridges" = "Мосты - не включенные в списки узлы, затрудняющие блокировку соединений с сетью Tor. Из-за того, что ряд стран пытается заблокировать Tor, некоторые мосты будут работать в одних странах, но могут не работать в других.";
+"bridge.useBridge" = "Использовать мост";
+"bridge.configureBridge" = "Настройте мост для подключения к Tor";
+"bridge.specifyBridge" = "Использовать мост";
+"bridge.specifyBridgeData" = "Укажите данные моста из доверенного источника";
+"bridge.currentBridge" = "Текущий настроенный мост";
+"bridge.notConfigured" = "Не настроен";

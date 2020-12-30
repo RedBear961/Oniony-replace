@@ -91,17 +91,18 @@ extension NetworkViewController: UITableViewDataSource {
         let section = sectionObjects[indexPath.section]
         let cellObject = section.cellObjects[indexPath.row]
         
-        if let cellObject = cellObject as? OnionyRightDetailCellObject {
+        switch cellObject {
+        case let cellObject as OnionyRightDetailCellObject:
             let cell = tableView.dequeueCell(for: indexPath) as OnionyRightDetailCell
             cell.update(with: cellObject)
             return cell
-        } else if let cellObject = cellObject as? OnionySubtitleCellObject {
+        case let cellObject as OnionySubtitleCellObject:
             let cell = tableView.dequeueCell(for: indexPath) as OnionySubtitleCell
             cell.update(with: cellObject)
             return cell
+        default:
+            preconditionFailure("Неизвестный тип модели данных: \(cellObject.self).")
         }
-        
-        preconditionFailure("Неизвестный тип модели данных: \(cellObject.self).")
     }
     
     func tableView(
@@ -140,7 +141,7 @@ extension NetworkViewController: UITableViewDelegate {
     ) {
         guard let header = view as? UITableViewHeaderFooterView,
               let label = header.textLabel else { return }
-        label.textColor = UIColor.white.withAlphaComponent(0.8)
+        label.textColor = Asset.secondaryText.color
     }
     
     func tableView(

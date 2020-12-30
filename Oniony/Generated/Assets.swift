@@ -26,6 +26,8 @@ internal enum Asset {
   internal static let main = ColorAsset(name: "Main")
   internal static let mainButton = ColorAsset(name: "MainButton")
   internal static let second = ColorAsset(name: "Second")
+  internal static let secondaryText = ColorAsset(name: "SecondaryText")
+  internal static let subheaderText = ColorAsset(name: "SubheaderText")
   internal static let appPreview = ImageAsset(name: "app_preview")
   internal static let buttonSettings = ImageAsset(name: "button_settings")
   internal static let iconWrench = ImageAsset(name: "icon_wrench")

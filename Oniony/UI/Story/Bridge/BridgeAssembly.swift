@@ -40,10 +40,12 @@ final class BridgeAssembly: AutoAssembly {
     dynamic func bridgePresenter() {
         container.register(
             BridgeViewOutput.self
-        ) { (_, viewInput: BridgeViewInput, coordinator: BridgeCoordinating) -> BridgePresenter in
+        ) { (resolver, viewInput: BridgeViewInput, coordinator: BridgeCoordinating) -> BridgePresenter in
             return BridgePresenter(
                 viewInput: viewInput,
-                coordinator: coordinator
+                coordinator: coordinator,
+                factory: resolver.resolve(BridgeCellFactory.self)!,
+                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
             )
         }
     }
@@ -53,6 +55,16 @@ final class BridgeAssembly: AutoAssembly {
             BridgeCoordinating.self
         ) { (resolver, navigationVC: UINavigationController) -> BridgeCoordinator in
             return BridgeCoordinator(resolver, presentationVC: navigationVC)
+        }
+    }
+    
+    dynamic func bridgeCellFactory() {
+        container.register(
+            BridgeCellFactory.self
+        ) { (resolver) -> BridgeCellFactoryImpl in
+            return BridgeCellFactoryImpl(
+                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+            )
         }
     }
 }

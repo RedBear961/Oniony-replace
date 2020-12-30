@@ -22,29 +22,24 @@
 
 import UIKit
 
-/// Можедель данных стандартизированной ячейки.
-struct OnionySubtitleCellObject: CellObject {
+/// Модель ячейки с галочкой.
+struct OnionyCheckmarkCellObject: CellObject {
     
-    /// Иконка ячейки.
-    let image: UIImage?
-    
-    /// Заголовок ячейки.
+    /// Заголовок.
     let title: String
     
-    /// Подзаголовок ячейки.
-    let subtitle: String
+    /// Помечена ли ячейка галочкой.
+    let isSelected: Bool
 }
 
-/// Стандартизированная ячейка таблицы.
-final class OnionySubtitleCell: UITableViewCell {
+/// Ячейка с галочкой.
+final class OnionyCheckmarkCell: UITableViewCell {
     
-    @IBOutlet private var icon: UIImageView!
-    @IBOutlet private var title: UILabel!
-    @IBOutlet private var subtitle: UILabel!
+    @IBOutlet var title: UILabel!
     
-    func update(with cellObject: OnionySubtitleCellObject) {
-        self.icon.image = cellObject.image
+    /// Обновляет ячейку, используя модель данных.
+    func update(with cellObject: OnionyCheckmarkCellObject) {
         self.title.text = cellObject.title
-        self.subtitle.text = cellObject.subtitle
+        self.accessoryType = cellObject.isSelected ? .checkmark : .none
     }
 }

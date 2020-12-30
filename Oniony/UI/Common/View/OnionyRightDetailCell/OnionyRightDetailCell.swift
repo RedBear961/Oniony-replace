@@ -30,6 +30,20 @@ struct OnionyRightDetailCellObject: CellObject {
     
     /// Детали.
     let detail: String
+    
+    /// Активна ли ячеека.
+    let isEnabled: Bool
+    
+    /// Стандартный конструктор.
+    init(
+        title: String,
+        detail: String,
+        isEnabled: Bool = true
+    ) {
+        self.title = title
+        self.detail = detail
+        self.isEnabled = isEnabled
+    }
 }
 
 /// Стандартизированная ячейка с деталями справа.
@@ -42,5 +56,9 @@ final class OnionyRightDetailCell: UITableViewCell {
     func update(with cellObject: OnionyRightDetailCellObject) {
         title.text = cellObject.title
         detail.text = cellObject.detail
+        
+        let textColor = cellObject.isEnabled ? UIColor.white : Asset.secondaryText.color
+        title.textColor = textColor
+        detail.textColor = textColor
     }
 }
