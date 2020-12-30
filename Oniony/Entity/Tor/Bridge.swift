@@ -37,6 +37,11 @@ enum Bridge: Equatable {
     
     /// Пользовательский мост.
     case custom(BridgeData)
+    
+    /// Мост по-умолчанию.
+    static var `default`: Bridge {
+        return Bridge.obfs4
+    }
 }
 
 extension Bridge {
@@ -67,6 +72,55 @@ extension Bridge {
             return BridgeDataProvider.meekAzure
         case .custom(let data):
             return data
+        }
+    }
+}
+
+extension Bridge {
+    
+    struct BridgeId {
+        
+        /// Идентификатор моста `obfs4`.
+        static var obfs4: String { return "obfs4" }
+        
+        /// Идентификатор моста `meekAmazon`.
+        static var meekAmazon: String { return "meek_amazone" }
+        
+        /// Идентификатор моста `meekAzure`.
+        static var meekAzure: String { return "meek_azure" }
+        
+        /// Идентификатор пользовательского моста.
+        static var custom: String { return "custom" }
+    }
+    
+    /// Идентификатор типа моста.
+    var id: String {
+        switch self {
+        case .obfs4:
+            return "obfs4"
+        case .meekAmazon:
+            return "meek_amazone"
+        case .meekAzure:
+            return "meek_azure"
+        case .custom(_):
+            return "custom"
+        }
+    }
+    
+    /// Конструктор моста по идентификатору и набору данных.
+    /// Для встроенных мостов, данные не будут использованы.
+    /// Для пользовательских мостов данные необходимы, в случае
+    /// их отсутствия будет выбран мост по-умолчанию.
+    init(id: String, data: BridgeData?) {
+        switch id {
+        case BridgeId.obfs4:        self = .obfs4
+        case BridgeId.meekAmazon:   self = .meekAmazon
+        case BridgeId.meekAzure:    self = .meekAzure
+        case BridgeId.custom:
+            guard let data = data else { fallthrough }
+            self = .custom(data)
+        default:
+            self = .default
         }
     }
 }

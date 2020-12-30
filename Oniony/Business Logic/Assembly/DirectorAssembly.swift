@@ -38,7 +38,7 @@ final class DirectorAssembly: AutoAssembly {
     /// Директор мостов тор-сети.
     dynamic func bridgeDirector() {
         container.register(BridgeDirecting.self) { (_) -> BridgeDirector in
-            return BridgeDirector()
+            return BridgeDirector(userDefaults: UserDefaults.standard)
         }.inObjectScope(.container)
     }
 }
