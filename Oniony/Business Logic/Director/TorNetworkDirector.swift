@@ -21,6 +21,7 @@
  */
 
 import Tor
+import IPtProxy
 
 /// Протокол директора тор-сети.
 protocol TorNetworkDirecting: AnyObject {
@@ -55,17 +56,15 @@ final class TorNetworkDirector: TorNetworkDirecting {
     private let configurationBuilder: TorConfiguratorBuilding
     private let configurationData: TorConfigurationData
     private let torController: TorController
-    private var torThread: TorThread
-    private var torConfiguration: TorConfiguration
+    private var torThread: TorThread?
+    private var torConfiguration: TorConfiguration?
     
     init(
         configurationBuilder: TorConfiguratorBuilding,
         configurationData data: TorConfigurationData
     ) {
-        self.torConfiguration = configurationBuilder.configuration(for: data)
         self.configurationBuilder = configurationBuilder
         self.torController = TorController(socketHost: "127.0.0.1", port: data.controlPort)
-        self.torThread = TorThread(configuration: torConfiguration)
         self.configurationData = data
     }
     
@@ -80,10 +79,28 @@ final class TorNetworkDirector: TorNetworkDirecting {
     // Запускает тор-сеть.
     func startTor() {
         isConnect = false
-        torThread.start()
+        
+        if torThread == nil || (torThread?.isCancelled ?? true) {
+            let configuration = configurationBuilder.configuration(for: configurationData)
+            torThread = TorThread(configuration: configuration)
+            self.torConfiguration = configuration
+        }
+        
+        guard let thread = torThread,
+              let configuration = torConfiguration else {
+            preconditionFailure("Поток и конфигурация тор-сети должны существовать!")
+        }
+        
+        thread.start()
+        
+        // FIXME: Вынести все это в отдельный класс.
+        IPtProxyStartSnowflake(
+            "stun:stun.l.google.com:19302", "https://snowflake-broker.azureedge.net/",
+            "ajax.aspnetcdn.com", nil, true, false, true, 3
+        )
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            do { try self.authenticate() } catch {
+            do { try self.authenticate(with: configuration) } catch {
                 self.delegate?.torDirector(self, didFinishWith: error)
             }
         }
@@ -92,10 +109,10 @@ final class TorNetworkDirector: TorNetworkDirecting {
     // MARK: - Private
     
     // Аутентифицирует клиента в сети.
-    private func authenticate() throws {
+    private func authenticate(with configuration: TorConfiguration) throws {
         try self.torController.connect()
         
-        guard let dataDirectory = self.torConfiguration.dataDirectory else {
+        guard let dataDirectory = configuration.dataDirectory else {
             preconditionFailure("Не удалось получить URL директории с данными!")
         }
         

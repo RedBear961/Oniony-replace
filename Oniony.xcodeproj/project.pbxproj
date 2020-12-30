@@ -16,6 +16,9 @@
 		0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */; };
 		0571FDC9259BAEEB00CA0C4F /* OnionyRightDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */; };
 		0571FDCE259BB06900CA0C4F /* CellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0571FDCD259BB06900CA0C4F /* CellObject.swift */; };
+		057E5C99259D1B06008B7771 /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = 057E5C97259D1B06008B7771 /* geoip */; };
+		057E5C9A259D1B06008B7771 /* geoip6 in Resources */ = {isa = PBXBuildFile; fileRef = 057E5C98259D1B06008B7771 /* geoip6 */; };
+		057E5CA3259D1CFE008B7771 /* obfs4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 057E5CA2259D1CFE008B7771 /* obfs4.plist */; };
 		05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */; };
 		05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F5259C8B2100D827DF /* BridgeDirector.swift */; };
 		05A072FB259C914A00D827DF /* OnionySwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F9259C914A00D827DF /* OnionySwitchCell.swift */; };
@@ -83,6 +86,10 @@
 		0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyRightDetailCell.swift; sourceTree = "<group>"; };
 		0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyRightDetailCell.xib; sourceTree = "<group>"; };
 		0571FDCD259BB06900CA0C4F /* CellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellObject.swift; sourceTree = "<group>"; };
+		057E5C96259D1A09008B7771 /* OnionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionManager.swift; sourceTree = "<group>"; };
+		057E5C97259D1B06008B7771 /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = geoip; sourceTree = "<group>"; };
+		057E5C98259D1B06008B7771 /* geoip6 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = geoip6; sourceTree = "<group>"; };
+		057E5CA2259D1CFE008B7771 /* obfs4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = obfs4.plist; sourceTree = "<group>"; };
 		05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCellFactory.swift; sourceTree = "<group>"; };
 		05A072F5259C8B2100D827DF /* BridgeDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeDirector.swift; sourceTree = "<group>"; };
 		05A072F9259C914A00D827DF /* OnionySwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionySwitchCell.swift; sourceTree = "<group>"; };
@@ -90,7 +97,6 @@
 		05A07300259C9A5400D827DF /* OnionyCheckmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyCheckmarkCell.swift; sourceTree = "<group>"; };
 		05A07301259C9A5400D827DF /* OnionyCheckmarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyCheckmarkCell.xib; sourceTree = "<group>"; };
 		05A07306259C9CCF00D827DF /* BridgeCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeCellFactory.swift; sourceTree = "<group>"; };
-		05A0730A259CAF7D00D827DF /* OnionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnionManager.swift; sourceTree = "<group>"; };
 		05A0730F259CB58400D827DF /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		05A07313259CC7D700D827DF /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		05A07318259CC82400D827DF /* OverlayPopupShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayPopupShadowView.swift; sourceTree = "<group>"; };
@@ -212,6 +218,15 @@
 			path = OnionyRightDetailCell;
 			sourceTree = "<group>";
 		};
+		057E5C9C259D1B0A008B7771 /* GeoIP */ = {
+			isa = PBXGroup;
+			children = (
+				057E5C97259D1B06008B7771 /* geoip */,
+				057E5C98259D1B06008B7771 /* geoip6 */,
+			);
+			path = GeoIP;
+			sourceTree = "<group>";
+		};
 		05A072F8259C90FC00D827DF /* OnionySwitchCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +330,8 @@
 		05A12FAC2599F07F00367767 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				057E5CA2259D1CFE008B7771 /* obfs4.plist */,
+				057E5C9C259D1B0A008B7771 /* GeoIP */,
 				05A12FB72599F1ED00367767 /* Assets.swift */,
 				05A12FB82599F1ED00367767 /* Scenes.swift */,
 				05A12FB92599F1ED00367767 /* Strings.swift */,
@@ -455,8 +472,8 @@
 		05A1301D259A2C4900367767 /* Director */ = {
 			isa = PBXGroup;
 			children = (
+				057E5C96259D1A09008B7771 /* OnionManager.swift */,
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
-				05A0730A259CAF7D00D827DF /* OnionManager.swift */,
 				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
 			);
 			path = Director;
@@ -605,12 +622,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057E5C9A259D1B06008B7771 /* geoip6 in Resources */,
 				05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */,
 				05A07321259CC89900D827DF /* BridgeInputPopupView.xib in Resources */,
 				05A07303259C9A5400D827DF /* OnionyCheckmarkCell.xib in Resources */,
+				057E5C99259D1B06008B7771 /* geoip in Resources */,
 				05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */,
 				05A12FE2259A0DFE00367767 /* StartUp.storyboard in Resources */,
 				0564E522259B9D6E002980A2 /* Network.storyboard in Resources */,
+				057E5CA3259D1CFE008B7771 /* obfs4.plist in Resources */,
 				05A1300A259A20AC00367767 /* StartUpView.xib in Resources */,
 				05A072FC259C914A00D827DF /* OnionySwitchCell.xib in Resources */,
 				05A8B831259C6C9C009A3392 /* Bridge.storyboard in Resources */,
@@ -904,13 +924,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7C2D27973D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Oniony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webviewlab.oniony;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webview.lab.oniony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -924,13 +949,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7C2D27973D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Oniony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webviewlab.oniony;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webview.lab.oniony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

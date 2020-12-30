@@ -1,4 +1,5 @@
 PODS:
+  - IPtProxy (0.5.0)
   - PureLayout (3.1.6)
   - QuickLayout (3.0.0)
   - SwiftEntryKit (1.2.6):
@@ -9,6 +10,7 @@ PODS:
   - Tor (404.6.1)
 
 DEPENDENCIES:
+  - IPtProxy (~> 0.5)
   - PureLayout (= 3.1.6)
   - SwiftEntryKit (= 1.2.6)
   - SwiftGen (= 6.4.0)
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IPtProxy
     - PureLayout
     - QuickLayout
     - SwiftEntryKit
@@ -30,6 +33,7 @@ EXTERNAL SOURCES:
     :podspec: https://raw.githubusercontent.com/iCepa/Tor.framework/master/Tor.podspec
 
 SPEC CHECKSUMS:
+  IPtProxy: 22d0fb14aadfed82af4728d423003c5acf62a066
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SwiftEntryKit: 96a2fa90b2631bbbfac50d18449e9ca3d0635f13
@@ -38,6 +42,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Tor: 456af8b06bc93c17b388e9866b5a34d2ece9e775
 
-PODFILE CHECKSUM: b248a15cea17d5f254e138b2de65c1167ece3bab
+PODFILE CHECKSUM: 469cd813f07dfc88fac3381797516d2dabeab18d
 
 COCOAPODS: 1.7.5

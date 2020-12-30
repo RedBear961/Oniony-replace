@@ -27,8 +27,11 @@ final class BuilderAssembly: AutoAssembly {
     
     /// Билдер конфигурации подключения тор-сети.
     dynamic func torConfigurationBuilder() {
-        container.register(TorConfiguratorBuilding.self) { (_) -> TorConfigurationBuilder in
-            return TorConfigurationBuilder(fileManager: FileManager())
+        container.register(TorConfiguratorBuilding.self) { (resolver) -> TorConfigurationBuilder in
+            return TorConfigurationBuilder(
+                fileManager: FileManager.default,
+                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+            )
         }
     }
 }

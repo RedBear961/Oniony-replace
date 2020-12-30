@@ -54,6 +54,7 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
         
         if let bridge = bridgeDirector.selectedBridge {
             selectionCellObjects += [
+                /*
                 BridgeCheckmarkCellObject(
                     title: Bridge.obfs4.name,
                     isSelected: bridge == .obfs4,
@@ -68,6 +69,12 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
                     title: Bridge.meekAzure.name,
                     isSelected: bridge == .meekAzure,
                     type: .meekAzure
+                ),
+                */
+                BridgeCheckmarkCellObject(
+                    title: Bridge.snowflake.name,
+                    isSelected: bridge == .snowflake,
+                    type: .snowflake
                 ),
                 OnionySubtitleCellObject(
                     image: nil,

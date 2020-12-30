@@ -21,6 +21,7 @@
  */
 
 import Tor
+import IPtProxy
 
 /// Протокол билдера конфигурации подключения тор-сети.
 protocol TorConfiguratorBuilding {
@@ -36,9 +37,17 @@ protocol TorConfiguratorBuilding {
 final class TorConfigurationBuilder: TorConfiguratorBuilding {
     
     private let fileManager: FileManager
+    private let bundle: Bundle
+    private let bridgeDirector: BridgeDirecting
     
-    init(fileManager: FileManager) {
+    init(
+        fileManager: FileManager,
+        bundle: Bundle = .main,
+        bridgeDirector: BridgeDirecting
+    ) {
         self.fileManager = fileManager
+        self.bundle = bundle
+        self.bridgeDirector = bridgeDirector
     }
     
     // MARK: - TorConfiguratorBuilding
@@ -73,22 +82,53 @@ final class TorConfigurationBuilder: TorConfiguratorBuilding {
         configuration.dataDirectory = dataDirectory
         
         let logMethod = isDebug ? "notice stdout" : "notice file /dev/null"
+        
+        guard let geoip = bundle.path(forResource: "geoip", ofType: nil),
+              let geoip6 = bundle.path(forResource: "geoip6", ofType: nil) else {
+            preconditionFailure("Файлы с данных о IP должны существовать!")
+        }
 
         // TODO: Вынести все ключи в константы. Возможно даже сделать типобезопасные функции.
-        let arguments = [
+        var arguments = [
             "--allow-missing-torrc",
             "--ignore-missing-torrc",
             "--clientonly", "1",
+            "--AvoidDiskWrites", "1",
             "--socksport", "\(data.socksPort)",
             "--controlport", "127.0.0.1:\(data.controlPort)",
             "--log", logMethod,
             "--clientuseipv6", "0",
-            "--ClientTransportPlugin", "obfs4 socks5 127.0.0.1:47351",
-            "--ClientTransportPlugin", "meek_lite socks5 127.0.0.1:47352",
-            "--ClientOnionAuthDir", authDirectory.path
+            "--ClientTransportPlugin", "obfs4 socks5 127.0.0.1:\(IPtProxyObfs4SocksPort)",
+            "--ClientTransportPlugin", "meek_lite socks5 127.0.0.1:\(IPtProxyMeekSocksPort)",
+            "--ClientTransportPlugin", "snowflake socks5 127.0.0.1:\(IPtProxySnowflakeSocksPort)",
+            "--ClientOnionAuthDir", authDirectory.path,
+            "--GeoIPFile", geoip,
+            "--GeoIPv6File", geoip6
         ]
+        
+        if let bridge = bridgeDirector.selectedBridge {
+            arguments = append(bridge: bridge, to: arguments)
+        }
 
         configuration.arguments = arguments
         return configuration
+    }
+    
+    // MARK: - Private
+    
+    // Добавляет информацию о мостах в аргументы запуска.
+    private func append(bridge: Bridge, to arguments: [String]) -> [String] {
+        var arguments = arguments
+        
+        arguments.append("--usebridges")
+        arguments.append("1")
+        
+        let data = bridge.data(isIPv6: false)
+        data.forEach { (element) in
+            arguments.append("--bridge")
+            arguments.append(element)
+        }
+        
+        return arguments
     }
 }

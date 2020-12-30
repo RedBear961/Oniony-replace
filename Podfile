@@ -16,6 +16,7 @@ target 'Oniony' do
   
   # Network
   pod 'Tor', podspec: 'https://raw.githubusercontent.com/iCepa/Tor.framework/master/Tor.podspec'
+  pod 'IPtProxy', '~> 0.5'
 end
 
 # Setup podfile to automatically set the deployment target.
