@@ -38,6 +38,13 @@ internal enum StoryboardScene {
 
     internal static let startUpViewController = SceneType<Oniony.StartUpViewController>(storyboard: StartUp.self, identifier: "StartUpViewController")
   }
+  internal enum Tab: StoryboardType {
+    internal static let storyboardName = "Tab"
+
+    internal static let initialScene = InitialSceneType<Oniony.TabViewController>(storyboard: Tab.self)
+
+    internal static let tabViewController = SceneType<Oniony.TabViewController>(storyboard: Tab.self, identifier: "TabViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

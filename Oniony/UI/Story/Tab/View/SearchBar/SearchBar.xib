@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="Oniony" customModuleProvider="target">
+            <connections>
+                <outlet property="leftImage" destination="l6y-7T-EVj" id="Y5U-Pf-AQT"/>
+                <outlet property="menuButton" destination="gX0-D8-KKb" id="Cam-xl-KjI"/>
+                <outlet property="searchBackground" destination="sbS-mn-k2Z" id="oWt-2S-zzL"/>
+                <outlet property="tabButton" destination="YlU-Ly-Yma" id="hsQ-bp-E6D"/>
+                <outlet property="textField" destination="MhG-eo-4aq" id="iIP-Dj-BH5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KGk-i7-Jjw">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gX0-D8-KKb">
+                    <rect key="frame" x="374" y="16" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="dgZ-Hh-ukq"/>
+                    </constraints>
+                    <state key="normal" image="icon_menu"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlU-Ly-Yma">
+                    <rect key="frame" x="334" y="16" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="K3d-Lf-sXb"/>
+                        <constraint firstAttribute="height" constant="24" id="j3L-1l-zaq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="3">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-mn-k2Z">
+                    <rect key="frame" x="8" y="8" width="310" height="40"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_duckduckgo" translatesAutoresizingMaskIntoConstraints="NO" id="l6y-7T-EVj">
+                            <rect key="frame" x="10" y="8" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="4wD-VH-mbd"/>
+                                <constraint firstAttribute="width" constant="24" id="igs-ko-MZx"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите запрос или адрес" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhG-eo-4aq">
+                            <rect key="frame" x="42" y="3" width="260" height="34"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="m4i-kA-ma6"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" name="LightBackground"/>
+                    <constraints>
+                        <constraint firstItem="MhG-eo-4aq" firstAttribute="leading" secondItem="l6y-7T-EVj" secondAttribute="trailing" constant="8" id="7zp-9T-9d0"/>
+                        <constraint firstAttribute="bottom" secondItem="MhG-eo-4aq" secondAttribute="bottom" constant="3" id="KUf-Eo-tGS"/>
+                        <constraint firstItem="l6y-7T-EVj" firstAttribute="leading" secondItem="sbS-mn-k2Z" secondAttribute="leading" constant="10" id="MHs-fT-nDj"/>
+                        <constraint firstAttribute="trailing" secondItem="MhG-eo-4aq" secondAttribute="trailing" constant="8" id="QOU-JL-cUb"/>
+                        <constraint firstItem="MhG-eo-4aq" firstAttribute="top" secondItem="sbS-mn-k2Z" secondAttribute="top" constant="3" id="nYO-OO-z7f"/>
+                        <constraint firstItem="l6y-7T-EVj" firstAttribute="centerY" secondItem="sbS-mn-k2Z" secondAttribute="centerY" id="yNd-89-Ktj"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gX0-D8-KKb" firstAttribute="leading" secondItem="YlU-Ly-Yma" secondAttribute="trailing" constant="16" id="31H-tk-P0I"/>
+                <constraint firstItem="gX0-D8-KKb" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="9qg-zb-SAv"/>
+                <constraint firstAttribute="bottom" secondItem="sbS-mn-k2Z" secondAttribute="bottom" constant="8" id="dup-QH-ujb"/>
+                <constraint firstItem="YlU-Ly-Yma" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="n1C-yd-j96"/>
+                <constraint firstItem="sbS-mn-k2Z" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="8" id="nEE-f6-BSb"/>
+                <constraint firstItem="sbS-mn-k2Z" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="8" id="p5s-ZW-AD1"/>
+                <constraint firstAttribute="trailing" secondItem="gX0-D8-KKb" secondAttribute="trailing" constant="16" id="seq-7y-kMh"/>
+                <constraint firstItem="YlU-Ly-Yma" firstAttribute="leading" secondItem="sbS-mn-k2Z" secondAttribute="trailing" constant="16" id="vTb-0S-YDQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-465" y="-9"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_menu" width="24" height="24"/>
+        <image name="search_duckduckgo" width="24" height="24"/>
+        <namedColor name="LightBackground">
+            <color red="0.17254901960784313" green="0.10196078431372549" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

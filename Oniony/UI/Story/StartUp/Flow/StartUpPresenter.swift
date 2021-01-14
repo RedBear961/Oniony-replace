@@ -88,6 +88,9 @@ extension StartUpPresenter: TorNetworkDirectorDelegate {
     }
     
     func torDirectorDidLoad(_ director: TorNetworkDirecting) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.coordinator.openTab()
+        }
     }
     
     func torDirector(_ director: TorNetworkDirecting, didFinishWith error: Error) {

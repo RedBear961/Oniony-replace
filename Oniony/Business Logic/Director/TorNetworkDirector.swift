@@ -23,17 +23,24 @@
 import Tor
 import IPtProxy
 
+enum TorState {
+    
+    case none
+    case started
+    case connected
+    case stopped
+}
+
 /// Протокол директора тор-сети.
 protocol TorNetworkDirecting: AnyObject {
     
     /// Делегат директора тор-сети.
     var delegate: TorNetworkDirectorDelegate? { get set }
     
-    /// Статус подключения к тор-сети.
-    var isConnect: Bool { get }
+    // Состояние подключения.
+    var state: TorState { get }
     
     /// Запускает тор-сеть.
-    /// - Warning: Этот метод может быть вызван лишь единожды.
     func startTor()
 }
 
@@ -59,6 +66,14 @@ final class TorNetworkDirector: TorNetworkDirecting {
     private var torThread: TorThread?
     private var torConfiguration: TorConfiguration?
     
+    #if DEBUG
+    
+    // Дебаг режим. В нем тор-сеть не запускается, а делегат
+    // получает сообщение об удачном запуске.
+    private let isDebug: Bool = true
+    
+    #endif
+    
     init(
         configurationBuilder: TorConfiguratorBuilding,
         configurationData data: TorConfigurationData
@@ -76,9 +91,21 @@ final class TorNetworkDirector: TorNetworkDirecting {
     // Статус подключения.
     var isConnect: Bool = false
     
+    // Состояние подключения.
+    var state: TorState = .none
+    
     // Запускает тор-сеть.
     func startTor() {
-        isConnect = false
+        state = .started
+        
+        #if DEBUG
+        
+        if isDebug {
+            state = .connected
+            delegate?.torDirectorDidLoad(self)
+        }
+        
+        #endif
         
         if torThread == nil || (torThread?.isCancelled ?? true) {
             let configuration = configurationBuilder.configuration(for: configurationData)
@@ -101,6 +128,7 @@ final class TorNetworkDirector: TorNetworkDirecting {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             do { try self.authenticate(with: configuration) } catch {
+                self.state = .stopped
                 self.delegate?.torDirector(self, didFinishWith: error)
             }
         }
@@ -143,6 +171,7 @@ final class TorNetworkDirector: TorNetworkDirecting {
                 self.delegate?.torDirector(self, didUpdate: status)
 
                 if status.progress >= 100 {
+                    self.state = .connected
                     self.torController.removeObserver(statusObserver)
                     self.delegate?.torDirectorDidLoad(self)
                 }

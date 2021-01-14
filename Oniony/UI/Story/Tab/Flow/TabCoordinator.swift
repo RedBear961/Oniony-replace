@@ -22,45 +22,21 @@
 
 import UIKit
 
-/// Протокол координатора модуля запуска тор-сети,
-protocol StartUpCoordinating: NavigationCoordinating {
-    
-    /// Открыть модуль настройки сети.
-    func openNetwork()
-    
-    /// Открыть модуль вкладок.
-    func openTab()
-}
+protocol TabCoordinating: NavigationCoordinating {}
 
-/// Координатор модуля запуска тор-сети,
-final class StartUpCoordinator: NavigationCoordinator<StartUpViewController>, StartUpCoordinating {
+final class TabCoordinator: NavigationCoordinator<TabViewController>, TabCoordinating {
     
     // MARK: - Override
+    
+    override var hasOwnHierarchy: Bool {
+        return true
+    }
     
     override var isNavigationBarHidden: Bool {
         return true
     }
     
-    override func instantiateViewController() -> StartUpViewController {
-        return resolver.resolve(StartUpViewController.self, argument: self as StartUpCoordinating)!
-    }
-    
-    // MARK: - StartUpCoordinating
-    
-    // Открыть модуль настройки сети.
-    func openNetwork() {
-        let child = resolver.resolve(
-            NetworkCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
-    }
-    
-    func openTab() {
-        let child = resolver.resolve(
-            TabCoordinating.self,
-            argument: presentationVC
-        )!
-        openChild(child)
+    override func instantiateViewController() -> TabViewController {
+        return resolver.resolve(TabViewController.self, argument: self as TabCoordinating)!
     }
 }

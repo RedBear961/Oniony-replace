@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0507AB1925AC87EE00B732C7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507AB1725AC87EE00B732C7 /* SearchBar.swift */; };
+		0507AB1A25AC87EE00B732C7 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0507AB1825AC87EE00B732C7 /* SearchBar.xib */; };
 		0564E522259B9D6E002980A2 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0564E51D259B9D6E002980A2 /* Network.storyboard */; };
 		0564E523259B9D6E002980A2 /* NetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E51E259B9D6E002980A2 /* NetworkCoordinator.swift */; };
 		0564E524259B9D6E002980A2 /* NetworkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E51F259B9D6E002980A2 /* NetworkPresenter.swift */; };
@@ -19,6 +21,11 @@
 		057E5C99259D1B06008B7771 /* geoip in Resources */ = {isa = PBXBuildFile; fileRef = 057E5C97259D1B06008B7771 /* geoip */; };
 		057E5C9A259D1B06008B7771 /* geoip6 in Resources */ = {isa = PBXBuildFile; fileRef = 057E5C98259D1B06008B7771 /* geoip6 */; };
 		057E5CA3259D1CFE008B7771 /* obfs4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 057E5CA2259D1CFE008B7771 /* obfs4.plist */; };
+		057E5CBA259DB8F4008B7771 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 057E5CB5259DB8F4008B7771 /* Tab.storyboard */; };
+		057E5CBB259DB8F4008B7771 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB6259DB8F4008B7771 /* TabCoordinator.swift */; };
+		057E5CBC259DB8F4008B7771 /* TabPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB7259DB8F4008B7771 /* TabPresenter.swift */; };
+		057E5CBD259DB8F4008B7771 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB8259DB8F4008B7771 /* TabViewController.swift */; };
+		057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB9259DB8F4008B7771 /* TabAssembly.swift */; };
 		05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */; };
 		05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F5259C8B2100D827DF /* BridgeDirector.swift */; };
 		05A072FB259C914A00D827DF /* OnionySwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F9259C914A00D827DF /* OnionySwitchCell.swift */; };
@@ -77,6 +84,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0507AB1725AC87EE00B732C7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0507AB1825AC87EE00B732C7 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 		0564E51D259B9D6E002980A2 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		0564E51E259B9D6E002980A2 /* NetworkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCoordinator.swift; sourceTree = "<group>"; };
 		0564E51F259B9D6E002980A2 /* NetworkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPresenter.swift; sourceTree = "<group>"; };
@@ -86,10 +95,14 @@
 		0571FDC6259BAEEB00CA0C4F /* OnionyRightDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyRightDetailCell.swift; sourceTree = "<group>"; };
 		0571FDC7259BAEEB00CA0C4F /* OnionyRightDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionyRightDetailCell.xib; sourceTree = "<group>"; };
 		0571FDCD259BB06900CA0C4F /* CellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellObject.swift; sourceTree = "<group>"; };
-		057E5C96259D1A09008B7771 /* OnionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionManager.swift; sourceTree = "<group>"; };
 		057E5C97259D1B06008B7771 /* geoip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = geoip; sourceTree = "<group>"; };
 		057E5C98259D1B06008B7771 /* geoip6 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = geoip6; sourceTree = "<group>"; };
 		057E5CA2259D1CFE008B7771 /* obfs4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = obfs4.plist; sourceTree = "<group>"; };
+		057E5CB5259DB8F4008B7771 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
+		057E5CB6259DB8F4008B7771 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
+		057E5CB7259DB8F4008B7771 /* TabPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPresenter.swift; sourceTree = "<group>"; };
+		057E5CB8259DB8F4008B7771 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		057E5CB9259DB8F4008B7771 /* TabAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAssembly.swift; sourceTree = "<group>"; };
 		05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCellFactory.swift; sourceTree = "<group>"; };
 		05A072F5259C8B2100D827DF /* BridgeDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeDirector.swift; sourceTree = "<group>"; };
 		05A072F9259C914A00D827DF /* OnionySwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionySwitchCell.swift; sourceTree = "<group>"; };
@@ -163,6 +176,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0507AB1525AC87B800B732C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0507AB1625AC87C000B732C7 /* SearchBar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0507AB1625AC87C000B732C7 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				0507AB1725AC87EE00B732C7 /* SearchBar.swift */,
+				0507AB1825AC87EE00B732C7 /* SearchBar.xib */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		0564E519259B9BE0002980A2 /* TorLoadingLogView */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +255,27 @@
 				057E5C98259D1B06008B7771 /* geoip6 */,
 			);
 			path = GeoIP;
+			sourceTree = "<group>";
+		};
+		057E5CB4259DB8D8008B7771 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0507AB1525AC87B800B732C7 /* View */,
+				057E5CCE259DBA08008B7771 /* Flow */,
+				057E5CB9259DB8F4008B7771 /* TabAssembly.swift */,
+				057E5CB5259DB8F4008B7771 /* Tab.storyboard */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		057E5CCE259DBA08008B7771 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				057E5CB6259DB8F4008B7771 /* TabCoordinator.swift */,
+				057E5CB7259DB8F4008B7771 /* TabPresenter.swift */,
+				057E5CB8259DB8F4008B7771 /* TabViewController.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		05A072F8259C90FC00D827DF /* OnionySwitchCell */ = {
@@ -422,8 +473,9 @@
 			isa = PBXGroup;
 			children = (
 				05A12FDC259A0DF000367767 /* StartUp */,
-				0564E51B259B9CFE002980A2 /* Network */,
 				05A8B837259C6CA1009A3392 /* Bridge */,
+				057E5CB4259DB8D8008B7771 /* Tab */,
+				0564E51B259B9CFE002980A2 /* Network */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -472,7 +524,6 @@
 		05A1301D259A2C4900367767 /* Director */ = {
 			isa = PBXGroup;
 			children = (
-				057E5C96259D1A09008B7771 /* OnionManager.swift */,
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
 				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
 			);
@@ -625,6 +676,7 @@
 				057E5C9A259D1B06008B7771 /* geoip6 in Resources */,
 				05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */,
 				05A07321259CC89900D827DF /* BridgeInputPopupView.xib in Resources */,
+				057E5CBA259DB8F4008B7771 /* Tab.storyboard in Resources */,
 				05A07303259C9A5400D827DF /* OnionyCheckmarkCell.xib in Resources */,
 				057E5C99259D1B06008B7771 /* geoip in Resources */,
 				05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */,
@@ -632,6 +684,7 @@
 				0564E522259B9D6E002980A2 /* Network.storyboard in Resources */,
 				057E5CA3259D1CFE008B7771 /* obfs4.plist in Resources */,
 				05A1300A259A20AC00367767 /* StartUpView.xib in Resources */,
+				0507AB1A25AC87EE00B732C7 /* SearchBar.xib in Resources */,
 				05A072FC259C914A00D827DF /* OnionySwitchCell.xib in Resources */,
 				05A8B831259C6C9C009A3392 /* Bridge.storyboard in Resources */,
 				05A12F8F2599D48D00367767 /* LaunchScreen.storyboard in Resources */,
@@ -726,15 +779,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057E5CBC259DB8F4008B7771 /* TabPresenter.swift in Sources */,
 				05A1300D259A215500367767 /* OnionyButton.swift in Sources */,
 				05A12FE3259A0DFE00367767 /* StartUpCoordinator.swift in Sources */,
 				05A1301F259A2C5A00367767 /* TorNetworkDirector.swift in Sources */,
 				05A12FBA2599F1ED00367767 /* Assets.swift in Sources */,
+				057E5CBB259DB8F4008B7771 /* TabCoordinator.swift in Sources */,
 				0564E526259B9D6E002980A2 /* NetworkAssembly.swift in Sources */,
 				05A07336259CDC2A00D827DF /* EKAttributes+Standard.swift in Sources */,
 				05A07320259CC89900D827DF /* BridgeInputPopupView.swift in Sources */,
 				05A07310259CB58400D827DF /* Bridge.swift in Sources */,
 				05A13058259B97A400367767 /* TorLoadingLogView.swift in Sources */,
+				057E5CBD259DB8F4008B7771 /* TabViewController.swift in Sources */,
 				0564E523259B9D6E002980A2 /* NetworkCoordinator.swift in Sources */,
 				05A1303C259B023100367767 /* TorConfigurationData.swift in Sources */,
 				05A0731C259CC84E00D827DF /* UIView+Round.swift in Sources */,
@@ -754,6 +810,7 @@
 				05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */,
 				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
+				057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */,
 				05A07307259C9CCF00D827DF /* BridgeCellFactory.swift in Sources */,
 				05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */,
 				05A12FBC2599F1ED00367767 /* Strings.swift in Sources */,
@@ -764,6 +821,7 @@
 				05A1304F259B91FE00367767 /* Block.swift in Sources */,
 				05A12FE6259A0DFE00367767 /* StartUpAssembly.swift in Sources */,
 				0564E524259B9D6E002980A2 /* NetworkPresenter.swift in Sources */,
+				0507AB1925AC87EE00B732C7 /* SearchBar.swift in Sources */,
 				05A12FFD259A205500367767 /* ViewContainer.swift in Sources */,
 				05A072FB259C914A00D827DF /* OnionySwitchCell.swift in Sources */,
 				05A07302259C9A5400D827DF /* OnionyCheckmarkCell.swift in Sources */,
@@ -927,7 +985,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Oniony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -952,7 +1009,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Oniony/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

@@ -144,7 +144,7 @@ extension Bridge {
 /// Провайдер данных о мостах.
 struct BridgeDataProvider {
     
-    // swiftlint:disable line_length
+//     swiftlint:disable line_length
     
     /// Мосты `obfs4`.
     static var obfs4: [String] {

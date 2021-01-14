@@ -47,7 +47,7 @@ protocol NavigationCoordinating: class {
 class NavigationCoordinator<T: ViewController>: Coordinator, NavigationCoordinating {
     
     /// Контроллер, на котором происходит презентация.
-    let presentationVC: UINavigationController
+    private(set) var presentationVC: UINavigationController
     
     /// Контроллер модуля.
     private(set) var presentingVC: T!
@@ -59,6 +59,16 @@ class NavigationCoordinator<T: ViewController>: Coordinator, NavigationCoordinat
     init(_ resolver: Resolver, presentationVC: UINavigationController) {
         self.presentationVC = presentationVC
         super.init(resolver)
+    }
+    
+    // MARK: - Public
+    
+    /// Имеет ли модуль собственную иерархию навигации.
+    /// Если да, то будет создан отдельный контроллер навигации.
+    /// В противном случае, модуль будет представлен на родительском контроллере.
+    /// По-умолчанию, нет.
+    var hasOwnHierarchy: Bool {
+        return false
     }
     
     /// Показывать ли бар навигации.
@@ -86,8 +96,23 @@ class NavigationCoordinator<T: ViewController>: Coordinator, NavigationCoordinat
     func start() {
         presentingVC = self.instantiateViewController()
         presentingVC.lifeCycleDelegate = self
-        presentationVC.pushViewController(presentingVC, animated: true)
-        presentationVC.setNavigationBarHidden(isNavigationBarHidden, animated: true)
+        
+        let navigationVC = !hasOwnHierarchy ? presentationVC : {
+            let navigationVC = UINavigationController()
+            navigationVC.modalPresentationStyle = .overCurrentContext
+            return navigationVC
+        }()
+        navigationVC.pushViewController(presentingVC, animated: true)
+        navigationVC.setNavigationBarHidden(isNavigationBarHidden, animated: true)
+        
+        if hasOwnHierarchy {
+            presentationVC.present(
+                navigationVC,
+                animated: true,
+                completion: nil
+            )
+            presentationVC = navigationVC
+        }
     }
 
     func close() {
