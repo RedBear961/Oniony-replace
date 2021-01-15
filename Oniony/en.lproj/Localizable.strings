@@ -63,3 +63,7 @@
 "bridge.specifyBridgeData" = "Укажите данные моста из доверенного источника";
 "bridge.currentBridge" = "Текущий настроенный мост";
 "bridge.notConfigured" = "Не настроен";
+
+// TabViewController
+"tab.searchPlaceholder" = "Введите запрос или адрес";
+"tab.pullToRefresh" = "Потяните, чтобы обновить";

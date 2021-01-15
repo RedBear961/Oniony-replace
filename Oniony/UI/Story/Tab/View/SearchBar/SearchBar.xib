@@ -13,6 +13,7 @@
                 <outlet property="gradient" destination="hjb-Tl-ZAg" id="i6X-WI-hqh"/>
                 <outlet property="leftImage" destination="tEe-Zh-3p3" id="ybG-rn-4lp"/>
                 <outlet property="menuButton" destination="7Sj-wl-GlB" id="gWp-dC-x5o"/>
+                <outlet property="progressView" destination="bho-0J-zxz" id="rlN-6B-1Bk"/>
                 <outlet property="searchBackground" destination="Zmz-Fn-9Be" id="Ope-aP-h3M"/>
                 <outlet property="tabButton" destination="UWe-uB-kko" id="dSs-vb-ywF"/>
                 <outlet property="textField" destination="tE8-0y-Da6" id="bsu-qs-tWS"/>
@@ -134,11 +135,22 @@
                                 <constraint firstItem="Zmz-Fn-9Be" firstAttribute="leading" secondItem="oLT-aM-4eR" secondAttribute="leading" constant="8" id="s1b-KO-tFg"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bho-0J-zxz" customClass="ProgressView" customModule="Oniony" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="53" width="414" height="3"/>
+                            <color key="backgroundColor" name="LightBackground"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="3" id="E49-D5-0sU"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="GEg-bV-WdC" firstAttribute="leading" secondItem="hjb-Tl-ZAg" secondAttribute="trailing" constant="-96" id="7Y7-6M-oBV"/>
+                        <constraint firstItem="bho-0J-zxz" firstAttribute="leading" secondItem="hjb-Tl-ZAg" secondAttribute="leading" id="D3D-GF-vLn"/>
+                        <constraint firstAttribute="bottom" secondItem="bho-0J-zxz" secondAttribute="bottom" id="Epc-GU-nCo"/>
                         <constraint firstAttribute="trailing" secondItem="GEg-bV-WdC" secondAttribute="trailing" id="QRy-dN-l30"/>
                         <constraint firstAttribute="height" constant="56" id="Uqe-x8-f7y"/>
+                        <constraint firstAttribute="trailing" secondItem="bho-0J-zxz" secondAttribute="trailing" id="cC0-d8-5Bm"/>
                         <constraint firstItem="GEg-bV-WdC" firstAttribute="leading" secondItem="oLT-aM-4eR" secondAttribute="trailing" id="egh-p4-CLU"/>
                         <constraint firstItem="oLT-aM-4eR" firstAttribute="top" secondItem="hjb-Tl-ZAg" secondAttribute="top" id="foN-yK-GLe"/>
                         <constraint firstAttribute="bottom" secondItem="oLT-aM-4eR" secondAttribute="bottom" id="hi7-ys-23U"/>
@@ -161,7 +173,7 @@
                 <constraint firstAttribute="bottom" secondItem="hjb-Tl-ZAg" secondAttribute="bottom" id="mu8-Wu-aoa"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-480" y="-126"/>
+            <point key="canvasLocation" x="-481.15942028985512" y="-126.5625"/>
         </view>
     </objects>
     <resources>

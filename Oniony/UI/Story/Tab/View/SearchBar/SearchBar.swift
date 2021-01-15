@@ -38,6 +38,7 @@ final class SearchBar: ViewContainer {
     @IBOutlet private var leftImage: UIImageView!
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var gradient: GradientView!
+    @IBOutlet private var progressView: ProgressView!
     
     private var searchContainer: SearchContainer?
     
@@ -62,9 +63,13 @@ final class SearchBar: ViewContainer {
             radius: 8
         )
         
+        progressView.isHidden = true
+        
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Введите запрос или адрес",
-            attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.6)]
+            string: L10n.Tab.searchPlaceholder,
+            attributes: [
+                .foregroundColor: UIColor.white.withAlphaComponent(0.6)
+            ]
         )
     }
     
@@ -73,7 +78,31 @@ final class SearchBar: ViewContainer {
         return textField.endEditing(force)
     }
     
-    // MARK: - Private
+    // MARK: - Public
+    
+    /// Обноволяет количество открытых вкладок.
+    func update(with tabCount: Int) {
+        let text = tabCount > 9 ? "9+" : "\(tabCount)"
+        tabButton.setTitle(text, for: .normal)
+    }
+    
+    /// Обновляет прогресс загрузки.
+    func update(with progress: CGFloat) {
+        if progress < 1 && progressView.isHidden {
+            progressView.updateProgress(0, animated: false)
+            UIView.animate(withDuration: 0.2) {
+                self.progressView.isHidden = false
+            }
+        }
+        
+        progressView.updateProgress(progress)
+        
+        if abs(1 - progress) < .ulpOfOne {
+            UIView.animate(withDuration: 0.4) {
+                self.progressView.isHidden = true
+            }
+        }
+    }
 }
 
 extension SearchBar: UITextFieldDelegate {

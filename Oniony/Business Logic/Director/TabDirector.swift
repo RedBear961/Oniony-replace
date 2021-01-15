@@ -20,33 +20,35 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-protocol TabViewOutput {
+/// Протокол менеджера вкладок.
+protocol TabDirecting {
     
-    func moduleWillAppear()
+    /// Текущая вкладка.
+    var currentTab: Tab { get }
+    
+    /// Все вкладки.
+    var tabs: [Tab] { get }
 }
 
-final class TabPresenter: TabViewOutput {
+/// Менеджер вкладок.
+final class TabDirector: TabDirecting {
     
-    private weak var viewInput: TabViewInput?
-    private let coordinator: TabCoordinating
-    private let tabManager: TabDirecting
+    private let preferenceDirector: PreferenceDirecting
+    
+    private(set) var currentTab: Tab
+    private(set) var tabs: [Tab] = []
     
     init(
-        viewInput: TabViewInput,
-        coordinator: TabCoordinating,
-        tabManager: TabDirecting
+        preferenceDirector: PreferenceDirecting
     ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.tabManager = tabManager
-    }
-    
-    // MARK: - TabViewOutput
-    
-    func moduleWillAppear() {
-        let tab = tabManager.currentTab
-        viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
+        self.preferenceDirector = preferenceDirector
+        let tab = Tab(
+            style: preferenceDirector.newTabStyle,
+            homePage: preferenceDirector.homePage
+        )
+        tabs.append(tab)
+        self.currentTab = tab
     }
 }

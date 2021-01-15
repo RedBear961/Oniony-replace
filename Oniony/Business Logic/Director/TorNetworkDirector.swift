@@ -103,6 +103,7 @@ final class TorNetworkDirector: TorNetworkDirecting {
         if isDebug {
             state = .connected
             delegate?.torDirectorDidLoad(self)
+            return
         }
         
         #endif

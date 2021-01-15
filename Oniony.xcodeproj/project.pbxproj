@@ -83,6 +83,14 @@
 		05ABC5E225B18AB100E786EF /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5E025B18AB100E786EF /* SearchContainer.swift */; };
 		05ABC5E325B18AB100E786EF /* SearchContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABC5E125B18AB100E786EF /* SearchContainer.xib */; };
 		05ABC5E725B1940800E786EF /* ViewSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5E625B1940800E786EF /* ViewSide.swift */; };
+		05ABC5EC25B197CD00E786EF /* TabDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5EB25B197CD00E786EF /* TabDirector.swift */; };
+		05ABC5F225B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5F125B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift */; };
+		05ABC5F725B1AC7E00E786EF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5F625B1AC7E00E786EF /* Tab.swift */; };
+		05ABC5FB25B1AD0400E786EF /* PreferenceDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */; };
+		05ABC60925B1B06200E786EF /* NewTabStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC60825B1B06200E786EF /* NewTabStyle.swift */; };
+		05ABC60C25B1B12900E786EF /* Stored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC60B25B1B12900E786EF /* Stored.swift */; };
+		05F9DE5A25B1CBE600D0ED9F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9DE5925B1CBE600D0ED9F /* UIColor+Hex.swift */; };
+		05F9DE5E25B1CE3200D0ED9F /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9DE5D25B1CE3200D0ED9F /* ProgressView.swift */; };
 		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +173,14 @@
 		05ABC5E025B18AB100E786EF /* SearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainer.swift; sourceTree = "<group>"; };
 		05ABC5E125B18AB100E786EF /* SearchContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchContainer.xib; sourceTree = "<group>"; };
 		05ABC5E625B1940800E786EF /* ViewSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSide.swift; sourceTree = "<group>"; };
+		05ABC5EB25B197CD00E786EF /* TabDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDirector.swift; sourceTree = "<group>"; };
+		05ABC5F125B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleByStringLiteral.swift"; sourceTree = "<group>"; };
+		05ABC5F625B1AC7E00E786EF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceDirector.swift; sourceTree = "<group>"; };
+		05ABC60825B1B06200E786EF /* NewTabStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabStyle.swift; sourceTree = "<group>"; };
+		05ABC60B25B1B12900E786EF /* Stored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stored.swift; sourceTree = "<group>"; };
+		05F9DE5925B1CBE600D0ED9F /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		05F9DE5D25B1CE3200D0ED9F /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
 		A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oniony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.debug.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +201,7 @@
 		0507AB1525AC87B800B732C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				05F9DE5C25B1CE1F00D0ED9F /* ProgressView */,
 				0507AB1625AC87C000B732C7 /* SearchBar */,
 				05ABC5DF25B1898000E786EF /* SearchContainer */,
 			);
@@ -306,6 +323,7 @@
 		05A07312259CC7C100D827DF /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				05F9DE5925B1CBE600D0ED9F /* UIColor+Hex.swift */,
 				05A07313259CC7D700D827DF /* UIView+Shadow.swift */,
 				05A0731B259CC84D00D827DF /* UIView+Round.swift */,
 			);
@@ -442,6 +460,7 @@
 			children = (
 				05A1304E259B91FE00367767 /* Block.swift */,
 				05A12FCE259A074400367767 /* String+cString.swift */,
+				05ABC5F125B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -531,8 +550,10 @@
 		05A1301D259A2C4900367767 /* Director */ = {
 			isa = PBXGroup;
 			children = (
-				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
 				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
+				05ABC5EB25B197CD00E786EF /* TabDirector.swift */,
+				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
+				05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */,
 			);
 			path = Director;
 			sourceTree = "<group>";
@@ -548,8 +569,11 @@
 		05A13038259AFF6500367767 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				05ABC60B25B1B12900E786EF /* Stored.swift */,
+				05ABC60225B1AF9C00E786EF /* Preference */,
 				05ABC5E525B193EF00E786EF /* View */,
 				05A1303A259B01FC00367767 /* Tor */,
+				05ABC5F525B1AC6A00E786EF /* Web */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -618,6 +642,30 @@
 				05ABC5E625B1940800E786EF /* ViewSide.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		05ABC5F525B1AC6A00E786EF /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				05ABC5F625B1AC7E00E786EF /* Tab.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		05ABC60225B1AF9C00E786EF /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				05ABC60825B1B06200E786EF /* NewTabStyle.swift */,
+			);
+			path = Preference;
+			sourceTree = "<group>";
+		};
+		05F9DE5C25B1CE1F00D0ED9F /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				05F9DE5D25B1CE3200D0ED9F /* ProgressView.swift */,
+			);
+			path = ProgressView;
 			sourceTree = "<group>";
 		};
 		3B67BD12DD644508ED2912F0 /* Pods */ = {
@@ -809,12 +857,15 @@
 				05A1300D259A215500367767 /* OnionyButton.swift in Sources */,
 				05A12FE3259A0DFE00367767 /* StartUpCoordinator.swift in Sources */,
 				05A1301F259A2C5A00367767 /* TorNetworkDirector.swift in Sources */,
+				05ABC5F725B1AC7E00E786EF /* Tab.swift in Sources */,
 				05A12FBA2599F1ED00367767 /* Assets.swift in Sources */,
 				057E5CBB259DB8F4008B7771 /* TabCoordinator.swift in Sources */,
 				0564E526259B9D6E002980A2 /* NetworkAssembly.swift in Sources */,
+				05ABC5EC25B197CD00E786EF /* TabDirector.swift in Sources */,
 				05A07336259CDC2A00D827DF /* EKAttributes+Standard.swift in Sources */,
 				05A07320259CC89900D827DF /* BridgeInputPopupView.swift in Sources */,
 				05A07310259CB58400D827DF /* Bridge.swift in Sources */,
+				05F9DE5E25B1CE3200D0ED9F /* ProgressView.swift in Sources */,
 				05A13058259B97A400367767 /* TorLoadingLogView.swift in Sources */,
 				057E5CBD259DB8F4008B7771 /* TabViewController.swift in Sources */,
 				0564E523259B9D6E002980A2 /* NetworkCoordinator.swift in Sources */,
@@ -823,9 +874,12 @@
 				05A13036259AFF4900367767 /* TorConfigurationBuilder.swift in Sources */,
 				05A13040259B8DEA00367767 /* TorLoadingStatus.swift in Sources */,
 				05A8B833259C6C9C009A3392 /* BridgePresenter.swift in Sources */,
+				05ABC60925B1B06200E786EF /* NewTabStyle.swift in Sources */,
 				05A12FF5259A163B00367767 /* GradientView.swift in Sources */,
 				05A12FCA259A072200367767 /* SwinjectConfigurator.swift in Sources */,
+				05ABC60C25B1B12900E786EF /* Stored.swift in Sources */,
 				05A8B829259BB4C6009A3392 /* OnionySubtitleCell.swift in Sources */,
+				05F9DE5A25B1CBE600D0ED9F /* UIColor+Hex.swift in Sources */,
 				05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
 				0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */,
@@ -836,6 +890,7 @@
 				05A1305C259B985C00367767 /* Reusable.swift in Sources */,
 				05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */,
 				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
+				05ABC5FB25B1AD0400E786EF /* PreferenceDirector.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
 				05ABC5E725B1940800E786EF /* ViewSide.swift in Sources */,
 				057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */,
@@ -861,6 +916,7 @@
 				05A12FC9259A072200367767 /* AutoAssembly.swift in Sources */,
 				05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */,
 				05A13009259A20AB00367767 /* StartUpView.swift in Sources */,
+				05ABC5F225B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift in Sources */,
 				05A12FD9259A095700367767 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

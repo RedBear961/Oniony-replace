@@ -40,10 +40,11 @@ final class TabAssembly: AutoAssembly {
     dynamic func tabPresenter() {
         container.register(
             TabViewOutput.self
-        ) { (_, viewInput: TabViewInput, coordinator: TabCoordinating) -> TabPresenter in
+        ) { (resolver, viewInput: TabViewInput, coordinator: TabCoordinating) -> TabPresenter in
             return TabPresenter(
                 viewInput: viewInput,
-                coordinator: coordinator
+                coordinator: coordinator,
+                tabManager: resolver.resolve(TabDirecting.self)!
             )
         }
     }

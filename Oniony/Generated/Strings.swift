@@ -67,6 +67,13 @@ internal enum L10n {
     }
   }
 
+  internal enum Tab {
+    /// Потяните, чтобы обновить
+    internal static let pullToRefresh = L10n.tr("Localizable", "tab.pullToRefresh")
+    /// Введите запрос или адрес
+    internal static let searchPlaceholder = L10n.tr("Localizable", "tab.searchPlaceholder")
+  }
+
   internal enum TorLoading {
     /// -----Инициализация журнала Tor-----
     internal static let log = L10n.tr("Localizable", "torLoading.log")

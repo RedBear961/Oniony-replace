@@ -20,33 +20,32 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-protocol TabViewOutput {
+extension UIColor {
     
-    func moduleWillAppear()
-}
+    /// Создает цвет из HEX-строки.
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
+        let hex = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        let scanner = Scanner(string: hex)
 
-final class TabPresenter: TabViewOutput {
-    
-    private weak var viewInput: TabViewInput?
-    private let coordinator: TabCoordinating
-    private let tabManager: TabDirecting
-    
-    init(
-        viewInput: TabViewInput,
-        coordinator: TabCoordinating,
-        tabManager: TabDirecting
-    ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.tabManager = tabManager
-    }
-    
-    // MARK: - TabViewOutput
-    
-    func moduleWillAppear() {
-        let tab = tabManager.currentTab
-        viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
+        if hex.hasPrefix("#") {
+            scanner.currentIndex = hex.index(after: scanner.currentIndex)
+        }
+
+        guard let color = scanner.scanInt32(representation: .hexadecimal) else {
+            preconditionFailure("Невалидный HEX!")
+        }
+
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }

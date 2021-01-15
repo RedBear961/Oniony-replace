@@ -22,31 +22,12 @@
 
 import Foundation
 
-protocol TabViewOutput {
+/// Стиль открытия новой вкладки.
+enum NewTabStyle: String, RawStoragable {
     
-    func moduleWillAppear()
-}
-
-final class TabPresenter: TabViewOutput {
+    /// Новая вкладка должна быть пустой.
+    case empty
     
-    private weak var viewInput: TabViewInput?
-    private let coordinator: TabCoordinating
-    private let tabManager: TabDirecting
-    
-    init(
-        viewInput: TabViewInput,
-        coordinator: TabCoordinating,
-        tabManager: TabDirecting
-    ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.tabManager = tabManager
-    }
-    
-    // MARK: - TabViewOutput
-    
-    func moduleWillAppear() {
-        let tab = tabManager.currentTab
-        viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
-    }
+    /// В новой вкладке открывается домашняя страница.
+    case home
 }

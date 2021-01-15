@@ -22,31 +22,12 @@
 
 import Foundation
 
-protocol TabViewOutput {
+extension URL: ExpressibleByStringLiteral {
     
-    func moduleWillAppear()
-}
-
-final class TabPresenter: TabViewOutput {
-    
-    private weak var viewInput: TabViewInput?
-    private let coordinator: TabCoordinating
-    private let tabManager: TabDirecting
-    
-    init(
-        viewInput: TabViewInput,
-        coordinator: TabCoordinating,
-        tabManager: TabDirecting
-    ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.tabManager = tabManager
-    }
-    
-    // MARK: - TabViewOutput
-    
-    func moduleWillAppear() {
-        let tab = tabManager.currentTab
-        viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
+    /// Создает URL из статической строки.
+    /// Вызывая этот конструктор, вы гарантируете, что строка валидна.
+    /// В противном случае, этот конструктор вызовет исключение.
+    public init(stringLiteral value: StaticString) {
+        self.init(string: "\(value)")!
     }
 }

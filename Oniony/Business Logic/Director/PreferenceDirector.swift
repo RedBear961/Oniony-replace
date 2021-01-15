@@ -22,31 +22,28 @@
 
 import Foundation
 
-protocol TabViewOutput {
+/// Протокол директора настроек приложения.
+protocol PreferenceDirecting: AnyObject {
     
-    func moduleWillAppear()
+    /// Адрес домашней страницы.
+    var homePage: URL { get set }
+    
+    /// Стиль открытия новых вкладок.
+    var newTabStyle: NewTabStyle { get set }
 }
 
-final class TabPresenter: TabViewOutput {
+private let kHomePageKey = "HomePage"
+private let kNewTabStyleKey = "NewTabStyle"
+private let kDefaultHomePage: URL = "https://duckduckgo.com"
+
+/// Директор настроек приложения,.
+final class PreferenceDirector: PreferenceDirecting {
     
-    private weak var viewInput: TabViewInput?
-    private let coordinator: TabCoordinating
-    private let tabManager: TabDirecting
+    /// Адрес домашней страницы.
+    @Stored(key: kHomePageKey, default: kDefaultHomePage)
+    var homePage: URL
     
-    init(
-        viewInput: TabViewInput,
-        coordinator: TabCoordinating,
-        tabManager: TabDirecting
-    ) {
-        self.viewInput = viewInput
-        self.coordinator = coordinator
-        self.tabManager = tabManager
-    }
-    
-    // MARK: - TabViewOutput
-    
-    func moduleWillAppear() {
-        let tab = tabManager.currentTab
-        viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
-    }
+    /// Стиль открытия новой вкладки.
+    @RawStored(key: kNewTabStyleKey, default: .home)
+    var newTabStyle: NewTabStyle
 }

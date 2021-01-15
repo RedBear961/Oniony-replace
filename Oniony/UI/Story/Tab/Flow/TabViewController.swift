@@ -22,7 +22,10 @@
 
 import UIKit
 
-protocol TabViewInput: AnyObject {}
+protocol TabViewInput: AnyObject {
+    
+    func update(with tab: Tab, tabCount: Int)
+}
 
 final class TabViewController: ViewController, TabViewInput {
     
@@ -30,6 +33,9 @@ final class TabViewController: ViewController, TabViewInput {
     @IBOutlet private var webContainer: UIView!
     
     var viewOutput: TabViewOutput!
+    var tab: Tab!
+    
+    // MARK: - Override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +43,25 @@ final class TabViewController: ViewController, TabViewInput {
         searchBar.delegate = self
     }
     
-    // MARK: - Override
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewOutput.moduleWillAppear()
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         searchBar.endEditing(true)
+    }
+    
+    // MARK: - TabViewInput
+    
+    func update(with tab: Tab, tabCount: Int) {
+        searchBar.update(with: tabCount)
+        
+        self.tab = tab
+        self.tab.webview.removeFromSuperview()
+        webContainer.addSubview(tab.webview)
+        tab.webview.autoPinEdgesToSuperviewEdges()
+        tab.delegate = self
     }
 }
 
@@ -48,5 +69,12 @@ extension TabViewController: SearchBarDelegate {
     
     func searchContainer(for searchBar: SearchBar) -> UIView {
         return webContainer
+    }
+}
+
+extension TabViewController: TabDelegate {
+    
+    func tab(_ tab: Tab, didUpdate progress: CGFloat) {
+        searchBar.update(with: progress)
     }
 }

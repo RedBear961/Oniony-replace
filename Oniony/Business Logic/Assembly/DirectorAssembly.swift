@@ -41,4 +41,18 @@ final class DirectorAssembly: AutoAssembly {
             return BridgeDirector(userDefaults: UserDefaults.standard)
         }.inObjectScope(.container)
     }
+    
+    /// Менеджер вкладок.
+    dynamic func tabDirector() {
+        container.register(TabDirecting.self) { (resolver) -> TabDirector in
+            return TabDirector(preferenceDirector: resolver.resolve(PreferenceDirecting.self)!)
+        }.inObjectScope(.container)
+    }
+    
+    /// Директор настроек приложения.
+    dynamic func preferenceDirector() {
+        container.register(PreferenceDirecting.self) { (_) -> PreferenceDirector in
+            return PreferenceDirector()
+        }.inObjectScope(.container)
+    }
 }
