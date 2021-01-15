@@ -42,4 +42,10 @@ extension UIView {
         mask.path = path.cgPath
         layer.mask = mask
     }
+    
+    /// Настраивает обводку.
+    func updateBorder(color: UIColor, width: CGFloat) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+    }
 }

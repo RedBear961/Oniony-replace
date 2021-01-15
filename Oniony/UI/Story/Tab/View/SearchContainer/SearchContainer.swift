@@ -22,31 +22,5 @@
 
 import UIKit
 
-protocol TabViewInput: AnyObject {}
-
-final class TabViewController: ViewController, TabViewInput {
-    
-    @IBOutlet private var searchBar: SearchBar!
-    @IBOutlet private var webContainer: UIView!
-    
-    var viewOutput: TabViewOutput!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        searchBar.delegate = self
-    }
-    
-    // MARK: - Override
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchBar.endEditing(true)
-    }
-}
-
-extension TabViewController: SearchBarDelegate {
-    
-    func searchContainer(for searchBar: SearchBar) -> UIView {
-        return webContainer
-    }
-}
+/// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
+final class SearchContainer: ViewContainer {}

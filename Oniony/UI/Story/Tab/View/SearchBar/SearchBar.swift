@@ -22,11 +22,14 @@
 
 import UIKit
 
+/// Делегат поискового бара.
 protocol SearchBarDelegate: AnyObject {
     
+    /// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
     func searchContainer(for searchBar: SearchBar) -> UIView
 }
 
+/// Поисковый бар.
 final class SearchBar: ViewContainer {
     
     @IBOutlet private var tabButton: UIButton!
@@ -34,32 +37,30 @@ final class SearchBar: ViewContainer {
     @IBOutlet private var searchBackground: UIView!
     @IBOutlet private var leftImage: UIImageView!
     @IBOutlet private var textField: UITextField!
+    @IBOutlet private var gradient: GradientView!
     
-    private let gradient = CAGradientLayer()
+    private var searchContainer: SearchContainer?
     
+    /// Делегат поискового бара.
     weak var delegate: SearchBarDelegate?
+    
+    // MARK: - Override
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backgroundColor = Asset.lightBackground.color
         
-        tabButton.layer.borderWidth = 2
-        tabButton.layer.borderColor = UIColor.white.cgColor
-        tabButton.layer.cornerRadius = 4
+        tabButton.updateBorder(color: .white, width: 2)
         
-        searchBackground.layer.cornerRadius = 10
+        gradient.swapColors()
+        gradient.updatePoints(start: .leftCenter, end: .rightCenter)
         
-        gradient.colors = [Asset.second.color.cgColor, Asset.main.color.cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1, y: 0.5)
-        gradient.frame = CGRect(origin: .zero, size: frame.size)
-        layer.insertSublayer(gradient, at: 0)
-        
-        layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 1
+        addShadow(
+            color: UIColor.black.withAlphaComponent(0.2),
+            offset: CGSize(width: 0, height: 4),
+            radius: 8
+        )
         
         textField.attributedPlaceholder = NSAttributedString(
             string: "Введите запрос или адрес",
@@ -71,15 +72,33 @@ final class SearchBar: ViewContainer {
     override func endEditing(_ force: Bool) -> Bool {
         return textField.endEditing(force)
     }
+    
+    // MARK: - Private
 }
 
 extension SearchBar: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        gradient.removeFromSuperlayer()
+        backgroundColor = Asset.darkBackground.color
+        gradient.backgroundColor = Asset.lightBackground.color
+        gradient.hideGradient()
+        
+        guard let container = delegate?.searchContainer(for: self) else {
+            preconditionFailure("Должен быть предоставлен поисковый контейнер!")
+        }
+        
+        let searchContainer = SearchContainer()
+        container.addSubview(searchContainer)
+        searchContainer.autoPinEdgesToSuperviewEdges()
+        self.searchContainer = searchContainer
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        layer.insertSublayer(gradient, at: 0)
+        backgroundColor = Asset.lightBackground.color
+        gradient.backgroundColor = .clear
+        gradient.showGradient()
+        
+        searchContainer?.removeFromSuperview()
+        searchContainer = nil
     }
 }

@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,19 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSM-ux-jFE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
-                                <color key="backgroundColor" name="LightBackground"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87y-k5-9uG" customClass="SearchBar" customModule="Oniony" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="0gS-ct-caz"/>
+                                    <constraint firstAttribute="height" constant="100" placeholder="YES" id="0gS-ct-caz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iV3-k2-dVO">
-                                <rect key="frame" x="0.0" y="105" width="414" height="791"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -36,13 +31,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iV3-k2-dVO" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="2GG-eK-6Ec"/>
-                            <constraint firstItem="sSM-ux-jFE" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="7tS-Rz-brc"/>
                             <constraint firstAttribute="bottom" secondItem="iV3-k2-dVO" secondAttribute="bottom" id="GBH-7D-puf"/>
                             <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="iV3-k2-dVO" secondAttribute="trailing" id="GuH-iM-IML"/>
-                            <constraint firstItem="sSM-ux-jFE" firstAttribute="top" secondItem="oYu-GF-gka" secondAttribute="top" id="Krr-Ff-ln1"/>
-                            <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="sSM-ux-jFE" secondAttribute="trailing" id="P6u-40-OrD"/>
-                            <constraint firstItem="sSM-ux-jFE" firstAttribute="bottom" secondItem="87y-k5-9uG" secondAttribute="bottom" id="V2Q-5m-ibY"/>
-                            <constraint firstItem="87y-k5-9uG" firstAttribute="top" secondItem="xrI-BF-agH" secondAttribute="top" constant="5" id="aaJ-uU-mWL"/>
+                            <constraint firstItem="87y-k5-9uG" firstAttribute="top" secondItem="oYu-GF-gka" secondAttribute="top" id="aaJ-uU-mWL"/>
                             <constraint firstItem="iV3-k2-dVO" firstAttribute="top" secondItem="87y-k5-9uG" secondAttribute="bottom" id="hj5-1X-In4"/>
                             <constraint firstItem="xrI-BF-agH" firstAttribute="trailing" secondItem="87y-k5-9uG" secondAttribute="trailing" id="lT8-ug-LVI"/>
                             <constraint firstItem="87y-k5-9uG" firstAttribute="leading" secondItem="xrI-BF-agH" secondAttribute="leading" id="q99-el-bJz"/>
@@ -50,6 +41,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="87y-k5-9uG" id="Dy9-6d-vkY"/>
+                        <outlet property="webContainer" destination="iV3-k2-dVO" id="2YA-Bu-Mgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mty-NX-cjK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,9 +49,4 @@
             <point key="canvasLocation" x="198.55072463768118" y="158.70535714285714"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="LightBackground">
-            <color red="0.17254901960784313" green="0.10196078431372549" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

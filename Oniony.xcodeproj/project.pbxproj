@@ -80,6 +80,9 @@
 		05A8B833259C6C9C009A3392 /* BridgePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B82E259C6C9C009A3392 /* BridgePresenter.swift */; };
 		05A8B834259C6C9C009A3392 /* BridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */; };
 		05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8B830259C6C9C009A3392 /* BridgeAssembly.swift */; };
+		05ABC5E225B18AB100E786EF /* SearchContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5E025B18AB100E786EF /* SearchContainer.swift */; };
+		05ABC5E325B18AB100E786EF /* SearchContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABC5E125B18AB100E786EF /* SearchContainer.xib */; };
+		05ABC5E725B1940800E786EF /* ViewSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5E625B1940800E786EF /* ViewSide.swift */; };
 		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +162,9 @@
 		05A8B82E259C6C9C009A3392 /* BridgePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgePresenter.swift; sourceTree = "<group>"; };
 		05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeViewController.swift; sourceTree = "<group>"; };
 		05A8B830259C6C9C009A3392 /* BridgeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeAssembly.swift; sourceTree = "<group>"; };
+		05ABC5E025B18AB100E786EF /* SearchContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContainer.swift; sourceTree = "<group>"; };
+		05ABC5E125B18AB100E786EF /* SearchContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchContainer.xib; sourceTree = "<group>"; };
+		05ABC5E625B1940800E786EF /* ViewSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSide.swift; sourceTree = "<group>"; };
 		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
 		A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oniony.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C597BAB89150FF2AFF31AC01 /* Pods-Oniony.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.debug.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				0507AB1625AC87C000B732C7 /* SearchBar */,
+				05ABC5DF25B1898000E786EF /* SearchContainer */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -541,6 +548,7 @@
 		05A13038259AFF6500367767 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				05ABC5E525B193EF00E786EF /* View */,
 				05A1303A259B01FC00367767 /* Tor */,
 			);
 			path = Entity;
@@ -593,6 +601,23 @@
 				05A8B82F259C6C9C009A3392 /* BridgeViewController.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		05ABC5DF25B1898000E786EF /* SearchContainer */ = {
+			isa = PBXGroup;
+			children = (
+				05ABC5E025B18AB100E786EF /* SearchContainer.swift */,
+				05ABC5E125B18AB100E786EF /* SearchContainer.xib */,
+			);
+			path = SearchContainer;
+			sourceTree = "<group>";
+		};
+		05ABC5E525B193EF00E786EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05ABC5E625B1940800E786EF /* ViewSide.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3B67BD12DD644508ED2912F0 /* Pods */ = {
@@ -677,6 +702,7 @@
 				05A13059259B97A400367767 /* TorLoadingLogView.xib in Resources */,
 				05A07321259CC89900D827DF /* BridgeInputPopupView.xib in Resources */,
 				057E5CBA259DB8F4008B7771 /* Tab.storyboard in Resources */,
+				05ABC5E325B18AB100E786EF /* SearchContainer.xib in Resources */,
 				05A07303259C9A5400D827DF /* OnionyCheckmarkCell.xib in Resources */,
 				057E5C99259D1B06008B7771 /* geoip in Resources */,
 				05A8B82A259BB4C6009A3392 /* OnionySubtitleCell.xib in Resources */,
@@ -804,12 +830,14 @@
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
 				0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */,
 				05A12FE5259A0DFE00367767 /* StartUpViewController.swift in Sources */,
+				05ABC5E225B18AB100E786EF /* SearchContainer.swift in Sources */,
 				0571FDBA259BA5DA00CA0C4F /* ViewController.swift in Sources */,
 				0564E525259B9D6E002980A2 /* NetworkViewController.swift in Sources */,
 				05A1305C259B985C00367767 /* Reusable.swift in Sources */,
 				05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */,
 				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
+				05ABC5E725B1940800E786EF /* ViewSide.swift in Sources */,
 				057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */,
 				05A07307259C9CCF00D827DF /* BridgeCellFactory.swift in Sources */,
 				05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */,

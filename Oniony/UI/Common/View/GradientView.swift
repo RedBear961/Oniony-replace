@@ -22,19 +22,49 @@
 
 import UIKit
 
+/// Основной градиент приложения.
 final class GradientView: UIView {
     
+    /// Цвет начала градиента. По-умолчанию, основной цвет приложения.
     @IBInspectable var firstColor: UIColor = Asset.main.color
+    
+    /// Цвет конца градиента. По-умолчанию, побочный цвет приложения.
     @IBInspectable var secondColor: UIColor = Asset.second.color
+    
+    private var gradient: CAGradientLayer!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let gradient = CAGradientLayer()
+        gradient = CAGradientLayer()
         gradient.colors = [firstColor.cgColor, secondColor.cgColor]
         gradient.startPoint = CGPoint(x: 0, y: 1)
         gradient.endPoint = CGPoint(x: 1, y: 0)
         gradient.frame = CGRect(origin: .zero, size: frame.size)
-        layer.addSublayer(gradient)
+        layer.insertSublayer(gradient, at: 0)
+    }
+    
+    // MARK: - Public
+    
+    /// Обновляет точки начала и конца градиента.
+    func updatePoints(start: ViewSide, end: ViewSide) {
+        gradient.startPoint = start.point
+        gradient.endPoint = end.point
+    }
+    
+    /// Меняет цвета градиента местами,
+    func swapColors() {
+        swap(&firstColor, &secondColor)
+        gradient.colors = [firstColor.cgColor, secondColor.cgColor]
+    }
+    
+    /// Показать градиент.
+    func showGradient() {
+        layer.insertSublayer(gradient, at: 0)
+    }
+    
+    /// Скрыть градиент.
+    func hideGradient() {
+        gradient.removeFromSuperlayer()
     }
 }

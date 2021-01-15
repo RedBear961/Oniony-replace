@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17156"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchContainer" customModule="Oniony" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KGk-i7-Jjw">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wtv-7l-yxB">
+                    <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                    <color key="backgroundColor" name="LightBackground"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="dVR-bP-23S"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdc-nk-V1Q">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zdc-nk-V1Q" secondAttribute="trailing" id="3n3-rB-QAf"/>
+                <constraint firstItem="Wtv-7l-yxB" firstAttribute="top" secondItem="zdc-nk-V1Q" secondAttribute="bottom" id="87h-Iw-dd8"/>
+                <constraint firstItem="Wtv-7l-yxB" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="OCe-c8-4gT"/>
+                <constraint firstAttribute="bottom" secondItem="Wtv-7l-yxB" secondAttribute="bottom" id="WTb-BC-0jf"/>
+                <constraint firstItem="zdc-nk-V1Q" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="Wxe-no-3xb"/>
+                <constraint firstAttribute="trailing" secondItem="Wtv-7l-yxB" secondAttribute="trailing" id="vaw-K9-cir"/>
+                <constraint firstItem="zdc-nk-V1Q" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="ylN-Km-Wcj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-465" y="-9"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="LightBackground">
+            <color red="0.17254901960784313" green="0.10196078431372549" blue="0.32156862745098042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

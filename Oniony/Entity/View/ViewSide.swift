@@ -22,31 +22,36 @@
 
 import UIKit
 
-protocol TabViewInput: AnyObject {}
-
-final class TabViewController: ViewController, TabViewInput {
+/// Перечисление сторон View.
+enum ViewSide {
     
-    @IBOutlet private var searchBar: SearchBar!
-    @IBOutlet private var webContainer: UIView!
+    /// Левый верхний край.
+    case leftTop
     
-    var viewOutput: TabViewOutput!
+    /// Центр слева.
+    case leftCenter
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        searchBar.delegate = self
-    }
+    /// Левый нижний край.
+    case leftBottom
     
-    // MARK: - Override
+    /// Правый верхний край.
+    case rightTop
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchBar.endEditing(true)
-    }
-}
-
-extension TabViewController: SearchBarDelegate {
+    /// Центр справа.
+    case rightCenter
     
-    func searchContainer(for searchBar: SearchBar) -> UIView {
-        return webContainer
+    /// Левый правый край.
+    case rightBottom
+    
+    /// Точка, описывающая сторону.
+    var point: CGPoint {
+        switch self {
+        case .leftTop:      return CGPoint(x: 0, y: 1)
+        case .leftCenter:   return CGPoint(x: 0, y: 0.5)
+        case .leftBottom:   return CGPoint(x: 0, y: 0)
+        case .rightTop:     return CGPoint(x: 1, y: 1)
+        case .rightCenter:  return CGPoint(x: 1, y: 0.5)
+        case .rightBottom:  return CGPoint(x: 1, y: 0)
+        }
     }
 }
