@@ -46,7 +46,7 @@ enum Bridge: Equatable {
     
     /// Мост по-умолчанию.
     static var `default`: Bridge {
-        return Bridge.obfs4
+        return Bridge.snowflake
     }
 }
 
