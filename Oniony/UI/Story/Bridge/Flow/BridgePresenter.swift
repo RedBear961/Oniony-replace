@@ -42,18 +42,18 @@ final class BridgePresenter: BridgeViewOutput {
     private weak var viewInput: BridgeViewInput?
     private let coordinator: BridgeCoordinating
     private let factory: BridgeCellFactory
-    private let bridgeDirector: BridgeDirecting
+    private let bridgeStorage: BridgeStorage
     
     init(
         viewInput: BridgeViewInput,
         coordinator: BridgeCoordinating,
         factory: BridgeCellFactory,
-        bridgeDirector: BridgeDirecting
+        bridgeStorage: BridgeStorage
     ) {
         self.viewInput = viewInput
         self.coordinator = coordinator
         self.factory = factory
-        self.bridgeDirector = bridgeDirector
+        self.bridgeStorage = bridgeStorage
     }
     
     // MARK: - BridgeViewOutput
@@ -64,7 +64,7 @@ final class BridgePresenter: BridgeViewOutput {
     }
     
     func enableBridge(_ isEnabled: Bool) {
-        bridgeDirector.isEnabled = isEnabled
+        bridgeStorage.isEnabled = isEnabled
         let sectionObjects = factory.sectionObjects()
         viewInput?.reload(with: sectionObjects)
     }
@@ -72,7 +72,7 @@ final class BridgePresenter: BridgeViewOutput {
     func didSelect(cellObject: CellObject) {
         switch cellObject {
         case let cellObject as BridgeCheckmarkCellObject:
-            bridgeDirector.selectedBridge = cellObject.type
+            bridgeStorage.selectedBridge = cellObject.type
             let sectionObjects = factory.sectionObjects()
             viewInput?.update(with: sectionObjects)
         case is OnionySubtitleCellObject:
@@ -83,7 +83,7 @@ final class BridgePresenter: BridgeViewOutput {
     }
     
     func customBridgeDidSelect(_ data: BridgeData) {
-        bridgeDirector.selectedBridge = .custom(data)
+        bridgeStorage.selectedBridge = .custom(data)
         let sectionObjects = factory.sectionObjects()
         viewInput?.update(with: sectionObjects)
     }

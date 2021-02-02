@@ -35,6 +35,7 @@ internal enum Asset {
   internal static let searchGoogle = ImageAsset(name: "search_google")
   internal static let appPreview = ImageAsset(name: "app_preview")
   internal static let buttonSettings = ImageAsset(name: "button_settings")
+  internal static let iconMagnifier = ImageAsset(name: "icon_magnifier")
   internal static let iconMenu = ImageAsset(name: "icon_menu")
   internal static let iconWrench = ImageAsset(name: "icon_wrench")
 }

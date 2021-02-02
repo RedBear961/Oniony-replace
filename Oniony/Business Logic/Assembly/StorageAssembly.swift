@@ -20,12 +20,21 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import Swinject
 
-/// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
-final class SearchContainer: ViewContainer {
+final class StorageAssembly: AutoAssembly {
     
-    func searchRequestDidUpdate(_ text: String) {
-        
+    /// Директор мостов тор-сети.
+    dynamic func bridgeStorage() {
+        container.register(BridgeStorage.self) { (_) -> BridgeStorageImpl in
+            return BridgeStorageImpl(userDefaults: UserDefaults.standard)
+        }.inObjectScope(.container)
+    }
+    
+    /// Директор настроек приложения.
+    dynamic func preferenceStorage() {
+        container.register(PreferenceStorage.self) { (_) -> PreferenceStorageImpl in
+            return PreferenceStorageImpl()
+        }.inObjectScope(.container)
     }
 }

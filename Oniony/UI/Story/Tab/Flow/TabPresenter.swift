@@ -20,10 +20,11 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
 
-protocol TabViewOutput {
+protocol TabViewOutput: SearchBarDelegate {
     
+    /// Модуль будет прорисован.
     func moduleWillAppear()
 }
 
@@ -48,5 +49,24 @@ final class TabPresenter: TabViewOutput {
     func moduleWillAppear() {
         let tab = tabManager.currentTab
         viewInput?.update(with: tab, tabCount: tabManager.tabs.count)
+    }
+    
+    // MARK: - SearchBarDelegate
+    
+    func searchContainer(for searchBar: SearchBar) -> UIView {
+        guard let viewInput = viewInput else {
+            preconditionFailure("Должен быть представлен ответчик отображения!")
+        }
+        return viewInput.searchContainer()
+    }
+    
+    func searchBarShouldShowSuggestions(_ searchBar: SearchBar) -> Bool {
+        return false
+    }
+    
+    func searchBar(_ searchBar: SearchBar, didUpdate text: String) {}
+    
+    func searchBar(_ searchBar: SearchBar, didFinishWith text: String) {
+        
     }
 }

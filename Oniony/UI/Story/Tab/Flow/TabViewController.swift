@@ -24,7 +24,10 @@ import UIKit
 
 protocol TabViewInput: AnyObject {
     
+    /// Обновить содержимое с помощью модели вкладки и общим количеством вкладок.
     func update(with tab: Tab, tabCount: Int)
+    
+    func searchContainer() -> UIView
 }
 
 final class TabViewController: ViewController, TabViewInput {
@@ -33,14 +36,14 @@ final class TabViewController: ViewController, TabViewInput {
     @IBOutlet private var webContainer: UIView!
     
     var viewOutput: TabViewOutput!
-    var tab: Tab!
+    var tab: Tab?
     
     // MARK: - Override
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
+        searchBar.delegate = viewOutput
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,17 +60,16 @@ final class TabViewController: ViewController, TabViewInput {
     func update(with tab: Tab, tabCount: Int) {
         searchBar.update(with: tabCount)
         
+        self.tab?.webview.removeFromSuperview()
+        self.tab?.delegate = nil
         self.tab = tab
-        self.tab.webview.removeFromSuperview()
+        
         webContainer.addSubview(tab.webview)
         tab.webview.autoPinEdgesToSuperviewEdges()
         tab.delegate = self
     }
-}
-
-extension TabViewController: SearchBarDelegate {
     
-    func searchContainer(for searchBar: SearchBar) -> UIView {
+    func searchContainer() -> UIView {
         return webContainer
     }
 }

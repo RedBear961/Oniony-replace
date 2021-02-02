@@ -38,16 +38,16 @@ final class TorConfigurationBuilder: TorConfiguratorBuilding {
     
     private let fileManager: FileManager
     private let bundle: Bundle
-    private let bridgeDirector: BridgeDirecting
+    private let bridgeStorage: BridgeStorage
     
     init(
         fileManager: FileManager,
         bundle: Bundle = .main,
-        bridgeDirector: BridgeDirecting
+        bridgeStorage: BridgeStorage
     ) {
         self.fileManager = fileManager
         self.bundle = bundle
-        self.bridgeDirector = bridgeDirector
+        self.bridgeStorage = bridgeStorage
     }
     
     // MARK: - TorConfiguratorBuilding
@@ -106,7 +106,7 @@ final class TorConfigurationBuilder: TorConfiguratorBuilding {
             "--GeoIPv6File", geoip6
         ]
         
-        if let bridge = bridgeDirector.selectedBridge {
+        if let bridge = bridgeStorage.selectedBridge {
             arguments = append(bridge: bridge, to: arguments)
         }
 

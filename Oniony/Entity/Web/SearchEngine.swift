@@ -20,30 +20,21 @@
  * THE SOFTWARE.
  */
 
-import Foundation
+import UIKit
+import CoreData
 
-/// Протокол директора настроек приложения.
-protocol PreferenceDirecting: AnyObject {
+struct SearchEngine {
     
-    /// Адрес домашней страницы.
-    var homePage: URL { get set }
-    
-    /// Стиль открытия новых вкладок.
-    var newTabStyle: NewTabStyle { get set }
+    let name: String
+    let icon: UIImage
+    let searchTemplate: String
+    let suggestionTemplate: String?
 }
 
-private let kHomePageKey = "HomePage"
-private let kNewTabStyleKey = "NewTabStyle"
-private let kDefaultHomePage: URL = "https://duckduckgo.com"
-
-/// Директор настроек приложения,.
-final class PreferenceDirector: PreferenceDirecting {
+final class SearchEngineObject: NSManagedObject {
     
-    /// Адрес домашней страницы.
-    @Stored(key: kHomePageKey, default: kDefaultHomePage)
-    var homePage: URL
-    
-    /// Стиль открытия новой вкладки.
-    @RawStored(key: kNewTabStyleKey, default: .home)
-    var newTabStyle: NewTabStyle
+    @NSManaged var name: String
+    @NSManaged var icon: Data?
+    @NSManaged var searchTemplate: String
+    @NSManaged var suggestionTemplate: String?
 }

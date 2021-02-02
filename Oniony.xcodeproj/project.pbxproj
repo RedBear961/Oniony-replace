@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0507AB1925AC87EE00B732C7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0507AB1725AC87EE00B732C7 /* SearchBar.swift */; };
 		0507AB1A25AC87EE00B732C7 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0507AB1825AC87EE00B732C7 /* SearchBar.xib */; };
+		0556485A25C95860002D347A /* StorageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556485925C95860002D347A /* StorageAssembly.swift */; };
 		0564E522259B9D6E002980A2 /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0564E51D259B9D6E002980A2 /* Network.storyboard */; };
 		0564E523259B9D6E002980A2 /* NetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E51E259B9D6E002980A2 /* NetworkCoordinator.swift */; };
 		0564E524259B9D6E002980A2 /* NetworkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0564E51F259B9D6E002980A2 /* NetworkPresenter.swift */; };
@@ -27,7 +28,7 @@
 		057E5CBD259DB8F4008B7771 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB8259DB8F4008B7771 /* TabViewController.swift */; };
 		057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057E5CB9259DB8F4008B7771 /* TabAssembly.swift */; };
 		05A072F2259C8ABB00D827DF /* NetworkCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */; };
-		05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F5259C8B2100D827DF /* BridgeDirector.swift */; };
+		05A072F6259C8B2100D827DF /* BridgeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F5259C8B2100D827DF /* BridgeStorage.swift */; };
 		05A072FB259C914A00D827DF /* OnionySwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A072F9259C914A00D827DF /* OnionySwitchCell.swift */; };
 		05A072FC259C914A00D827DF /* OnionySwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A072FA259C914A00D827DF /* OnionySwitchCell.xib */; };
 		05A07302259C9A5400D827DF /* OnionyCheckmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A07300259C9A5400D827DF /* OnionyCheckmarkCell.swift */; };
@@ -86,9 +87,12 @@
 		05ABC5EC25B197CD00E786EF /* TabDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5EB25B197CD00E786EF /* TabDirector.swift */; };
 		05ABC5F225B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5F125B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift */; };
 		05ABC5F725B1AC7E00E786EF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5F625B1AC7E00E786EF /* Tab.swift */; };
-		05ABC5FB25B1AD0400E786EF /* PreferenceDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */; };
+		05ABC5FB25B1AD0400E786EF /* PreferenceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC5FA25B1AD0400E786EF /* PreferenceStorage.swift */; };
 		05ABC60925B1B06200E786EF /* NewTabStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC60825B1B06200E786EF /* NewTabStyle.swift */; };
 		05ABC60C25B1B12900E786EF /* Stored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ABC60B25B1B12900E786EF /* Stored.swift */; };
+		05BE2F8E25B2C89D007FAA54 /* SearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE2F8D25B2C89D007FAA54 /* SearchEngine.swift */; };
+		05BE2F9325B2C945007FAA54 /* Oniony.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05BE2F9125B2C945007FAA54 /* Oniony.xcdatamodeld */; };
+		05BE2F9725B2CAE1007FAA54 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BE2F9625B2CAE1007FAA54 /* CoreDataStorage.swift */; };
 		05F9DE5A25B1CBE600D0ED9F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9DE5925B1CBE600D0ED9F /* UIColor+Hex.swift */; };
 		05F9DE5E25B1CE3200D0ED9F /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F9DE5D25B1CE3200D0ED9F /* ProgressView.swift */; };
 		4584FA32B809E4A6A1102BDD /* Pods_Oniony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AC5D2BF99963CB38B9B520 /* Pods_Oniony.framework */; };
@@ -97,6 +101,7 @@
 /* Begin PBXFileReference section */
 		0507AB1725AC87EE00B732C7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0507AB1825AC87EE00B732C7 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
+		0556485925C95860002D347A /* StorageAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAssembly.swift; sourceTree = "<group>"; };
 		0564E51D259B9D6E002980A2 /* Network.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
 		0564E51E259B9D6E002980A2 /* NetworkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCoordinator.swift; sourceTree = "<group>"; };
 		0564E51F259B9D6E002980A2 /* NetworkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPresenter.swift; sourceTree = "<group>"; };
@@ -115,7 +120,7 @@
 		057E5CB8259DB8F4008B7771 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		057E5CB9259DB8F4008B7771 /* TabAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAssembly.swift; sourceTree = "<group>"; };
 		05A072F1259C8ABB00D827DF /* NetworkCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCellFactory.swift; sourceTree = "<group>"; };
-		05A072F5259C8B2100D827DF /* BridgeDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeDirector.swift; sourceTree = "<group>"; };
+		05A072F5259C8B2100D827DF /* BridgeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeStorage.swift; sourceTree = "<group>"; };
 		05A072F9259C914A00D827DF /* OnionySwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionySwitchCell.swift; sourceTree = "<group>"; };
 		05A072FA259C914A00D827DF /* OnionySwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnionySwitchCell.xib; sourceTree = "<group>"; };
 		05A07300259C9A5400D827DF /* OnionyCheckmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnionyCheckmarkCell.swift; sourceTree = "<group>"; };
@@ -176,9 +181,12 @@
 		05ABC5EB25B197CD00E786EF /* TabDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabDirector.swift; sourceTree = "<group>"; };
 		05ABC5F125B1ABC100E786EF /* URL+ExpressibleByStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleByStringLiteral.swift"; sourceTree = "<group>"; };
 		05ABC5F625B1AC7E00E786EF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
-		05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceDirector.swift; sourceTree = "<group>"; };
+		05ABC5FA25B1AD0400E786EF /* PreferenceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceStorage.swift; sourceTree = "<group>"; };
 		05ABC60825B1B06200E786EF /* NewTabStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabStyle.swift; sourceTree = "<group>"; };
 		05ABC60B25B1B12900E786EF /* Stored.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stored.swift; sourceTree = "<group>"; };
+		05BE2F8D25B2C89D007FAA54 /* SearchEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEngine.swift; sourceTree = "<group>"; };
+		05BE2F9225B2C945007FAA54 /* Oniony.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Oniony.xcdatamodel; sourceTree = "<group>"; };
+		05BE2F9625B2CAE1007FAA54 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		05F9DE5925B1CBE600D0ED9F /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		05F9DE5D25B1CE3200D0ED9F /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		1A2B943AC2E5BE5B8EA8B9B1 /* Pods-Oniony.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oniony.release.xcconfig"; path = "Target Support Files/Pods-Oniony/Pods-Oniony.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +223,16 @@
 				0507AB1825AC87EE00B732C7 /* SearchBar.xib */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		0556485625C957FC002D347A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				05A072F5259C8B2100D827DF /* BridgeStorage.swift */,
+				05ABC5FA25B1AD0400E786EF /* PreferenceStorage.swift */,
+				05BE2F9625B2CAE1007FAA54 /* CoreDataStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		0564E519259B9BE0002980A2 /* TorLoadingLogView */ = {
@@ -396,6 +414,7 @@
 				05A12FCC259A072500367767 /* Utility */,
 				05A12FAC2599F07F00367767 /* Generated */,
 				05A12F8B2599D48D00367767 /* Assets.xcassets */,
+				05BE2F9125B2C945007FAA54 /* Oniony.xcdatamodeld */,
 				05A12FB32599F0EB00367767 /* Localizable.strings */,
 				05A12F8D2599D48D00367767 /* LaunchScreen.storyboard */,
 				05A12F902599D48D00367767 /* Info.plist */,
@@ -421,6 +440,7 @@
 				05A12FC5259A06CE00367767 /* Assembly */,
 				05A1302D259AFE6600367767 /* Builder */,
 				05A1301D259A2C4900367767 /* Director */,
+				0556485625C957FC002D347A /* Storage */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -432,6 +452,7 @@
 				05A12FEC259A13E500367767 /* AppAssembly.swift */,
 				05A1302E259AFE8000367767 /* BuilderAssembly.swift */,
 				05A13032259AFEE100367767 /* DirectorAssembly.swift */,
+				0556485925C95860002D347A /* StorageAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -550,10 +571,8 @@
 		05A1301D259A2C4900367767 /* Director */ = {
 			isa = PBXGroup;
 			children = (
-				05A072F5259C8B2100D827DF /* BridgeDirector.swift */,
 				05ABC5EB25B197CD00E786EF /* TabDirector.swift */,
 				05A1301E259A2C5A00367767 /* TorNetworkDirector.swift */,
-				05ABC5FA25B1AD0400E786EF /* PreferenceDirector.swift */,
 			);
 			path = Director;
 			sourceTree = "<group>";
@@ -647,6 +666,7 @@
 		05ABC5F525B1AC6A00E786EF /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				05BE2F8D25B2C89D007FAA54 /* SearchEngine.swift */,
 				05ABC5F625B1AC7E00E786EF /* Tab.swift */,
 			);
 			path = Web;
@@ -862,6 +882,7 @@
 				057E5CBB259DB8F4008B7771 /* TabCoordinator.swift in Sources */,
 				0564E526259B9D6E002980A2 /* NetworkAssembly.swift in Sources */,
 				05ABC5EC25B197CD00E786EF /* TabDirector.swift in Sources */,
+				05BE2F9325B2C945007FAA54 /* Oniony.xcdatamodeld in Sources */,
 				05A07336259CDC2A00D827DF /* EKAttributes+Standard.swift in Sources */,
 				05A07320259CC89900D827DF /* BridgeInputPopupView.swift in Sources */,
 				05A07310259CB58400D827DF /* Bridge.swift in Sources */,
@@ -880,25 +901,28 @@
 				05ABC60C25B1B12900E786EF /* Stored.swift in Sources */,
 				05A8B829259BB4C6009A3392 /* OnionySubtitleCell.swift in Sources */,
 				05F9DE5A25B1CBE600D0ED9F /* UIColor+Hex.swift in Sources */,
-				05A072F6259C8B2100D827DF /* BridgeDirector.swift in Sources */,
+				05A072F6259C8B2100D827DF /* BridgeStorage.swift in Sources */,
 				05A12F832599D48B00367767 /* AppDelegate.swift in Sources */,
 				0571FDC8259BAEEB00CA0C4F /* OnionyRightDetailCell.swift in Sources */,
 				05A12FE5259A0DFE00367767 /* StartUpViewController.swift in Sources */,
 				05ABC5E225B18AB100E786EF /* SearchContainer.swift in Sources */,
 				0571FDBA259BA5DA00CA0C4F /* ViewController.swift in Sources */,
+				05BE2F8E25B2C89D007FAA54 /* SearchEngine.swift in Sources */,
 				0564E525259B9D6E002980A2 /* NetworkViewController.swift in Sources */,
 				05A1305C259B985C00367767 /* Reusable.swift in Sources */,
 				05A07314259CC7D700D827DF /* UIView+Shadow.swift in Sources */,
 				05A8B832259C6C9C009A3392 /* BridgeCoordinator.swift in Sources */,
-				05ABC5FB25B1AD0400E786EF /* PreferenceDirector.swift in Sources */,
+				05ABC5FB25B1AD0400E786EF /* PreferenceStorage.swift in Sources */,
 				05A12FED259A13E500367767 /* AppAssembly.swift in Sources */,
 				05ABC5E725B1940800E786EF /* ViewSide.swift in Sources */,
 				057E5CBE259DB8F4008B7771 /* TabAssembly.swift in Sources */,
 				05A07307259C9CCF00D827DF /* BridgeCellFactory.swift in Sources */,
+				0556485A25C95860002D347A /* StorageAssembly.swift in Sources */,
 				05A8B835259C6C9C009A3392 /* BridgeAssembly.swift in Sources */,
 				05A12FBC2599F1ED00367767 /* Strings.swift in Sources */,
 				05A12FD2259A086100367767 /* AppCoordinator.swift in Sources */,
 				05A12FE4259A0DFE00367767 /* StartUpPresenter.swift in Sources */,
+				05BE2F9725B2CAE1007FAA54 /* CoreDataStorage.swift in Sources */,
 				05A8B834259C6C9C009A3392 /* BridgeViewController.swift in Sources */,
 				0571FDCE259BB06900CA0C4F /* CellObject.swift in Sources */,
 				05A1304F259B91FE00367767 /* Block.swift in Sources */,
@@ -1129,6 +1153,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		05BE2F9125B2C945007FAA54 /* Oniony.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05BE2F9225B2C945007FAA54 /* Oniony.xcdatamodel */,
+			);
+			currentVersion = 05BE2F9225B2C945007FAA54 /* Oniony.xcdatamodel */;
+			path = Oniony.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 05A12F772599D48B00367767 /* Project object */;
 }

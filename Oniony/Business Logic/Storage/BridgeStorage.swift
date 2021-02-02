@@ -23,7 +23,7 @@
 import Foundation
 
 /// Протокола директора мостов тор-сети.
-protocol BridgeDirecting: AnyObject {
+protocol BridgeStorage: AnyObject {
     
     /// Включены ли мосты.
     var isEnabled: Bool { get set }
@@ -33,7 +33,7 @@ protocol BridgeDirecting: AnyObject {
 }
 
 /// Директор мостов тор-сети.
-final class BridgeDirector: BridgeDirecting {
+final class BridgeStorageImpl: BridgeStorage {
     
     private let userDefaults: UserDefaults
     
@@ -45,7 +45,7 @@ final class BridgeDirector: BridgeDirecting {
         selectedBridge = Bridge(id: id, data: data)
     }
     
-    // MARK: - BridgeDirecting
+    // MARK: - BridgeStorage
     
     var isEnabled: Bool {
         set { selectedBridge = newValue ? .default : nil }

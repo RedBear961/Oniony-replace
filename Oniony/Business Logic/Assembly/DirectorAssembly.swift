@@ -35,24 +35,10 @@ final class DirectorAssembly: AutoAssembly {
         }.inObjectScope(.container)
     }
     
-    /// Директор мостов тор-сети.
-    dynamic func bridgeDirector() {
-        container.register(BridgeDirecting.self) { (_) -> BridgeDirector in
-            return BridgeDirector(userDefaults: UserDefaults.standard)
-        }.inObjectScope(.container)
-    }
-    
     /// Менеджер вкладок.
     dynamic func tabDirector() {
         container.register(TabDirecting.self) { (resolver) -> TabDirector in
-            return TabDirector(preferenceDirector: resolver.resolve(PreferenceDirecting.self)!)
-        }.inObjectScope(.container)
-    }
-    
-    /// Директор настроек приложения.
-    dynamic func preferenceDirector() {
-        container.register(PreferenceDirecting.self) { (_) -> PreferenceDirector in
-            return PreferenceDirector()
+            return TabDirector(preferenceStorage: resolver.resolve(PreferenceStorage.self)!)
         }.inObjectScope(.container)
     }
 }

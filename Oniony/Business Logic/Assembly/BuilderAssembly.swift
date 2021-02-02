@@ -30,7 +30,7 @@ final class BuilderAssembly: AutoAssembly {
         container.register(TorConfiguratorBuilding.self) { (resolver) -> TorConfigurationBuilder in
             return TorConfigurationBuilder(
                 fileManager: FileManager.default,
-                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+                bridgeStorage: resolver.resolve(BridgeStorage.self)!
             )
         }
     }

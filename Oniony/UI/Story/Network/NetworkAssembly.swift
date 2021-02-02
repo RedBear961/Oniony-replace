@@ -62,7 +62,7 @@ final class NetworkAssembly: AutoAssembly {
             NetworkCellFactory.self
         ) { (resolver) -> NetworkCellFactoryImpl in
             return NetworkCellFactoryImpl(
-                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+                bridgeStorage: resolver.resolve(BridgeStorage.self)!
             )
         }
     }

@@ -35,18 +35,18 @@ protocol TabDirecting {
 /// Менеджер вкладок.
 final class TabDirector: TabDirecting {
     
-    private let preferenceDirector: PreferenceDirecting
+    private let preferenceStorage: PreferenceStorage
     
     private(set) var currentTab: Tab
     private(set) var tabs: [Tab] = []
     
     init(
-        preferenceDirector: PreferenceDirecting
+        preferenceStorage: PreferenceStorage
     ) {
-        self.preferenceDirector = preferenceDirector
+        self.preferenceStorage = preferenceStorage
         let tab = Tab(
-            style: preferenceDirector.newTabStyle,
-            homePage: preferenceDirector.homePage
+            style: preferenceStorage.newTabStyle,
+            homePage: preferenceStorage.homePage
         )
         tabs.append(tab)
         self.currentTab = tab

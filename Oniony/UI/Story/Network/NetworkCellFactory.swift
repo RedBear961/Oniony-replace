@@ -32,10 +32,10 @@ protocol NetworkCellFactory {
 /// Фабрика ячеек модуля настройки сети.
 final class NetworkCellFactoryImpl: NetworkCellFactory {
     
-    private let bridgeDirector: BridgeDirecting
+    private let bridgeStorage: BridgeStorage
     
-    init(bridgeDirector: BridgeDirecting) {
-        self.bridgeDirector = bridgeDirector
+    init(bridgeStorage: BridgeStorage) {
+        self.bridgeStorage = bridgeStorage
     }
     
     // MARK: - NetworkCellFactory
@@ -54,7 +54,7 @@ final class NetworkCellFactoryImpl: NetworkCellFactory {
             ),
             OnionyRightDetailCellObject(
                 title: L10n.Network.bridgeStatus,
-                detail: bridgeDirector.isEnabled ? L10n.Network.yes : L10n.Network.no
+                detail: bridgeStorage.isEnabled ? L10n.Network.yes : L10n.Network.no
             )
         ]
         let statusSection = NetworkSectionObject(

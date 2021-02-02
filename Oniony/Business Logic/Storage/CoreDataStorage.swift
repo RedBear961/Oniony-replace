@@ -20,12 +20,22 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import CoreData
 
-/// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
-final class SearchContainer: ViewContainer {
+private let kDataModelName = "Oniony"
+
+/// Хранилище, испольщующее CoreData.
+open class CoreDataStorage {
     
-    func searchRequestDidUpdate(_ text: String) {
-        
+    var managedObjectContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
     }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: kDataModelName)
+        container.loadPersistentStores { (_, _) in
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        }
+        return container
+    }()
 }

@@ -27,6 +27,12 @@ protocol SearchBarDelegate: AnyObject {
     
     /// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
     func searchContainer(for searchBar: SearchBar) -> UIView
+    
+    /// Текст поиска обновился.
+    func searchBar(_ searchBar: SearchBar, didUpdate text: String)
+    
+    /// Поисковый бар завершил свою работу с текстом.
+    func searchBar(_ searchBar: SearchBar, didFinishWith text: String)
 }
 
 /// Поисковый бар.
@@ -51,25 +57,29 @@ final class SearchBar: ViewContainer {
         super.awakeFromNib()
         
         backgroundColor = Asset.lightBackground.color
+        progressView.isHidden = true
         
         tabButton.updateBorder(color: .white, width: 2)
-        
         gradient.swapColors()
         gradient.updatePoints(start: .leftCenter, end: .rightCenter)
-        
         addShadow(
             color: UIColor.black.withAlphaComponent(0.2),
             offset: CGSize(width: 0, height: 4),
             radius: 8
+            
         )
-        
-        progressView.isHidden = true
         
         textField.attributedPlaceholder = NSAttributedString(
             string: L10n.Tab.searchPlaceholder,
             attributes: [
                 .foregroundColor: UIColor.white.withAlphaComponent(0.6)
             ]
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(textFieldDidChangeText),
+            name: UITextField.textDidChangeNotification,
+            object: textField
         )
     }
     
@@ -103,15 +113,10 @@ final class SearchBar: ViewContainer {
             }
         }
     }
-}
-
-extension SearchBar: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        backgroundColor = Asset.darkBackground.color
-        gradient.backgroundColor = Asset.lightBackground.color
-        gradient.hideGradient()
-        
+    // MARK: - Private
+    
+    func showSearchContainer() {
         guard let container = delegate?.searchContainer(for: self) else {
             preconditionFailure("Должен быть предоставлен поисковый контейнер!")
         }
@@ -122,12 +127,34 @@ extension SearchBar: UITextFieldDelegate {
         self.searchContainer = searchContainer
     }
     
+    func hideSearchContainer() {
+        searchContainer?.removeFromSuperview()
+        searchContainer = nil
+    }
+}
+
+extension SearchBar: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        backgroundColor = Asset.darkBackground.color
+        gradient.backgroundColor = Asset.lightBackground.color
+        gradient.hideGradient()
+        showSearchContainer()
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         backgroundColor = Asset.lightBackground.color
         gradient.backgroundColor = .clear
         gradient.showGradient()
-        
-        searchContainer?.removeFromSuperview()
-        searchContainer = nil
+        hideSearchContainer()
+    }
+    
+    @objc func textFieldDidChangeText() {
+        guard let text = textField.text else { return }
+        delegate?.searchBar(self, didUpdate: text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
 }

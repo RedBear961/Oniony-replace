@@ -20,12 +20,30 @@
  * THE SOFTWARE.
  */
 
-import UIKit
+import Foundation
 
-/// Контейнер, на котором будут отображаться поисковые подсказки и элементы управления поиском.
-final class SearchContainer: ViewContainer {
+/// Протокол директора настроек приложения.
+protocol PreferenceStorage: AnyObject {
     
-    func searchRequestDidUpdate(_ text: String) {
-        
-    }
+    /// Адрес домашней страницы.
+    var homePage: URL { get set }
+    
+    /// Стиль открытия новых вкладок.
+    var newTabStyle: NewTabStyle { get set }
+}
+
+private let kHomePageKey = "HomePage"
+private let kNewTabStyleKey = "NewTabStyle"
+private let kDefaultHomePage: URL = "https://duckduckgo.com"
+
+/// Директор настроек приложения,.
+final class PreferenceStorageImpl: PreferenceStorage {
+    
+    /// Адрес домашней страницы.
+    @Stored(key: kHomePageKey, default: kDefaultHomePage)
+    var homePage: URL
+    
+    /// Стиль открытия новой вкладки.
+    @RawStored(key: kNewTabStyleKey, default: .home)
+    var newTabStyle: NewTabStyle
 }

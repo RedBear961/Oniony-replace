@@ -41,6 +41,9 @@ final class Tab {
     /// Веб-отображение страницы.
     let webview: WebView
     
+    /// Контроллер перезагрузки страницы.
+    let refreshControl: UIRefreshControl
+    
     /// Прогресс загрузки страницы.
     private(set) var progress: CGFloat
     
@@ -53,6 +56,7 @@ final class Tab {
     ///   - homePage: URL домашней страницы..
     init(style: NewTabStyle, homePage: URL) {
         self.webview = WebView()
+        self.refreshControl = UIRefreshControl()
         self.progress = 0.2
         
         setup(for: style, homePage: homePage)
@@ -64,6 +68,8 @@ final class Tab {
             object: webview.value(forKeyPath: kWebProgressEstimateChangedKeyPath)
         )
     }
+    
+    // MARK: - Public
     
     /// Перезагружает страницу.
     @objc func reload() {
@@ -82,7 +88,6 @@ final class Tab {
             webview.loadRequest(request)
         }
         
-        let refreshControl = UIRefreshControl()
         refreshControl.addTarget(
             self,
             action: #selector(reload),
@@ -107,7 +112,7 @@ final class Tab {
         delegate?.tab(self, didUpdate: progress)
         
         if abs(1 - progress) < .ulpOfOne {
-            webview.scrollView.refreshControl?.endRefreshing()
+            refreshControl.endRefreshing()
         }
     }
 }

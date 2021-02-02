@@ -45,7 +45,7 @@ final class BridgeAssembly: AutoAssembly {
                 viewInput: viewInput,
                 coordinator: coordinator,
                 factory: resolver.resolve(BridgeCellFactory.self)!,
-                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+                bridgeStorage: resolver.resolve(BridgeStorage.self)!
             )
         }
     }
@@ -63,7 +63,7 @@ final class BridgeAssembly: AutoAssembly {
             BridgeCellFactory.self
         ) { (resolver) -> BridgeCellFactoryImpl in
             return BridgeCellFactoryImpl(
-                bridgeDirector: resolver.resolve(BridgeDirecting.self)!
+                bridgeStorage: resolver.resolve(BridgeStorage.self)!
             )
         }
     }

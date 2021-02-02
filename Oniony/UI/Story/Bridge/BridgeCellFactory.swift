@@ -32,17 +32,17 @@ protocol BridgeCellFactory {
 /// Фабрика ячеек модуля настройки мостов.
 final class BridgeCellFactoryImpl: BridgeCellFactory {
     
-    private let bridgeDirector: BridgeDirecting
+    private let bridgeStorage: BridgeStorage
     
-    init(bridgeDirector: BridgeDirecting) {
-        self.bridgeDirector = bridgeDirector
+    init(bridgeStorage: BridgeStorage) {
+        self.bridgeStorage = bridgeStorage
     }
     
     // MARK: - BridgeCellFactory
     
     func sectionObjects() -> [BridgeSectionObject] {
         var sectionObjects = [BridgeSectionObject]()
-        let isEnabledBridge = bridgeDirector.isEnabled
+        let isEnabledBridge = bridgeStorage.isEnabled
         
         var selectionCellObjects: [CellObject] = [
             OnionySwitchCellObject(
@@ -52,7 +52,7 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
             )
         ]
         
-        if let bridge = bridgeDirector.selectedBridge {
+        if let bridge = bridgeStorage.selectedBridge {
             selectionCellObjects += [
                 /*
                 BridgeCheckmarkCellObject(
@@ -90,7 +90,7 @@ final class BridgeCellFactoryImpl: BridgeCellFactory {
         )
         sectionObjects.append(selectionSection)
         
-        let bridgeDetail = bridgeDirector.selectedBridge?.name ?? L10n.Bridge.notConfigured
+        let bridgeDetail = bridgeStorage.selectedBridge?.name ?? L10n.Bridge.notConfigured
         let statusSection = BridgeSectionObject(
             footer: nil,
             cellObjects: [
